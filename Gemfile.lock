@@ -47,6 +47,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    attr_encrypted (3.0.3)
+      encryptor (~> 3.0.0)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
@@ -59,6 +61,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    encryptor (3.0.0)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -168,6 +171,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
+  attr_encrypted (~> 3.0.0)
   byebug
   coffee-rails (~> 4.2)
   friendly_id (~> 5.1.0)

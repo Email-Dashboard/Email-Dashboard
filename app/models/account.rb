@@ -15,6 +15,8 @@ class Account < ApplicationRecord
   friendly_id :name, use: :slugged
 
   has_many :notifications
+  has_many :smtp_settings
+  has_many :notification_content
 
   before_create :generate_token
 
