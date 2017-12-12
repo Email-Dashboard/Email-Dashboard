@@ -5,7 +5,7 @@ class CreateNotificationDelivers < ActiveRecord::Migration[5.1]
       t.references :smtp_settings, foreign_key: true
       t.references :notification_content, foreign_key: true
       t.string :delivery_method
-      t.boolean :is_active
+      t.boolean :is_active, default: true
 
       t.timestamps
     end

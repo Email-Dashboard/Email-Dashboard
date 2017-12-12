@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171212022400) do
 
   create_table "notification_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
+    t.string "name"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171212022400) do
     t.bigint "smtp_settings_id"
     t.bigint "notification_content_id"
     t.string "delivery_method"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["notification_content_id"], name: "index_notification_delivers_on_notification_content_id"
