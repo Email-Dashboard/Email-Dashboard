@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @notification.name
+= link_to 'Edit', edit_notification_path(@notification)
+|
+= link_to 'Back', notifications_path

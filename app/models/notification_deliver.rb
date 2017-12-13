@@ -7,7 +7,7 @@
 #  smtp_settings_id        :integer
 #  notification_content_id :integer
 #  delivery_method         :string(255)
-#  is_active               :boolean
+#  is_active               :boolean          default(TRUE)
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #

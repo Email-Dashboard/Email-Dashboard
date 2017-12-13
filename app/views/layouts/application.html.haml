@@ -1,0 +1,44 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Dashboard
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / Required meta tags
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    / Bootstrap CSS
+    %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", :integrity => "sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", :rel => "stylesheet"}/
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body{style: "background-color: #eceeef;"}
+
+  %nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
+    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    %a.navbar-brand{:href => root_path } Notification Center
+    #navbarsExampleDefault.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          %a.nav-link{:href => "#"}
+            Home
+            %span.sr-only (current)
+        %li.nav-item
+          %a.nav-link{:href => "#"} Link
+        %li.nav-item
+          %a.nav-link.disabled{:href => "#"} Disabled
+      .nav-item.dropdown
+        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Dropdown
+        .dropdown-menu{"aria-labelledby" => "dropdown01"}
+          %a.dropdown-item{:href => "#"} Action
+          %a.dropdown-item{:href => "#"} Another action
+          %a.dropdown-item{:href => "#"} Something else here
+
+  .container.main-container
+    = yield
+
+    / jQuery first, then Tether, then Bootstrap JS.
+    %script{:crossorigin => "anonymous", :integrity => "sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n", :src => "https://code.jquery.com/jquery-3.1.1.slim.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", :src => "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", :src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"}

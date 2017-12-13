@@ -32,3 +32,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'friendly_id', '~> 5.1.0'
 gem "attr_encrypted", "~> 3.0.0"
+
+gem 'haml-rails', '~> 1.0'
+gem 'simple_form'
+gem 'bugsnag'
+gem 'responders'

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171212022400) do
   create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.string "slug"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_notifications_on_account_id"
