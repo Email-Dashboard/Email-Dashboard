@@ -18,4 +18,6 @@ class Notification < ApplicationRecord
 
   has_many :notification_delivers
   accepts_nested_attributes_for :notification_delivers, reject_if: :all_blank, allow_destroy: true
+
+  validates :name, presence: true
 end

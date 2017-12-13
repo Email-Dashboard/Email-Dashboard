@@ -1,14 +1,6 @@
-= form_with(model: notification, local: true) do |form|
-  - if notification.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(notification.errors.count, "error")
-        prohibited this notification from being saved:
-      %ul
-        - notification.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name, id: :notification_name
-  .actions
-    = form.submit
+= simple_form_for(@notification,  html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+  .form-group
+    = f.input :name, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-primary'
