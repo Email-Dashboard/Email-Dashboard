@@ -16,7 +16,7 @@ class Account < ApplicationRecord
 
   has_many :notifications
   has_many :smtp_settings
-  has_many :notification_content
+  has_many :notification_contents
 
   before_create :generate_token
 

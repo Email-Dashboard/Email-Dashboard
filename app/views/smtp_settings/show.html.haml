@@ -1,0 +1,19 @@
+%p
+  %b Provider:
+  = @smtp_setting.provider
+%p
+  %b Address:
+  = @smtp_setting.address
+%p
+  %b Port:
+  = @smtp_setting.port
+%p
+  %b Username:
+  = @smtp_setting.username
+%p
+  %b Password:
+  ***********
+
+= link_to 'Edit', edit_smtp_setting_path(@smtp_setting)
+\|
+= link_to 'Back', smtp_settings_path

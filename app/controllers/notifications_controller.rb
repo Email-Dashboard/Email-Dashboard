@@ -10,6 +10,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1
   # GET /notifications/1.json
   def show
+    @email_deliver = @notification.email_deliver
   end
 
   # GET /notifications/new

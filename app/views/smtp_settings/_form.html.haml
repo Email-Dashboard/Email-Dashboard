@@ -1,0 +1,12 @@
+= simple_form_for(@smtp_setting) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :provider
+    = f.input :address
+    = f.input :port
+    = f.input :username
+    = f.input :password
+
+  .form-actions
+    = f.submit 'Save', class: 'btn btn-primary'

@@ -17,7 +17,20 @@ class Notification < ApplicationRecord
   belongs_to :account
 
   has_many :notification_delivers
-  accepts_nested_attributes_for :notification_delivers, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true
+
+  after_create :create_delivers
+
+  def email_deliver
+    notification_delivers.where(delivery_method: 'email').first
+  end
+
+  private
+
+  def create_delivers
+    notification_delivers.create(smtp_setting: account.smtp_settings.first,
+                                 notification_content: account.notification_contents.first,
+                                 delivery_method: 'email')
+  end
 end

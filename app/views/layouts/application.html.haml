@@ -12,7 +12,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{style: "background-color: #eceeef;"}
+  %body{style: "background-color:  white;"}
 
   %nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
@@ -20,10 +20,9 @@
     %a.navbar-brand{:href => root_path } Notification Center
     #navbarsExampleDefault.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
-        %li.nav-item.active
-          %a.nav-link{:href => "#"}
-            Home
-            %span.sr-only (current)
+        %li.nav-item{class: "#{'active' if current_page?(smtp_settings_path)}"}
+          %a.nav-link{:href => smtp_settings_path }
+            SMTP Settings
         %li.nav-item
           %a.nav-link{:href => "#"} Link
         %li.nav-item

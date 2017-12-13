@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 20171212022400) do
 
   create_table "notification_delivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "notification_id"
-    t.bigint "smtp_settings_id"
+    t.bigint "smtp_setting_id"
     t.bigint "notification_content_id"
     t.string "delivery_method"
-    t.boolean "is_active", default: true
+    t.boolean "is_active", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["notification_content_id"], name: "index_notification_delivers_on_notification_content_id"
     t.index ["notification_id"], name: "index_notification_delivers_on_notification_id"
-    t.index ["smtp_settings_id"], name: "index_notification_delivers_on_smtp_settings_id"
+    t.index ["smtp_setting_id"], name: "index_notification_delivers_on_smtp_setting_id"
   end
 
   create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,13 +77,12 @@ ActiveRecord::Schema.define(version: 20171212022400) do
 
   create_table "smtp_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
-    t.string "password"
-    t.string "from_email"
-    t.string "reply_to"
+    t.string "provider"
     t.string "address"
     t.string "port"
     t.string "domain"
     t.string "username"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_smtp_settings_on_account_id"
@@ -93,7 +92,7 @@ ActiveRecord::Schema.define(version: 20171212022400) do
   add_foreign_key "notification_contents", "accounts"
   add_foreign_key "notification_delivers", "notification_contents"
   add_foreign_key "notification_delivers", "notifications"
-  add_foreign_key "notification_delivers", "smtp_settings", column: "smtp_settings_id"
+  add_foreign_key "notification_delivers", "smtp_settings"
   add_foreign_key "notifications", "accounts"
   add_foreign_key "smtp_settings", "accounts"
 end
