@@ -23,10 +23,9 @@
         %li.nav-item{class: "#{'active' if current_page?(smtp_settings_path)}"}
           %a.nav-link{:href => smtp_settings_path }
             SMTP Settings
-        %li.nav-item
-          %a.nav-link{:href => "#"} Link
-        %li.nav-item
-          %a.nav-link.disabled{:href => "#"} Disabled
+        %li.nav-item{class: "#{'active' if current_page?(notification_contents_path)}"}
+          %a.nav-link{:href => notification_contents_path }
+            Notification Contents
       .nav-item.dropdown
         %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Dropdown
         .dropdown-menu{"aria-labelledby" => "dropdown01"}

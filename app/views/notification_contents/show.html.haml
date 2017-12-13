@@ -1,0 +1,10 @@
+%p
+  %b Name:
+  = @notification_content.name
+%p
+  %b Content:
+  = simple_format @notification_content.content
+
+= link_to 'Edit', edit_notification_content_path(@notification_content)
+\|
+= link_to 'Back', notification_contents_path

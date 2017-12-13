@@ -1,0 +1,2 @@
+module NotificationContentsHelper
+end

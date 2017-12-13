@@ -10,7 +10,7 @@ class NotificationDeliversController < ApplicationController
   private
 
   def notification_deliver_params
-    params.require(:notification_deliver).permit(:is_active)
+    params.require(:notification_deliver).permit(:is_active, :notification_content_id, :smtp_setting_id)
   end
 
   def set_deliver

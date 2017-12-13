@@ -1,0 +1,25 @@
+%h1 Listing Notification Contents
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Content
+      %th
+      %th
+      %th
+
+  %tbody
+    - @notification_contents.each do |notification_content|
+      %tr
+        %td= notification_content.name
+        %td
+          = notification_content.content.strip.first(50)
+          \...
+        %td= link_to 'Show', notification_content
+        %td= link_to 'Edit', edit_notification_content_path(notification_content)
+        %td= link_to 'Destroy', notification_content, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Notification content', new_notification_content_path

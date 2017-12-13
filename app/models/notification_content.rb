@@ -14,4 +14,6 @@ class NotificationContent < ApplicationRecord
   belongs_to :account
 
   has_many :notification_delivers
+
+  validates :name, :content, presence: true
 end
