@@ -42,3 +42,5 @@ gem 'responders'
 gem 'rack-cors', :require => 'rack/cors'
 # Rate Limiting and Throttling
 gem 'rack-attack'
+
+gem 'aws-sdk', '~> 3'

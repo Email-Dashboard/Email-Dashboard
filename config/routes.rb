@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :notifications, except: [:new, :create, :edit, :update, :destroy] do
         member do
-          post :notify
+          post :notify_email
         end
       end
     end

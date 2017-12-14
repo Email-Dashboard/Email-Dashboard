@@ -1,12 +1,16 @@
 class Api::V1::NotificationsController < ActionController::Base
-  include ActionController::HttpAuthentication::Token::ControllerMethods  
+  include ActionController::HttpAuthentication::Token::ControllerMethods
 
   before_action :authenticate
+  before_action :check_required_params
 
-  def notify
+  def notify_email
     @notification = @api_account.notifications.friendly.find(params[:id])
-    puts @notification.name
-    render json: { info: 'ok' }, status: :ok
+
+    email_options = params.slice(:email_from, :reply_to)
+    LambdaEmailNotificationService.new(@notification, email_options).invoke_lambda
+
+    render json: { info: 'success' }, status: :ok
   end
 
   protected
@@ -24,5 +28,13 @@ class Api::V1::NotificationsController < ActionController::Base
   def render_unauthorized
     self.headers['WWW-Authenticate'] = 'Token realm="Application"'
     render json: { errors: 'Bad credentials' }, status: 401
+  end
+
+  private
+
+  def check_required_params
+    unless params['email_from'].present?
+      render(json: { errors: 'email_from: required' }, status: 422) && return
+    end
   end
 end
