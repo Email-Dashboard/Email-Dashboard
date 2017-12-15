@@ -27,7 +27,7 @@ class LambdaEmailNotificationService
     payload = JSON.generate(req_payload)
 
     resp = client.invoke({
-      function_name: 'aws-nodejs-dev-helloWorld',
+      function_name: 'notification-center-email-dev-notifier',
       invocation_type: 'RequestResponse',
       log_type: 'None',
       payload: payload

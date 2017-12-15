@@ -11,7 +11,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1.json
   def show
     @email_deliver = @notification.email_deliver
-    @activities = Activity.where(notification_deliver_id: @email_deliver.id)
+    @activities = Activity.where(notification_deliver_id: @email_deliver.id).order('created_at desc')
 
   end
 
