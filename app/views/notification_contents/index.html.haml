@@ -3,7 +3,7 @@
 %table.table
   %thead
     %tr
-      %th Name
+      %th Subject
       %th Content
       %th
       %th
@@ -12,7 +12,7 @@
   %tbody
     - @notification_contents.each do |notification_content|
       %tr
-        %td= notification_content.name
+        %td= notification_content.subject
         %td
           = notification_content.content.strip.first(50)
           \...

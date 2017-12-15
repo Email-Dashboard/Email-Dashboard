@@ -7,7 +7,6 @@
 #  provider   :string(255)
 #  address    :string(255)
 #  port       :string(255)
-#  domain     :string(255)
 #  username   :string(255)
 #  password   :string(255)
 #  created_at :datetime         not null

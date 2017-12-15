@@ -6,8 +6,8 @@ class Api::V1::NotificationsController < ActionController::Base
 
   def notify_email
     @notification = @api_account.notifications.friendly.find(params[:id])
-
-    email_options = params.slice(:email_from, :reply_to)
+    puts params
+    email_options = params.except(:action, :controller)
     LambdaEmailNotificationService.new(@notification, email_options).invoke_lambda
 
     render json: { info: 'success' }, status: :ok

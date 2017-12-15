@@ -11,6 +11,8 @@ class NotificationsController < ApplicationController
   # GET /notifications/1.json
   def show
     @email_deliver = @notification.email_deliver
+    @activities = Activity.where(notification_deliver_id: @email_deliver.id)
+
   end
 
   # GET /notifications/new
@@ -30,10 +32,8 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
-        format.json { render :show, status: :created, location: @notification }
       else
         format.html { render :new }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +44,8 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       if @notification.update(notification_params)
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
-        format.json { render :show, status: :ok, location: @notification }
       else
         format.html { render :edit }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +56,6 @@ class NotificationsController < ApplicationController
     @notification.destroy
     respond_to do |format|
       format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

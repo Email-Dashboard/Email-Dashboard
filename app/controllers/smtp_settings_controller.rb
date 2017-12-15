@@ -29,10 +29,8 @@ class SmtpSettingsController < ApplicationController
     respond_to do |format|
       if @smtp_setting.save
         format.html { redirect_to @smtp_setting, notice: 'Smtp setting was successfully created.' }
-        format.json { render :show, status: :created, location: @smtp_setting }
       else
         format.html { render :new }
-        format.json { render json: @smtp_setting.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class SmtpSettingsController < ApplicationController
     respond_to do |format|
       if @smtp_setting.update(smtp_setting_params)
         format.html { redirect_to @smtp_setting, notice: 'Smtp setting was successfully updated.' }
-        format.json { render :show, status: :ok, location: @smtp_setting }
       else
         format.html { render :edit }
-        format.json { render json: @smtp_setting.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class SmtpSettingsController < ApplicationController
     @smtp_setting.destroy
     respond_to do |format|
       format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -5,7 +5,6 @@ class CreateSmtpSettings < ActiveRecord::Migration[5.1]
       t.string :provider
       t.string :address
       t.string :port
-      t.string :domain
       t.string :username
       t.string :password
 

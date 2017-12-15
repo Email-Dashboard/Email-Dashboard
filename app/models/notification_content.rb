@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  account_id :integer
-#  name       :string(255)
+#  subject    :string(255)
 #  content    :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -15,5 +15,5 @@ class NotificationContent < ApplicationRecord
 
   has_many :notification_delivers
 
-  validates :name, :content, presence: true
+  validates :subject, :content, presence: true
 end

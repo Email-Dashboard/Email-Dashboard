@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171212022400) do
 
   create_table "notification_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
-    t.string "name"
+    t.string "subject"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20171212022400) do
     t.string "provider"
     t.string "address"
     t.string "port"
-    t.string "domain"
     t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
