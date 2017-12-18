@@ -1,5 +1,5 @@
 class NotificationContentsController < ApplicationController
-  before_action :set_notification_content, only: [:show, :edit, :update, :destroy]
+  before_action :set_notification_content, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /notification_contents
   # GET /notification_contents.json
@@ -19,6 +19,12 @@ class NotificationContentsController < ApplicationController
 
   # GET /notification_contents/1/edit
   def edit
+  end
+
+  def preview
+    respond_to do |format|
+      format.html { render text: @notification_content.content, layout: false }
+    end
   end
 
   # POST /notification_contents

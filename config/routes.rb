@@ -17,5 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :smtp_settings
-  resources :notification_contents
+
+  resources :notification_contents do
+    member do
+      get :preview
+    end
+  end
 end

@@ -1,0 +1,4 @@
+- if has_html?(@notification_content.content)
+  = @notification_content.content.try(:html_safe)
+- else
+  = simple_format @notification_content.content
