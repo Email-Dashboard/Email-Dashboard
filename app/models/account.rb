@@ -20,6 +20,8 @@ class Account < ApplicationRecord
 
   before_create :generate_token
 
+  after_create  :create_default_email_template
+
   protected
 
   def generate_token
@@ -27,5 +29,11 @@ class Account < ApplicationRecord
       random_token = SecureRandom.urlsafe_base64(nil, false)
       break random_token unless Account.exists?(api_key: random_token)
     end
+  end
+
+  def create_default_email_template
+    require 'open-uri'
+    doc = Nokogiri::HTML(open("https://s3.amazonaws.com/contents-notification/default_template.html"))
+    notification_contents.create(subject: "HTML Test Content", content: doc.to_s)
   end
 end

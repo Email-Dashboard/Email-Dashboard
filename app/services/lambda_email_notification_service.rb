@@ -14,7 +14,7 @@ class LambdaEmailNotificationService
 
     client = Aws::Lambda::Client.new(
       region: 'us-east-1',
-      credentials: Aws::Credentials.new('AKIAJTTU55N3ZJDE5TJQ', 'usmkYM9npLW4r0GKAe/pNy404UL2tf3Addwnxx6K')
+      credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
     )
 
     req_payload = {

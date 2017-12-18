@@ -16,6 +16,8 @@ test:
 
 production:
   <<: *default
-  database: notification_dashboard_production
-  username: notification_dashboard
-  password: <%= ENV['DASHBOARD_DATABASE_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
+  host:     <%= ENV['DB_PRODUCTION_HOST'] %>
+  database: <%= ENV['DB_PRODUCTION_NAME'] %>
+  username: <%= ENV['DB_PRODUCTION_USERNAME'] %>
+  password: <%= ENV['DB_PRODUCTION_PASSWORD'] %>
