@@ -24,7 +24,16 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'  
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-faster-assets', '~> 1.0', require: false
+  gem 'capistrano-bundler', git: 'https://github.com/capistrano/bundler.git', branch: 'master', require: false
+  gem 'capistrano-passenger'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
