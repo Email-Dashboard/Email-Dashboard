@@ -14,7 +14,7 @@ class LambdaEmailNotificationService
 
     client = Aws::Lambda::Client.new(
       region: 'us-east-1',
-      credentials: Aws::Credentials.new('AKIAJN5IGRLH4PBQW4QQ', 'wed2RlMYlu/+kHU8KZWvBJgVRNSEulZQAp3H6NNS')
+      credentials: Aws::Credentials.new('AKIAJTTU55N3ZJDE5TJQ', 'usmkYM9npLW4r0GKAe/pNy404UL2tf3Addwnxx6K')
     )
 
     req_payload = {
@@ -27,7 +27,7 @@ class LambdaEmailNotificationService
     payload = JSON.generate(req_payload)
 
     resp = client.invoke({
-      function_name: 'notification-center-email-dev-notifier',
+      function_name: 'notification-center-mail-sender-production-notifier',
       invocation_type: 'RequestResponse',
       log_type: 'None',
       payload: payload
