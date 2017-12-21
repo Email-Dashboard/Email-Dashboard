@@ -29,9 +29,9 @@
       .nav-item.dropdown
         %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Dropdown
         .dropdown-menu{"aria-labelledby" => "dropdown01"}
-          %a.dropdown-item{:href => "#"} Action
-          %a.dropdown-item{:href => "#"} Another action
-          %a.dropdown-item{:href => "#"} Something else here
+          -# %a.dropdown-item{:href => "#"} Logout
+          = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
+            Logout
 
   .container.main-container
     .col-md-12

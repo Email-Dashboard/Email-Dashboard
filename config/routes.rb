@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :user, controllers: { registrations: 'registrations', sessions: 'sessions' }
+
+  devise_scope :user do
+    authenticated :user do
+      root to: 'notifications#index', as: :authenticated_root
+    end
+  end
 
   root 'notifications#index'
 

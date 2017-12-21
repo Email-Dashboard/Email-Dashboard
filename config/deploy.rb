@@ -1,6 +1,7 @@
 set :application, 'notification-center'
 set :repo_url, 'git@gitlab.com:notification-center/dashboard.git'
 set :deploy_to, "/home/ubuntu/apps/#{fetch(:application)}"
+set :migration_role, 'migrator'
 
 set :rbenv_ruby, '2.4.2'
 set :rbenv_type, :user
@@ -14,6 +15,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache vendor/bundle}
 set :bundle_jobs, 4 #This is only available for bundler 1.4+
 
 set :linked_files, %w{config/database.yml}
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
 # set :format, :pretty airbrush
 set :log_level, :debug
 set :pty, true
