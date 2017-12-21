@@ -1,22 +1,29 @@
 %h1 Account Detail
 = render 'form', account: @account
 
-- if current_user.role_in_account(@account) == 'owner'
-  %div{style: 'margin-top: 30px;'}
-    %h3.text-center Account Users
-    .jumbotron
-      .table-responsive
-        %table.table.table-striped
-          %thead
-            %tr
-              %th #
-              %th Status
-              %th Role
-          %tbody
-            - @account.account_users.each do |au|
-              %tr
-                %td= au.id
-                %td= au.user.email
-                %td= au.role
+%div{style: 'margin-top: 30px;'}
+  %h3.text-center Account Users
+  -# = form_for :invitation, remote: true, url: invitations_path, method: :post do |f|
+  = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: user_invitation_path, method: :post) do |f|
+    .form-group
+      = f.text_field :email, class: 'form-control', placeholder: 'email@example.com'
+      = f.input :account, :as => :hidden, :input_html => { :value => @account.id }
+    = f.submit 'Invite', class: 'btn btn-success'
+  %br
 
-    = link_to 'All Accounts', accounts_path
+  .jumbotron
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Status
+            %th Role
+        %tbody
+          - @account.account_users.each do |au|
+            %tr
+              %td= au.id
+              %td= au.user.email
+              %td= au.role
+
+  = link_to 'All Accounts', accounts_path

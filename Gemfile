@@ -27,6 +27,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+  gem 'letter_opener'
 
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'capistrano'

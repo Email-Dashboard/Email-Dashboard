@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:edit, :update, :set_current, :destroy]
+  before_action :check_owner_access, only: [:edit, :update, :destroy]
 
   def index
     @accounts = current_user.accounts
@@ -45,6 +46,12 @@ class AccountsController < ApplicationController
   end
 
   private
+
+  def check_owner_access
+    if current_user.role_in_account(@account) != 'owner'
+      redirect_to(accounts_path, flash: { error: 'No access!' }) && return
+    end
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_account
     @account = current_user.accounts.friendly.find(params[:id])
