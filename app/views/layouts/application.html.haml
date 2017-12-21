@@ -40,7 +40,7 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
             %span{"aria-hidden" => "true"} ×
           = value
-
+    = current_user.inspect      
     = yield
 
     / jQuery first, then Tether, then Bootstrap JS.
