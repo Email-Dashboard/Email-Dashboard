@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :user, controllers: { registrations: 'registrations', sessions: 'sessions', invitations: 'users/invitations' }
+  devise_for :user, controllers: { registrations: 'registrations', sessions: 'sessions' }
 
   devise_scope :user do
     authenticated :user do
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       post :set_current
     end
   end
+
+  resources :invitations, only: [:create, :update]
 
   resources :notification_contents do
     member do

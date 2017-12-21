@@ -1,5 +1,5 @@
-class Users::InvitationsController < Devise::InvitationsController
-    layout false
+class InvitationsController < ApplicationController
+
     def create
       require 'securerandom'
 
@@ -20,11 +20,10 @@ class Users::InvitationsController < Devise::InvitationsController
       redirect_to edit_account_path(account), notice: 'Invitation successfully sent!'
     end
 
-    def edit
-      super
-    end
-
     def update
-      super
+      account = Account.find(params[:account_id])
+      account_user = account.account_users.find(params[:id])
+      account_user.invite
+      redirect_to edit_account_path(account), notice: 'Invitation successfully resent!'
     end
 end

@@ -12,12 +12,12 @@
       = f.error_notification
       .form-group
         = f.input :is_active, class: 'form-control'
-        = f.association :smtp_setting, label_method: :provider, value_method: :id, include_blank: false, collection: current_account.smtp_settings, class: 'form-control'
-        = f.association :notification_content, label_method: :subject, value_method: :id, include_blank: false, collection: current_account.notification_contents, class: 'form-control'
+        = f.association :smtp_setting, label_method: :provider, value_method: :id, include_blank: true, required: true, collection: current_account.smtp_settings, class: 'form-control'
+        = f.association :notification_content, label_method: :subject, value_method: :id, include_blank: true, required: true, collection: current_account.notification_contents, class: 'form-control'
 
       = f.submit 'Save', class: 'btn btn-primary'
-%div{style: 'margin-top: 30px;'}      
-%h3.text-center Notification Activities      
+%div{style: 'margin-top: 30px;'}
+%h3.text-center Notification Activities
 .jumbotron
   .table-responsive
     %table.table.table-striped

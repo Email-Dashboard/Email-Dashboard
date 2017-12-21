@@ -3,8 +3,7 @@
 
 %div{style: 'margin-top: 30px;'}
   %h3.text-center Account Users
-  -# = form_for :invitation, remote: true, url: invitations_path, method: :post do |f|
-  = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: user_invitation_path, method: :post) do |f|
+  = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: invitations_path, method: :post) do |f|
     .form-group
       = f.text_field :email, class: 'form-control', placeholder: 'email@example.com'
       = f.input :account, :as => :hidden, :input_html => { :value => @account.id }
@@ -25,5 +24,11 @@
               %td= au.id
               %td= au.user.email
               %td= au.role
+              %td
+                - unless au.role == 'owner'
+                  = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
+                    %span.badge.badge-pill.badge-default
+                      Resend Confirm
+
 
   = link_to 'All Accounts', accounts_path
