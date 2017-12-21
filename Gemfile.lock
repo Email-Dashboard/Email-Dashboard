@@ -634,6 +634,9 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise_invitable (1.7.2)
+      actionmailer (>= 4.1.0)
+      devise (>= 4.0.0)
     encryptor (3.0.0)
     erubi (1.7.0)
     erubis (2.7.0)
@@ -796,6 +799,7 @@ DEPENDENCIES
   capistrano3-puma!
   coffee-rails (~> 4.2)
   devise (~> 4.2)
+  devise_invitable (~> 1.7.0)
   friendly_id (~> 5.1.0)
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)

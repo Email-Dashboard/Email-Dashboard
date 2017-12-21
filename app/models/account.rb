@@ -15,12 +15,17 @@ class Account < ApplicationRecord
   friendly_id :name, use: :slugged
 
   has_many :notifications
-  has_many :smtp_settings
-  has_many :notification_contents
+  has_many :smtp_settings, dependent: :destroy
+  has_many :notification_contents, dependent: :destroy
+
+  has_many :account_users, dependent: :destroy
+  has_many :users, through: :account_users
 
   before_create :generate_token
 
   after_create  :create_default_email_template
+
+  scope :persisted, -> { where.not(id: nil) }
 
   protected
 
@@ -30,6 +35,8 @@ class Account < ApplicationRecord
       break random_token unless Account.exists?(api_key: random_token)
     end
   end
+
+  private
 
   def create_default_email_template
     require 'open-uri'

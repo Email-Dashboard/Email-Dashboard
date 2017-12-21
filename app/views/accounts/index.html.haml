@@ -1,0 +1,15 @@
+%h1 Accounts
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th{:colspan => "3"}
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td= account.name
+        %td= link_to 'Set As Current', set_current_account_path(account), method: :post
+        %td= link_to 'Details', edit_account_path(account)
+        %td= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Account', new_account_path

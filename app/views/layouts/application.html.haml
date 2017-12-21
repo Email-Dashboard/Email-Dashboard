@@ -27,7 +27,17 @@
           %a.nav-link{:href => notification_contents_path }
             Notification Contents
       .nav-item.dropdown
-        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Dropdown
+        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_account.try(:name) || 'No Account Created'
+        .dropdown-menu{"aria-labelledby" => "dropdown01"}
+          - current_user.accounts.persisted.each do |account|
+            %li
+              = link_to set_current_account_path(account), class: 'dropdown-item', method: :post do
+                = account.name
+          %hr
+            %li
+              = link_to 'Manage Accounts', accounts_path, class: 'dropdown-item'
+      .nav-item.dropdown
+        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_user.email
         .dropdown-menu{"aria-labelledby" => "dropdown01"}
           -# %a.dropdown-item{:href => "#"} Logout
           = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
@@ -40,7 +50,7 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
             %span{"aria-hidden" => "true"} ×
           = value
-    = current_user.inspect      
+
     = yield
 
     / jQuery first, then Tether, then Bootstrap JS.

@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   end
 
   resources :smtp_settings
+  resources :accounts do
+    member do
+      post :set_current
+    end
+  end
 
   resources :notification_contents do
     member do
