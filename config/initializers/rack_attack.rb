@@ -10,7 +10,7 @@ class Rack::Attack
 
   # TODO: @muhammet is it necessary ?
   # Allow an IP address to make 5 requests every 5 seconds
-  throttle('req/ip', limit: 5, period: 5) do |req|
+  throttle('req/ip', limit: 500, period: 5) do |req|
     req.ip
   end
 
