@@ -11,7 +11,7 @@ class SessionsController < Devise::SessionsController
     if Rails.env.development?
       redirect_to 'http://lvh.me:3000'
     else
-      redirect_to 'https://auth.notifications.svteknoloji.website'
+      redirect_to 'http://auth.notifications.svteknoloji.website'
     end
   end
 end
