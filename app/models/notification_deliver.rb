@@ -18,4 +18,15 @@ class NotificationDeliver < ApplicationRecord
   belongs_to :notification_content, optional: true
 
   has_many :activities
+
+  validate :validate_active_deliver
+
+
+  private
+  def validate_active_deliver
+    puts "HAHAHAHAH!"
+    if is_active && (smtp_setting_id.nil? || notification_content_id.nil?)
+      errors.add(:notification_deliver, "Not activated! SMTP and Content required!")
+    end
+  end
 end

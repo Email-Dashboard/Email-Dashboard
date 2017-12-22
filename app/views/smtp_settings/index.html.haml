@@ -7,7 +7,6 @@
       %th Address
       %th Port
       %th Username
-      %th Password
       %th
       %th
       %th
@@ -19,7 +18,6 @@
         %td= smtp_setting.address
         %td= smtp_setting.port
         %td= smtp_setting.username
-        %td= smtp_setting.password
         %td= link_to 'Show', smtp_setting
         %td= link_to 'Edit', edit_smtp_setting_path(smtp_setting)
         %td= link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }

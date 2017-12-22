@@ -3,8 +3,11 @@ class NotificationDeliversController < ApplicationController
   before_action :set_deliver
 
   def update
-    @deliver.update(notification_deliver_params)
-    redirect_to notification_path(@notification), flash: { success: 'Succesfully Updated!' }
+    if @deliver.update(notification_deliver_params)
+      redirect_to notification_path(@notification), flash: { success: 'Succesfully Updated!' }
+    else
+      redirect_to notification_path(@notification), flash: { error: "SMTP and Content Required!" }
+    end
   end
 
   private

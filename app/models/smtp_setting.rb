@@ -21,5 +21,5 @@ class SmtpSetting < ApplicationRecord
   # attr_encrypted :password, key: SecureRandom.random_bytes(32)
   # attr_encrypted :username, key: SecureRandom.random_bytes(32)
 
-  validates :provider, :address, :port, presence: true
+  validates :provider, :address, :port, :username, :password, presence: true
 end

@@ -56,3 +56,4 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'rack-attack'
 
 gem 'aws-sdk', '~> 3'
+gem 'coderay'
