@@ -1,8 +1,8 @@
 class SessionsController < Devise::SessionsController
   layout false
   def new
-    # redirect_to_auth
-    super
+    redirect_to_auth
+    # super
   end
 
   private

@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
   def check_current_account
+    return if devise_controller?
     if !current_account.present? && controller_name != 'accounts'
       redirect_to accounts_path
     end
