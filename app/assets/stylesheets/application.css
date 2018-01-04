@@ -17,3 +17,11 @@
  .main-container {
   padding: 4rem 2rem;
  }
+
+ kbd {
+  padding: .2rem .4rem;
+  font-size: 90%;
+  color: #fff;
+  background-color: transparent;
+  border-radius: .2rem;
+}
