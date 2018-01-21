@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root to: 'notifications#index', as: :authenticated_root
+      root to: 'activities#index', as: :authenticated_root
     end
   end
 
-  root 'notifications#index'
+  root 'activities#index'
 
   namespace :api do
     namespace :v1 do
@@ -37,4 +37,6 @@ Rails.application.routes.draw do
       get :preview
     end
   end
+
+  resources :activities, only: :index
 end

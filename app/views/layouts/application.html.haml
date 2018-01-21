@@ -24,6 +24,9 @@
     %a.navbar-brand{:href => root_path } Notification Center
     #navbarsExampleDefault.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
+        %li.nav-item{class: "#{'active' if current_page?(notifications_path)}"}
+          %a.nav-link{:href => notifications_path }
+            Notifications
         %li.nav-item{class: "#{'active' if current_page?(smtp_settings_path)}"}
           %a.nav-link{:href => smtp_settings_path }
             SMTP Settings

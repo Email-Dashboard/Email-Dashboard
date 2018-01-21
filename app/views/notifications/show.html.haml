@@ -35,6 +35,6 @@
         - @activities.each do |activity|
           %tr
             %td= Base64.urlsafe_encode64("Not-#{activity.id}")
-            %td= activity.status
+            %td= badge_status(activity.status)
             %td{style: 'max-width: 150px'}
-              = render partial: 'activity_content', locals: { activity: activity }
+              = render partial: 'activities/content', locals: { activity: activity }

@@ -50,6 +50,7 @@ gem 'haml-rails', '~> 1.0'
 gem 'simple_form'
 gem 'bugsnag'
 gem 'responders'
+gem 'kaminari'
 
 # Enable Cross-Origin
 gem 'rack-cors', :require => 'rack/cors'
