@@ -10,25 +10,23 @@
     = f.submit 'Invite', class: 'btn btn-success'
   %br
 
-  .jumbotron
-    .table-responsive
-      %table.table.table-striped
-        %thead
-          %tr
-            %th #
-            %th Status
-            %th Role
-        %tbody
-          - @account.account_users.each do |au|
-            %tr
-              %td= au.id
-              %td= au.user.email
-              %td= au.role
-              %td
-                - unless au.role == 'owner'
-                  = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
-                    %span.badge.badge-pill.badge-default
-                      Resend Confirm
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th #
+      %th Status
+      %th Role
+  %tbody
+    - @account.account_users.each do |au|
+      %tr
+        %td= au.id
+        %td= au.user.email
+        %td= au.role
+        %td
+          - unless au.role == 'owner'
+            = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
+              %span.badge.badge-pill.badge-default
+                Resend Confirm
 
 
-  = link_to 'All Accounts', accounts_path
+= link_to 'All Accounts', accounts_path

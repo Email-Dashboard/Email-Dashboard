@@ -21,20 +21,19 @@
             = f.submit 'Save', class: 'btn btn-primary'
         .col-6
           = render 'code_block'
+
 %div{style: 'margin-top: 30px;'}
 %h3.text-center Notification Activities
-.jumbotron
-  .table-responsive
-    %table.table.table-striped
-      %thead
-        %tr
-          %th #
-          %th Status
-          %th Content
-      %tbody
-        - @activities.each do |activity|
-          %tr
-            %td= Base64.urlsafe_encode64("Not-#{activity.id}")
-            %td= badge_status(activity.status)
-            %td{style: 'max-width: 150px'}
-              = render partial: 'activities/content', locals: { activity: activity }
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th #
+      %th Status
+      %th Content
+  %tbody
+    - @activities.each do |activity|
+      %tr
+        %td= Base64.urlsafe_encode64("Not-#{activity.id}")
+        %td= badge_status(activity.status)
+        %td{style: 'max-width: 150px'}
+          = render partial: 'activities/content', locals: { activity: activity }

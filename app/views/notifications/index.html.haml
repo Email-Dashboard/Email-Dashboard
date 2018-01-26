@@ -1,5 +1,5 @@
 %h1 Notifications
-%table.table
+%table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
       %th Name
@@ -10,7 +10,8 @@
       %tr
         %td= notification.name
         %td
-          %badge.badge-pill{class: "#{notification.email_deliver.is_active ? 'badge-success' : 'badge-danger'}"}
+          %span.uk-label{class: "uk-label-#{notification.email_deliver.is_active ? 'success' : 'danger'}"}
+            = notification.email_deliver.is_active ? 'yes' : 'no'
         %td= link_to 'Details', notification
         %td= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' }
 %br/

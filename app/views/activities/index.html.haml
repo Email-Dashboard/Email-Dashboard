@@ -1,22 +1,20 @@
 %h3.text-center Notification Activities
-.jumbotron
-  .table-responsive
-    %table.table.table-striped
-      %thead
-        %tr
-          %th #
-          %th Notification
-          %th Status
-          %th Request Body
-      %tbody
-        - @activities.each do |activity|
-          %tr
-            %td= Base64.urlsafe_encode64("Not-#{activity.id}")
-            %td
-              - if activity.notification_deliver.try(:notification).present?
-                = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)
-            %td= badge_status(activity.status)
-            %td{style: 'max-width: 220px; min-width: 220px;'}
-              = render partial: 'content', locals: { activity: activity }
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th #
+      %th Notification
+      %th Status
+      %th Request Body
+  %tbody
+    - @activities.each do |activity|
+      %tr
+        %td= Base64.urlsafe_encode64("Not-#{activity.id}")
+        %td
+          - if activity.notification_deliver.try(:notification).present?
+            = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)
+        %td= badge_status(activity.status)
+        %td{style: 'max-width: 220px; min-width: 220px;'}
+          = render partial: 'content', locals: { activity: activity }
 
 = paginate @activities

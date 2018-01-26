@@ -56,30 +56,6 @@
                   = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
                     Logout
 
-
-    -# %nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
-    -#   %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
-    -#     %span.navbar-toggler-icon
-    -#   %a.navbar-brand{:href => root_path } Notification Center
-    -#   #navbarsExampleDefault.collapse.navbar-collapse
-    -#     %ul.navbar-nav.mr-auto
-    -#     .nav-item.dropdown
-    -#       %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_account.try(:name) || 'No Account Created'
-    -#       .dropdown-menu{"aria-labelledby" => "dropdown01"}
-    -#         - current_user.accounts.persisted.each do |account|
-    -#           %li
-    -#             = link_to set_current_account_path(account), class: 'dropdown-item', method: :post do
-    -#               = account.name
-    -#         %hr
-    -#           %li
-    -#             = link_to 'Manage Accounts', accounts_path, class: 'dropdown-item'
-    -#     .nav-item.dropdown
-    -#       %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_user.email
-    -#       .dropdown-menu{"aria-labelledby" => "dropdown01"}
-    -#         -# %a.dropdown-item{:href => "#"} Logout
-    -#         = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
-    -#           Logout
-    -#
     -# .container.main-container
     -#   .col-md-12
     -#     - flash.each do |key, value|
@@ -87,8 +63,14 @@
     -#         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
     -#           %span{"aria-hidden" => "true"} ×
     -#         = value
+    .uk-text-center.uk-grid
+      - flash.each do |key, value|
+        %div.uk-width@m{"uk-alert" => "", class: flash_class(key)}
+          %a.uk-alert-close{"uk-close" => ""}
+          %p= value
 
-    = yield
+    .uk-container
+      = yield
 
     / UIKit JS.
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
