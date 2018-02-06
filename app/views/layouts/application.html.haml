@@ -14,14 +14,21 @@
     %link{:href => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css", :rel => "stylesheet"}/
     %script{:src => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"}
 
+    / UIKit JS.
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit-icons.min.js"}
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{style: "background-color:  white;"}
+  %body.uk-background-default
 
     %nav.uk-navbar-container{"uk-navbar" => ""}
       .uk-navbar-left
         %ul.uk-navbar-nav
-          %li{class: "#{'uk-active' if current_page?(root_path)}"}
+          %li.uk-active
+            %a
+              %span{"uk-icon" => "icon: bell"}
+          %li{class: "#{'uk-active' if (current_page?(root_path) || current_page?(activities_path))}"}
             %a{:href => root_path} Activities
           %li{class: "#{'uk-active' if current_page?(notifications_path)}"}
             %a{:href => notifications_path } Notifications
@@ -63,11 +70,15 @@
           %p= value
 
     .uk-container
-      %ul.uk-breadcrumb{style: 'padding: 17px;'}
-        = render_breadcrumbs :tag => :li, :separator => "" 
+      = render partial: 'layouts/head_tools'
 
       = yield
 
-    / UIKit JS.
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit-icons.min.js"}
+    / Footer
+    %footer.uk-container.uk-text-center.uk-text-muted.uk-background-muted
+      .uk-margin
+      Made with
+      %i{'uk-icon': 'heart', style: 'color: red'}
+      by Remote Team.
+      .uk-margin
+

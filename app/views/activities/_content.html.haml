@@ -1,6 +1,6 @@
 %ul{"uk-accordion" => ""}
   %li
-    %a.uk-accordion-title{:href => "#"} Content
+    %a.uk-accordion-title.uk-button-text{:href => "#"} Content
     .uk-accordion-content
       %div{style: 'background-color:white'}
         = (ap JSON.parse(activity.request_content) , { color: { hash: :blue }, html: false }).html_safe

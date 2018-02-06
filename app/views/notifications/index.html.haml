@@ -1,3 +1,8 @@
+= content_for :action_buttons do
+  = link_to new_notification_path, class: 'uk-button uk-button-default' do
+    %i{'uk-icon': 'plus'}
+    New Notification
+
 %table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
@@ -11,7 +16,5 @@
         %td
           %span.uk-label{class: "uk-label-#{notification.email_deliver.is_active ? 'success' : 'danger'}"}
             = notification.email_deliver.is_active ? 'yes' : 'no'
-        %td= link_to 'Details', notification
-        %td= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Notification', new_notification_path
+        %td= link_to 'Settings', notification, class: 'uk-button-text'
+        %td= link_to 'Destroy', notification, class: 'uk-button-text',  method: :delete, data: { confirm: 'Are you sure?' }

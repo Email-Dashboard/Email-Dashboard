@@ -1,0 +1,8 @@
+.uk-navbar-container.uk-navbar{style: 'background-color: #ffffff'}
+  .uk-navbar-left
+    %ul.uk-breadcrumb{style: 'padding: 17px;'}
+      = render_breadcrumbs :tag => :li, :separator => ""
+
+  .uk-navbar-right
+    - if content_for?(:action_buttons)
+      = yield :action_buttons

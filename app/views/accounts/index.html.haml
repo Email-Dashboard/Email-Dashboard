@@ -1,3 +1,9 @@
+= content_for :action_buttons do
+  = link_to new_account_path, class: 'uk-button uk-button-default' do
+    %i{'uk-icon': 'plus'}
+    New Account
+
+
 %table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
@@ -7,8 +13,6 @@
     - @accounts.each do |account|
       %tr
         %td= account.name
-        %td= link_to 'Dashboard', set_current_account_path(account), method: :post
-        %td= link_to 'Details', edit_account_path(account)
-        %td= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Account', new_account_path
+        %td= link_to 'Dashboard', set_current_account_path(account), method: :post, class: 'uk-button-text'
+        %td= link_to 'Details', edit_account_path(account), class: 'uk-button-text'
+        %td= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button-text'

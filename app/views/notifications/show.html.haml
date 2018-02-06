@@ -2,7 +2,7 @@
   %p
     %strong Name:
     = @notification.name
-    = link_to 'Edit', edit_notification_path(@notification)
+    = link_to 'Edit', edit_notification_path(@notification), class: 'uk-button-text'
 .uk-margin
 
 .div{:class => "uk-child-width-expand@s", "uk-grid" => "", "uk-height-match" => "target: > div > .uk-card"}
@@ -11,7 +11,7 @@
       = simple_form_for([@notification, @email_deliver],  html: { class: 'form-horizontal' }, method: :patch) do |f|
         %fieldset.uk-fieldset
           = f.error_notification
-          %legend Notification Email Deliver Settings
+          %h3 Notification Email Deliver Settings
           .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
             = f.input :is_active, input_html: { class: 'uk-checkbox', style: 'margin-right: 5px;' }
           .uk-margin
@@ -24,18 +24,19 @@
     .uk-card.uk-card-default.uk-card-body
       = render 'code_block'
 
-%div{style: 'margin-top: 30px;'}
-%h3.text-center Notification Activities
-%table.uk-table.uk-table-responsive.uk-table-divider
-  %thead
-    %tr
-      %th Sent At
-      %th Status
-      %th Content
-  %tbody
-    - @activities.each do |activity|
+.uk-margin
+.uk-card.uk-card-default.uk-card-body
+  %h3.text-center Notification Activities
+  %table.uk-table.uk-table-responsive.uk-table-divider
+    %thead
       %tr
-        %td= activity.created_at
-        %td= badge_status(activity.status)
-        %td{style: 'max-width: 300px; min-width: 300px'}
-          = render partial: 'activities/content', locals: { activity: activity }
+        %th Sent At
+        %th Status
+        %th Content
+    %tbody
+      - @activities.each do |activity|
+        %tr
+          %td= activity.created_at
+          %td= badge_status(activity.status)
+          %td{style: 'max-width: 300px; min-width: 300px'}
+            = render partial: 'activities/content', locals: { activity: activity }

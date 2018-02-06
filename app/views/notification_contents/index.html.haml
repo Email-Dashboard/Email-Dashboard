@@ -1,3 +1,8 @@
+= content_for :action_buttons do
+  = link_to new_notification_content_path, class: 'uk-button uk-button-default' do
+    %i{'uk-icon': 'plus'}
+    New Notification Content
+
 %table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
@@ -14,10 +19,6 @@
         %td
           = notification_content.content.strip.first(50)
           \...
-        %td= link_to 'Show', notification_content
-        %td= link_to 'Edit', edit_notification_content_path(notification_content)
-        %td= link_to 'Destroy', notification_content, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Notification content', new_notification_content_path
+        %td= link_to 'Show', notification_content, class: 'uk-button-text'
+        %td= link_to 'Edit', edit_notification_content_path(notification_content), class: 'uk-button-text'
+        %td= link_to 'Destroy', notification_content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button-text'
