@@ -1,6 +1,6 @@
 class NotificationContentsController < ApplicationController
   before_action :set_notification_content, only: [:show, :edit, :update, :destroy, :preview]
-  include BreadcrumbExtension
+  before_action :set_custom_breadcrumbs, only: [:index, :show, :edit, :new]
 
   # GET /notification_contents
   # GET /notification_contents.json
@@ -11,18 +11,19 @@ class NotificationContentsController < ApplicationController
   # GET /notification_contents/1
   # GET /notification_contents/1.json
   def show
-    add_breadcrumb @notification_content.subject, notification_content_path(@notification_content)
+    add_breadcrumb @notification_content.subject
   end
 
   # GET /notification_contents/new
   def new
+    add_breadcrumb 'New'
     @notification_content = current_account.notification_contents.new
   end
 
   # GET /notification_contents/1/edit
   def edit
     add_breadcrumb @notification_content.subject, notification_content_path(@notification_content)
-    super
+    add_breadcrumb 'Edit'
   end
 
   def preview
@@ -67,6 +68,11 @@ class NotificationContentsController < ApplicationController
   end
 
   private
+
+    def set_custom_breadcrumbs
+      add_breadcrumb 'Templates', notification_contents_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_notification_content
       @notification_content = current_account.notification_contents.find(params[:id])

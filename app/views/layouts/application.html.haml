@@ -37,7 +37,7 @@
               SMTP Settings
           %li{class: "#{'uk-active' if current_page?(notification_contents_path)}"}
             %a{:href => notification_contents_path }
-              Notification Contents
+              Templates
       .uk-navbar-right
         %ul.uk-navbar-nav
           %li
@@ -75,7 +75,7 @@
       = yield
 
     / Footer
-    %footer.uk-container.uk-text-center.uk-text-muted.uk-background-muted
+    %footer.uk-text-center.uk-text-muted.uk-background-muted
       .uk-margin
       Made with
       %i{'uk-icon': 'heart', style: 'color: red'}
