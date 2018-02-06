@@ -603,6 +603,7 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
+    breadcrumbs_on_rails (3.0.1)
     bugsnag (6.2.0)
     builder (3.2.3)
     byebug (9.1.0)
@@ -814,6 +815,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk (~> 3)
   binding_of_caller
+  breadcrumbs_on_rails
   bugsnag
   byebug
   capistrano

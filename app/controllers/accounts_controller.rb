@@ -2,6 +2,8 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:edit, :update, :set_current, :destroy]
   before_action :check_owner_access, only: [:edit, :update, :destroy]
 
+  include BreadcrumbExtension
+
   def index
     @accounts = current_user.accounts
   end
@@ -11,6 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb @account.name
   end
 
   def create

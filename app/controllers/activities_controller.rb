@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-
+  include BreadcrumbExtension
   # GET /activities
   # GET /activities.json
   def index

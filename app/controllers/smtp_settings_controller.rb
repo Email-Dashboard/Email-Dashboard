@@ -1,6 +1,8 @@
 class SmtpSettingsController < ApplicationController
   before_action :set_smtp_setting, only: [:show, :edit, :update, :destroy]
 
+  include BreadcrumbExtension
+
   # GET /smtp_settings
   # GET /smtp_settings.json
   def index
@@ -10,6 +12,7 @@ class SmtpSettingsController < ApplicationController
   # GET /smtp_settings/1
   # GET /smtp_settings/1.json
   def show
+    add_breadcrumb @smtp_setting.provider, smtp_setting_path(@smtp_setting)
   end
 
   # GET /smtp_settings/new
@@ -19,6 +22,7 @@ class SmtpSettingsController < ApplicationController
 
   # GET /smtp_settings/1/edit
   def edit
+    add_breadcrumb @smtp_setting.provider, smtp_setting_path(@smtp_setting)
   end
 
   # POST /smtp_settings

@@ -1,5 +1,6 @@
 class NotificationContentsController < ApplicationController
   before_action :set_notification_content, only: [:show, :edit, :update, :destroy, :preview]
+  include BreadcrumbExtension
 
   # GET /notification_contents
   # GET /notification_contents.json
@@ -10,6 +11,7 @@ class NotificationContentsController < ApplicationController
   # GET /notification_contents/1
   # GET /notification_contents/1.json
   def show
+    add_breadcrumb @notification_content.subject, notification_content_path(@notification_content)
   end
 
   # GET /notification_contents/new
@@ -19,6 +21,7 @@ class NotificationContentsController < ApplicationController
 
   # GET /notification_contents/1/edit
   def edit
+    add_breadcrumb @notification_content.subject, notification_content_path(@notification_content)
   end
 
   def preview

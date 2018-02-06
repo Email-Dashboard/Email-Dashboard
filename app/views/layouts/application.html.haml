@@ -56,13 +56,6 @@
                   = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
                     Logout
 
-    -# .container.main-container
-    -#   .col-md-12
-    -#     - flash.each do |key, value|
-    -#       %div{:class => "#{flash_class(key)} alert-dismissible fade show", role: 'alert'}
-    -#         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-    -#           %span{"aria-hidden" => "true"} ×
-    -#         = value
     .uk-text-center.uk-grid
       - flash.each do |key, value|
         %div.uk-width@m{"uk-alert" => "", class: flash_class(key)}
@@ -70,6 +63,9 @@
           %p= value
 
     .uk-container
+      %ul.uk-breadcrumb{style: 'padding: 17px;'}
+        = render_breadcrumbs :tag => :li, :separator => "" 
+
       = yield
 
     / UIKit JS.
