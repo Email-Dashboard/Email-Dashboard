@@ -1,7 +1,7 @@
-= simple_form_for(@notification,  html: { class: 'form-horizontal' }) do |f|
-  = f.error_notification
-  .form-group
-    = f.input :name, class: 'form-control'
+.uk-card.uk-card-default.uk-card-body
+  = simple_form_for(@notification,  html: { class: 'form-horizontal' }) do |f|
+    = f.error_notification
+    .uk-margin
+      = f.input :name, input_html: { class: 'uk-input' }
 
-  = f.submit 'Save', class: 'btn btn-primary'
-  
+    = f.submit 'Save', class: 'uk-button uk-button-primary'
