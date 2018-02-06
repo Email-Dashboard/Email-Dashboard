@@ -60,4 +60,5 @@ gem 'rack-attack'
 gem 'aws-sdk', '~> 3'
 gem 'coderay'
 gem 'awesome_print'
-gem "breadcrumbs_on_rails"
+gem 'breadcrumbs_on_rails'
+gem 'handlebars'

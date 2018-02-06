@@ -13,9 +13,9 @@ class NotificationsController < ApplicationController
   # GET /notifications/1.json
   def show
     add_breadcrumb @notification.name, notification_path(@notification)
-    @email_deliver = @notification.email_deliver
-    @activities = Activity.where(notification_deliver_id: @email_deliver.id).order('created_at desc')
 
+    @activities = Activity.where(notification_deliver_id: @notification.email_deliver.id)
+                          .order('created_at desc').page(params[:page])
   end
 
   # GET /notifications/new

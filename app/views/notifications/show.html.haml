@@ -6,10 +6,10 @@
 .uk-margin
 
 .uk-card.uk-card-default.uk-card-body
-  = simple_form_for([@notification, @email_deliver],  html: { class: 'form-horizontal' }, method: :patch) do |f|
+  = simple_form_for([@notification, @notification.email_deliver],  html: { class: 'form-horizontal' }, method: :patch) do |f|
     %fieldset.uk-fieldset
       = f.error_notification
-      %h3 Notification Email Deliver Settings
+      %h3 Email Deliver Options
       .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
         = f.input :is_active, input_html: { class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
       .uk-margin
@@ -28,16 +28,5 @@
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
   %h3.text-center Activities
-  %table.uk-table.uk-table-responsive.uk-table-divider
-    %thead
-      %tr
-        %th Sent At
-        %th Status
-        %th Content
-    %tbody
-      - @activities.each do |activity|
-        %tr
-          %td= activity.created_at
-          %td= badge_status(activity.status)
-          %td{style: 'max-width: 300px; min-width: 300px'}
-            = render partial: 'activities/content', locals: { activity: activity }
+
+  = render partial: 'activities/table_activities', locals: { activities: @activities }

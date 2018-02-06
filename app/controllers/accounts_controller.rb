@@ -39,7 +39,7 @@ class AccountsController < ApplicationController
       if !@account.notifications.present? && @account.destroy
         format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
       else
-        format.html { redirect_to accounts_url, flash: { error: 'Account cant delete! Has notifications!' } }
+        format.html { redirect_to accounts_url, flash: { error: 'Account can not delete! Has notifications!' } }
       end
     end
   end

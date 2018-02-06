@@ -15,5 +15,5 @@
         %td= account.name
         %td.uk-text-right
           = link_to 'Dashboard', set_current_account_path(account), method: :post, class: 'uk-button uk-button-small uk-button-default'
-          = link_to 'Details', edit_account_path(account), class: 'uk-button uk-button-small uk-button-default'
+          = link_to 'Settings', edit_account_path(account), class: 'uk-button uk-button-small uk-button-default'
           = link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'

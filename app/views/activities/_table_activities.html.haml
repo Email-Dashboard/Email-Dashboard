@@ -1,0 +1,20 @@
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th Sent At
+      %th Notification
+      %th Status
+      %th
+  %tbody
+    - activities.includes(notification_deliver: :notification).each do |activity|
+      %tr
+        %td= activity.created_at
+        %td
+          - if activity.notification_deliver.try(:notification).present?
+            = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)
+        %td= badge_status(activity.status)
+        -# %td{style: 'max-width: 300px; min-width: 300px;'}
+        -#   = render partial: 'content', locals: { activity: activity }
+        %td= link_to 'Content Preview', activity_path(activity), class: 'uk-button uk-button-small uk-button-default', target: '_blank'
+
+= paginate activities

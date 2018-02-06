@@ -2,7 +2,7 @@
 
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
-  %h3.text-center Account Users
+  %h3.text-center Team Members
   = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: invitations_path, method: :post) do |f|
     .uk-margin
       = f.input :email, placeholder: 'email@example.com', input_html: { class: 'uk-input' }
@@ -14,8 +14,9 @@
     %thead
       %tr
         %th #
-        %th Status
+        %th Email
         %th Role
+        %th
     %tbody
       - @account.account_users.each do |au|
         %tr

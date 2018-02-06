@@ -38,5 +38,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :activities, only: :index
+  resources :activities, only: %i(index show)
 end
