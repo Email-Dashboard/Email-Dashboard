@@ -16,8 +16,7 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
-  $('.dropdown-toggle').dropdown();
-
+  
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });

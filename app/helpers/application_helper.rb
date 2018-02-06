@@ -1,11 +1,11 @@
 module ApplicationHelper
   def flash_class(level)
     case level
-    when 'notice' then "alert alert-info"
-    when 'success' then "alert alert-success"
-    when 'error' then "alert alert-danger"
-    when 'alert' then "alert alert-danger"
-    else 'alert alert-info'
+    when 'notice' then "uk-alert-primary"
+    when 'success' then "uk-alert-success"
+    when 'error' then "uk-alert-danger"
+    when 'alert' then "uk-alert-danger"
+    else 'uk-alert-info'
     end
   end
 
@@ -15,6 +15,6 @@ module ApplicationHelper
             when 'fail' then 'danger'
             else 'warning'
             end
-    content_tag(:span, status.humanize, class: "badge badge-pill badge-#{klass}")
+    content_tag(:span, status.humanize, class: "uk-label uk-label-#{klass}")
   end
 end

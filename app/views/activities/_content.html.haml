@@ -1,6 +1,6 @@
-%a{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseActivity-#{activity.id}"}
-  Show
-
-.collapse{id: "collapseActivity-#{activity.id}"}
-  %div{style: 'background-color:white'}
-    = (ap JSON.parse(activity.request_content) , { color: { hash: :blue }, html: false }).html_safe
+%ul{"uk-accordion" => ""}
+  %li
+    %a.uk-accordion-title.uk-button-text{:href => "#"} Content
+    .uk-accordion-content
+      %div{style: 'background-color:white'}
+        = (ap JSON.parse(activity.request_content) , { color: { hash: :blue }, html: false }).html_safe

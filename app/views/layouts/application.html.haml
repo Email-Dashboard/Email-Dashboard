@@ -1,66 +1,84 @@
 !!!
 %html{:lang => "en"}
   %head
-    %title Dashboard
+    %title Notification Center
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     / Required meta tags
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    / Bootstrap CSS
-    %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", :integrity => "sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", :rel => "stylesheet"}/
+    / UIKit CSS
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/css/uikit.min.css", :rel => "stylesheet"}/
 
     = csrf_meta_tags
     / Import highlight.js
     %link{:href => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css", :rel => "stylesheet"}/
     %script{:src => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"}
 
+    / UIKit JS.
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit-icons.min.js"}
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{style: "background-color:  white;"}
+  %body.uk-background-default
 
-  %nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
-    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
-    %a.navbar-brand{:href => root_path } Notification Center
-    #navbarsExampleDefault.collapse.navbar-collapse
-      %ul.navbar-nav.mr-auto
-        %li.nav-item{class: "#{'active' if current_page?(notifications_path)}"}
-          %a.nav-link{:href => notifications_path }
-            Notifications
-        %li.nav-item{class: "#{'active' if current_page?(smtp_settings_path)}"}
-          %a.nav-link{:href => smtp_settings_path }
-            SMTP Settings
-        %li.nav-item{class: "#{'active' if current_page?(notification_contents_path)}"}
-          %a.nav-link{:href => notification_contents_path }
-            Notification Contents
-      .nav-item.dropdown
-        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_account.try(:name) || 'No Account Created'
-        .dropdown-menu{"aria-labelledby" => "dropdown01"}
-          - current_user.accounts.persisted.each do |account|
-            %li
-              = link_to set_current_account_path(account), class: 'dropdown-item', method: :post do
-                = account.name
-          %hr
-            %li
-              = link_to 'Manage Accounts', accounts_path, class: 'dropdown-item'
-      .nav-item.dropdown
-        %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}= current_user.email
-        .dropdown-menu{"aria-labelledby" => "dropdown01"}
-          -# %a.dropdown-item{:href => "#"} Logout
-          = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
-            Logout
+    %nav.uk-navbar-container{"uk-navbar" => ""}
+      .uk-navbar-left
+        %ul.uk-navbar-nav
+          %li.uk-active
+            %a
+              %span{"uk-icon" => "icon: bell"}
+          %li{class: "#{'uk-active' if (current_page?(root_path) || current_page?(activities_path))}"}
+            %a{:href => root_path} Activities
+          %li{class: "#{'uk-active' if current_page?(notifications_path)}"}
+            %a{:href => notifications_path } Notifications
+          %li{class: "#{'uk-active' if current_page?(smtp_settings_path)}"}
+            %a{:href => smtp_settings_path }
+              SMTP Settings
+          %li{class: "#{'uk-active' if current_page?(notification_contents_path)}"}
+            %a{:href => notification_contents_path }
+              Notification Contents
+      .uk-navbar-right
+        %ul.uk-navbar-nav
+          %li
+            %a{:href => "#"}
+              = current_account.try(:name) || 'No Account Created'
+              %span{"uk-icon" => "icon: chevron-down"}
+            .uk-navbar-dropdown
+              %ul.uk-nav.uk-dropdown-nav
+                - current_user.accounts.persisted.each do |account|
+                  %li{class: ('uk-active' if account == current_account) }
+                    = link_to set_current_account_path(account), method: :post do
+                      = account.name
+                %li.uk-nav-divider
+                %li
+                  = link_to 'Manage Accounts', accounts_path
+          %li
+            %a{:href => "#"}
+              = current_user.email
+              %span{"uk-icon" => "icon: chevron-down"}
+            .uk-navbar-dropdown
+              %ul.uk-nav.uk-navbar-dropdown-nav
+                %li
+                  = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
+                    Logout
 
-  .container.main-container
-    .col-md-12
+    .uk-text-center.uk-grid
       - flash.each do |key, value|
-        %div{:class => "#{flash_class(key)} alert-dismissible fade show", role: 'alert'}
-          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-            %span{"aria-hidden" => "true"} ×
-          = value
+        %div.uk-width@m{"uk-alert" => "", class: flash_class(key)}
+          %a.uk-alert-close{"uk-close" => ""}
+          %p= value
 
-    = yield
+    .uk-container
+      = render partial: 'layouts/head_tools'
 
-    / jQuery first, then Tether, then Bootstrap JS.
-    %script{:crossorigin => "anonymous", :integrity => "sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n", :src => "https://code.jquery.com/jquery-3.1.1.slim.min.js"}
-    %script{:crossorigin => "anonymous", :integrity => "sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb", :src => "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"}
-    %script{:crossorigin => "anonymous", :integrity => "sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", :src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"}
+      = yield
+
+    / Footer
+    %footer.uk-container.uk-text-center.uk-text-muted.uk-background-muted
+      .uk-margin
+      Made with
+      %i{'uk-icon': 'heart', style: 'color: red'}
+      by Remote Team.
+      .uk-margin
+

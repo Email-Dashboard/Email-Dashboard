@@ -1,6 +1,9 @@
-%h1 SMTP Settings
+= content_for :action_buttons do
+  = link_to new_smtp_setting_path, class: 'uk-button uk-button-default' do
+    %i{'uk-icon': 'plus'}
+    New Smtp Setting
 
-%table.table
+%table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
       %th Provider
@@ -18,10 +21,6 @@
         %td= smtp_setting.address
         %td= smtp_setting.port
         %td= smtp_setting.username
-        %td= link_to 'Show', smtp_setting
-        %td= link_to 'Edit', edit_smtp_setting_path(smtp_setting)
-        %td= link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Smtp setting', new_smtp_setting_path
+        %td= link_to 'Show', smtp_setting, class: 'uk-button-text'
+        %td= link_to 'Edit', edit_smtp_setting_path(smtp_setting), class: 'uk-button-text'
+        %td= link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button-text'

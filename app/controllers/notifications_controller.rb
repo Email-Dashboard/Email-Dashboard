@@ -1,6 +1,8 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
+  include BreadcrumbExtension
+
   # GET /notifications
   # GET /notifications.json
   def index
@@ -10,6 +12,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1
   # GET /notifications/1.json
   def show
+    add_breadcrumb @notification.name, notification_path(@notification)
     @email_deliver = @notification.email_deliver
     @activities = Activity.where(notification_deliver_id: @email_deliver.id).order('created_at desc')
 
@@ -22,6 +25,8 @@ class NotificationsController < ApplicationController
 
   # GET /notifications/1/edit
   def edit
+    add_breadcrumb @notification.name, notification_path(@notification)
+    super
   end
 
   # POST /notifications

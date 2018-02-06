@@ -1,34 +1,29 @@
-%h1 Account Detail
 = render 'form', account: @account
 
-%div{style: 'margin-top: 30px;'}
+.uk-margin
+.uk-card.uk-card-default.uk-card-body
   %h3.text-center Account Users
   = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: invitations_path, method: :post) do |f|
-    .form-group
-      = f.text_field :email, class: 'form-control', placeholder: 'email@example.com'
+    .uk-margin
+      = f.input :email, placeholder: 'email@example.com', input_html: { class: 'uk-input' }
       = f.input :account, :as => :hidden, :input_html => { :value => @account.id }
-    = f.submit 'Invite', class: 'btn btn-success'
+    = f.submit 'Invite', class: 'uk-button uk-button-primary'
   %br
 
-  .jumbotron
-    .table-responsive
-      %table.table.table-striped
-        %thead
-          %tr
-            %th #
-            %th Status
-            %th Role
-        %tbody
-          - @account.account_users.each do |au|
-            %tr
-              %td= au.id
-              %td= au.user.email
-              %td= au.role
-              %td
-                - unless au.role == 'owner'
-                  = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
-                    %span.badge.badge-pill.badge-default
-                      Resend Confirm
-
-
-  = link_to 'All Accounts', accounts_path
+  %table.uk-table.uk-table-responsive.uk-table-divider
+    %thead
+      %tr
+        %th #
+        %th Status
+        %th Role
+    %tbody
+      - @account.account_users.each do |au|
+        %tr
+          %td= au.id
+          %td= au.user.email
+          %td= au.role
+          %td
+            - unless au.role == 'owner'
+              = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
+                %span.badge.badge-pill.badge-default
+                  Resend Confirm
