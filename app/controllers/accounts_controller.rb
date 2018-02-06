@@ -14,6 +14,7 @@ class AccountsController < ApplicationController
 
   def edit
     add_breadcrumb @account.name
+    super
   end
 
   def create

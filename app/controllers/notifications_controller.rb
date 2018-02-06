@@ -26,6 +26,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
     add_breadcrumb @notification.name, notification_path(@notification)
+    super
   end
 
   # POST /notifications

@@ -19,10 +19,10 @@ class NotificationContent < ApplicationRecord
 
   def content_variables
     variables = []
-    content.scan(/{{\s*[\w\.]+\s*}}/) do |m|
+    content.scan(/\s*[\w\.]+\s*}}/) do |m|
       variables << m.match(/[\w\.]+/)[0]
     end
 
-    variables
+    variables.uniq - %w(this else each)
   end
 end

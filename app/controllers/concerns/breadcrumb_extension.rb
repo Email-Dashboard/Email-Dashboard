@@ -2,8 +2,12 @@ module BreadcrumbExtension
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_list_type,   only: [:index, :show, :edit, :new]
-    before_action :set_new_type,    only: :new
+    before_action :set_list_type, only: [:index, :show, :edit, :new]
+    before_action :set_new_type,  only: :new
+  end
+
+  def edit
+    add_breadcrumb 'Edit'
   end
 
   private

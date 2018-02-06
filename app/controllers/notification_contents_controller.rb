@@ -22,6 +22,7 @@ class NotificationContentsController < ApplicationController
   # GET /notification_contents/1/edit
   def edit
     add_breadcrumb @notification_content.subject, notification_content_path(@notification_content)
+    super
   end
 
   def preview

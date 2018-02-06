@@ -23,6 +23,7 @@ class SmtpSettingsController < ApplicationController
   # GET /smtp_settings/1/edit
   def edit
     add_breadcrumb @smtp_setting.provider, smtp_setting_path(@smtp_setting)
+    super
   end
 
   # POST /smtp_settings
