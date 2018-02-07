@@ -3,13 +3,13 @@
     = f.error_notification
 
     .uk-margin
-      = f.input :provider, input_html: { class: 'uk-input' }
+      = f.input :provider, label: 'Title', placeholder: 'My Office365 Account', hint: 'For easy access', input_html: { class: 'uk-input' }
     .uk-margin
-      = f.input :address, input_html: { class: 'uk-input' }
+      = f.input :address, placeholder: 'smtp.office365.com', input_html: { class: 'uk-input' }
     .uk-margin
-      = f.input :port, input_html: { class: 'uk-input' }
+      = f.input :port, placeholder: '995', input_html: { class: 'uk-input' }
     .uk-margin
-      = f.input :username, input_html: { class: 'uk-input' }
+      = f.input :username, placeholder: 'myemail@office365.com', input_html: { class: 'uk-input' }
     .uk-margin
       = f.input :password, input_html: { class: 'uk-input' }
 
