@@ -4,41 +4,55 @@ require 'aws-sdk-lambda'
 class LambdaEmailDeliverJob < ApplicationJob
   queue_as :default
 
-  def perform(params)
-    puts params
-    puts '-------_________--------_________'
-    data = JSON.parse params
-    puts params['id']
-    puts params['variables']
-    # activity = deliver.activities.create(request_content: @options.to_json, status: 'pending')
+  def perform(params, deliver_id)
+    deliver = NotificationDeliver.find(deliver_id)
+    data = JSON.parse(params)
 
-    # client = Aws::Lambda::Client.new(
-    #   region: 'us-east-1',
-    #   credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
-    # )
+    email_to  = data['email']['to'].is_a?(Array) ? data['email']['to'].join(', ') : data['email']['to']
+    email_cc  = data['email']['cc'].is_a?(Array) ? data['email']['cc'].join(', ') : data['email']['cc']
+    email_bcc = data['email']['bcc'].is_a?(Array) ? data['email']['bcc'].join(', ') : data['email']['bcc']
 
-    # req_payload = {
-    #   options: @options.to_json,
-    #   smtp:    deliver.smtp_setting.to_json,
-    #   subject: deliver.notification_content.subject,
-    #   content: deliver.notification_content.content
-    # }
+    activity = deliver.activities.create({
+      request_content: data['variables'].merge(data['email']).to_json,
+      status: 'pending', mail_to: email_to
+    })
 
-    # payload = JSON.generate(req_payload)
+    deliver_options = {
+      email_to: email_to,
+      email_from: data['email']['from'],
+      cc: email_cc,
+      bcc: email_bcc
+    }
 
-    # resp = client.invoke({
-    #   function_name: 'notification-center-mail-sender-production-notifier',
-    #   invocation_type: 'RequestResponse',
-    #   log_type: 'None',
-    #   payload: payload
-    # })
+    req_payload = {
+      options: deliver_options.to_json,
+      variables: data['variables'].to_json,
+      smtp:    deliver.smtp_setting.to_json,
+      subject: deliver.notification_content.subject,
+      content: deliver.notification_content.content
+    }
 
-  #   resp_payload = JSON.parse(resp.payload.string)
+    payload = JSON.generate(req_payload)
 
-  #   if resp_payload['statusCode'] == 200
-  #     activity.update(status: 'success')
-  #   else
-  #     activity.update(status: 'fail')
-  #   end
+    client = Aws::Lambda::Client.new(
+      region: 'us-east-1',
+      credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
+    )
+
+    resp = client.invoke({
+      function_name: 'notification-center-mail-sender-v2-prod-notifier',
+      invocation_type: 'RequestResponse',
+      log_type: 'None',
+      payload: payload
+    })
+
+    resp_payload = JSON.parse(resp.payload.string)
+    puts resp_payload
+
+    if resp_payload['statusCode'] == 200
+      activity.update(status: 'success')
+    else
+      activity.update(status: 'fail', error_message: resp_payload['errorMessage'])
+    end
   end
 end

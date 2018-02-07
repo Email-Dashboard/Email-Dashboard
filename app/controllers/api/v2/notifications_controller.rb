@@ -30,9 +30,9 @@ class Api::V2::NotificationsController < Api::V2::ApiBaseController
       # ActiveSupport::TimeZone[zone].parse("2018-02-07 21:00:00").utc
       send_at = ActiveSupport::TimeZone[zone].parse("#{params['delivery']['date']} #{params['delivery']['time']}").utc
 
-      LambdaEmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json)
+      LambdaEmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json, @notification.email_deliver.id)
     else
-      LambdaEmailDeliverJob.perform_later(params.to_json)
+      LambdaEmailDeliverJob.perform_later(params.to_json, @notification.email_deliver.id)
     end
   end
 end
