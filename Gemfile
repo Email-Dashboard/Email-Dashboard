@@ -35,8 +35,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-faster-assets', '~> 1.0', require: false
+  gem 'capistrano-sidekiq'
   gem 'capistrano-bundler', git: 'https://github.com/capistrano/bundler.git', branch: 'master', require: false
-  gem 'capistrano-passenger'
   gem 'binding_of_caller'
 end
 
@@ -56,6 +56,9 @@ gem 'kaminari'
 gem 'rack-cors', :require => 'rack/cors'
 # Rate Limiting and Throttling
 gem 'rack-attack'
+
+gem 'sidekiq'
+gem 'redis-namespace'
 
 gem 'aws-sdk', '~> 3'
 gem 'coderay'
