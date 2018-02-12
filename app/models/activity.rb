@@ -8,8 +8,11 @@
 #  status                  :string(255)
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  error_message           :string(255)
 #
 
 class Activity < ApplicationRecord
   belongs_to :notification_deliver
+
+  has_many :receivers
 end

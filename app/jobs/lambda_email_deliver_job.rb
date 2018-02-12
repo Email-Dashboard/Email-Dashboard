@@ -12,10 +12,20 @@ class LambdaEmailDeliverJob < ApplicationJob
     email_cc  = data['email']['cc'].is_a?(Array) ? data['email']['cc'].join(', ') : data['email']['cc']
     email_bcc = data['email']['bcc'].is_a?(Array) ? data['email']['bcc'].join(', ') : data['email']['bcc']
 
+    # Create Notification Activity
     activity = deliver.activities.create({
       request_content: data['variables'].merge(data['email']).to_json,
-      status: 'pending', mail_to: email_to
+      status: 'pending'
     })
+
+    # Create activity receivers
+    if data['email']['to'].is_a?(Array)
+      data['email']['to'].each do |receiver|
+        activity.receivers.create!(email: receiver)
+      end
+    else
+      activity.receivers.create!(email: email_to)
+    end
 
     deliver_options = {
       email_to: email_to,
@@ -47,7 +57,6 @@ class LambdaEmailDeliverJob < ApplicationJob
     })
 
     resp_payload = JSON.parse(resp.payload.string)
-    puts resp_payload
 
     if resp_payload['statusCode'] == 200
       activity.update(status: 'success')

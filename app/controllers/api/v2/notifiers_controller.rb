@@ -1,8 +1,8 @@
-class Api::V2::NotificationsController < Api::V2::ApiBaseController
+class Api::V2::NotifiersController < Api::V2::ApiBaseController
   before_action :check_required_params
 
-  def notify_email
-    @notification = @api_account.notifications.friendly.find(params[:id])
+  def create
+    @notification = @api_account.notifications.friendly.find(params[:notification_id])
     email_options = params.except(:action, :controller)
 
     if @notification.email_deliver.is_active
