@@ -7,6 +7,7 @@ set :rbenv_ruby, '2.4.2'
 set :rbenv_type, :user
 set :keep_releases, 5
 set :copy_exclude, %w(.git/* tmp/*)
+set :rails_env, 'production'
 # set :linked_files, %w{config/database.yml public/sitemap.xml.gz}
 
 set :copy_exclude, %w(.git/* tmp/*)
