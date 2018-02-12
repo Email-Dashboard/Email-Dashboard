@@ -17,6 +17,12 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    namespace :v2 do
+      resources :notifications, only: [] do
+        resources :notifiers, only: %i(create)
+      end
+    end
   end
 
   resources :notifications do
@@ -39,4 +45,14 @@ Rails.application.routes.draw do
   end
 
   resources :activities, only: %i(index show)
+
+  # Sidekiq Web UI
+  require 'sidekiq/web'
+
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV['SIDEKIQ_USER'])) &
+      ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV['SIDEKIQ_PWD']))
+  end if Rails.env.production?
+
+  mount Sidekiq::Web, at: '/sidekiq'
 end

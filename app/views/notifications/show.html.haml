@@ -5,21 +5,32 @@
     = link_to 'Edit', edit_notification_path(@notification), class: 'uk-button uk-button-small uk-button-default'
 .uk-margin
 
-.uk-card.uk-card-default.uk-card-body
-  = simple_form_for([@notification, @notification.email_deliver],  html: { class: 'form-horizontal' }, method: :patch) do |f|
-    %fieldset.uk-fieldset
-      = f.error_notification
-      %h3 Email Deliver Options
-      .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
-        = f.input :is_active, input_html: { class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
+.uk-grid-collapse{'uk-grid': '', class: 'uk-child-width-expand@s'}
+  .uk-card.uk-card-default.uk-card-body
+    = simple_form_for([@notification, @notification.email_deliver],  html: { class: 'form-horizontal' }, method: :patch) do |f|
+      %fieldset.uk-fieldset
+        = f.error_notification
+        %h3 Email Deliver Options
+        .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
+          = f.input :is_active, input_html: { class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
+        .uk-margin
+          %label.uk-form-label SMTP Settings
+          = f.association :smtp_setting, label_method: :provider, value_method: :id, label: false, include_blank: true, required: true, collection: current_account.smtp_settings, input_html: { class: 'uk-select uk-form-width-large' }
+        .uk-margin
+          %label.uk-form-label Template
+          = f.association :notification_content, label_method: :subject, value_method: :id, label: false, include_blank: true, required: true, collection: current_account.notification_contents, input_html: { class: 'uk-select uk-form-width-large' }
       .uk-margin
-        %label.uk-form-label SMTP Settings
-        = f.association :smtp_setting, label_method: :provider, value_method: :id, label: false, include_blank: true, required: true, collection: current_account.smtp_settings, input_html: { class: 'uk-select uk-form-width-large' }
+        = f.submit 'Save', class: 'uk-button uk-button-primary'
+
+  .uk-card.uk-card-default.uk-card-body
+    = simple_form_for([@notification, @notification.email_deliver],  html: { class: 'form-horizontal uk-disabled' }, namespace: 'sms', method: :patch) do |f|
+      %fieldset.uk-fieldset
+        = f.error_notification
+        %h3 SMS Deliver Options
+        .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
+          = f.input :is_active, input_html: { checked: false, class: 'uk-checkbox uk-form-width-medium uk-disabled', style: 'margin-right: 5px;' }
       .uk-margin
-        %label.uk-form-label Template
-        = f.association :notification_content, label_method: :subject, value_method: :id, label: false, include_blank: true, required: true, collection: current_account.notification_contents, input_html: { class: 'uk-select uk-form-width-large' }
-    .uk-margin
-      = f.submit 'Save', class: 'uk-button uk-button-primary'
+        %h2.uk-text-muted.uk-text-center Coming Soon!
 
 .uk-margin
 .uk-card.uk-card-default.uk-card-body

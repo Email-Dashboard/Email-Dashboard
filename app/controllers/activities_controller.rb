@@ -13,12 +13,16 @@ class ActivitiesController < ApplicationController
     @activity = @activities.find(params[:id])
     add_breadcrumb @activity.id
 
-    content = JSON.parse(@activity.request_content)
+    content  = JSON.parse(@activity.request_content)
     template = @activity.notification_deliver.notification_content.content
+    subject  = @activity.notification_deliver.notification_content.subject
 
     handlebars = Handlebars::Context.new
     email_template = handlebars.compile(template)
-    @activity_content = email_template.call(content)
+    @activity_content = email_template.call(content['variables'])
+
+    email_subject = handlebars.compile(subject)
+    @activity_subject = email_subject.call(content['variables'])
 
     respond_to do |format|
       format.html { render 'activities/show', layout: false }

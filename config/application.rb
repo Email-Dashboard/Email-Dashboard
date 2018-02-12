@@ -23,6 +23,8 @@ module NotificationDashboard
 
     config.autoload_paths += Dir["#{config.root}/app/services/**/"]
 
+    config.active_job.queue_adapter = :sidekiq
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 

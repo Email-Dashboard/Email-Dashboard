@@ -1,5 +1,7 @@
 require 'aws-sdk-lambda'
 
+# Used in API v1
+# TODO: Remove after moving to v2
 class LambdaEmailNotificationService
   def initialize(notification, options)
     @notification = notification
