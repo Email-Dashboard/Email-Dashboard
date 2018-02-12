@@ -10,15 +10,15 @@
   <li class="uk-active" id="curl" role="tabpanel">
     <pre>
       <code class="hljs bash" style="margin-left: -50px;">
-      # Authorization, email_from and email_to are required
-
       <%= "curl -i -H \"Authorization: Token token=#{current_account.api_key}\" \\ " %>
+      -H "Content-type: application/json" \
+      -X POST -d '{ "variables":{ "<%= variables.first || 'variable' %>":"some_value"},
+          "email":{ "to":["test@example.com"], "cc":["test@exapmle.com"], "bcc":["test@exapmle.com"], "from":"test@example.com" },
+          "delivery":{ "time":"21:00", "date":"2018-02-12", "zone": "Central Time (US & Canada)" } }' \
+      <%= "\"https://notifications.svteknoloji.website/api/v2/notifications/#{@notification.slug}/notifiers\"" %>
 
-      -X POST -d "email_from=test@email.com" -d "email_to=email@api.com" \
-      <% variables.each do |variable| %>
-        <%= "-d \"#{variable}=some_value\" \\ " %>
-      <% end %>
-      <%= "\"https://notifications.svteknoloji.website/api/v1/notifications/#{@notification.slug}/notify_email\"" %>
+      # Delivery is optional
+      # <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
       </code>
     </pre>
   </li>
@@ -28,18 +28,30 @@
       require 'httparty'
 
         query = {
-          email_from:  'test@emaildomain.com', # required
-          email_to:    'targetemail@email.com',  # required
-        <% variables.each do |variable| %>
-          <%= "#{variable}: 'some_value'," %>
-        <% end %>
+          email: {
+            to: ['to@example.com'],
+            cc: ['cc@test.com'],
+            bcc: ['bcc@test.com'],
+            from: 'from@test.com'
+          },
+          variables: {
+          <% variables.each do |variable| %>
+            <%= "#{variable}: 'some_value'," %>
+          <% end %>
+          },
+          # optional
+          delivery: {
+            time: "21:00",
+            date: "<%= Time.current.to_date %>",
+            time_zone: "<%= Time.zone.name %>" # <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+          }
         }
         headers = {
           <%= "Authorization: \"Token token=#{current_account.api_key}\"" %>
         }
 
         HTTParty.post(
-          '<%= "https://notifications.svteknoloji.website/api/v1/notifications/#{@notification.slug}/notify_email" %>',
+          '<%= "https://notifications.svteknoloji.website/api/v2/notifications/#{@notification.slug}/notifiers" %>',
           query: query, headers: headers
         )
       </code>
@@ -54,11 +66,23 @@
 
         // The data to send to the API
         $postData = array(
-            'email_from' =>  'test@emaildomain.com', // required
-            'email_to' =>    'targetemail@email.com',  // required
-          <% variables.each do |variable| %>
-            <%= "'#{variable}' => 'some_value'," %>
-          <% end %>
+            'email' =>  array(
+              'to' => ['to@example.com'],
+              'cc' => ['cc@test.com'],
+              'bcc' => ['bcc@test.com'],
+              'from' => 'from@test.com'
+            ),
+            'variables' => array(
+            <% variables.each do |variable| %>
+              <%= "'#{variable}' => 'some_value'," %>
+            <% end %>
+          ),
+          // optional
+          delivery => {
+            'time' => "21:00",
+            'date' => "<%= Time.current.to_date %>",
+            'time_zone' => "<%= Time.zone.name %>" // <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+          }
         );
 
         // Create the context for the request
@@ -78,3 +102,36 @@
     </pre>
   </li>
 </ul>
+
+<div id="modal-center" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <h2 class="uk-modal-title">Available Time Zones</h2>
+    <% zone_arr = ActiveSupport::TimeZone.all.collect(&:name).each_slice(50).to_a %>
+    <div class="uk-child-width-expand" uk-grid>
+      <div>
+        <ul class="uk-list">
+          <% zone_arr[0].each do |zone| %>
+            <li><%= zone %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="uk-list">
+          <% zone_arr[1].each do |zone| %>
+            <li><%= zone %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="uk-list">
+          <% zone_arr[2].each do |zone| %>
+            <li><%= zone %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
