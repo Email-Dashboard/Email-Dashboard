@@ -14,7 +14,7 @@ class LambdaEmailDeliverJob < ApplicationJob
 
     # Create Notification Activity
     activity = deliver.activities.create({
-      request_content: data['variables'].merge(data['email']).to_json,
+      request_content: data.to_json,
       status: 'pending'
     })
 
