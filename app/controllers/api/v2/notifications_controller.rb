@@ -16,13 +16,25 @@ class Api::V2::NotificationsController < Api::V2::ApiBaseController
   private
 
   def check_required_params
-    unless params['email'].present?
-      render(json: { errors: 'email data required' }, status: 422) && return
+    param! :email, Hash do |e|
+      e.param! :to, Array, required: true
+      e.param! :from, String, required: true
     end
+
+    param! :sms, Hash do |e|
+      e.param! :to, Array, required: true
+    end
+
+    param! :delivery, Hash do |e|
+      e.param! :time, String, required: true, format: /\d{2}:\d{2}/
+      e.param! :date, String, required: true, format: /\d{4}-\d{2}-\d{2}/
+    end
+  rescue RailsParam::Param::InvalidParameterError => e
+    render(json: { errors: e }, status: 422) && return
   end
 
   def enqueue_email_job
-    if params['delivery'].present? && params['delivery']['time'].present? && params['delivery']['date'].present?
+    if params['delivery'].present?
 
       time_zone = params['delivery']['time_zone'] || 'UTC'
       zone = ActiveSupport::TimeZone.all.collect(&:name).include?(time_zone) ? time_zone : 'UTC'
