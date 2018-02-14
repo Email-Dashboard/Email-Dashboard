@@ -1,0 +1,16 @@
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th Name
+      %th Is Active
+      %th
+  %tbody
+    - notifications.each do |notification|
+      %tr
+        %td= notification.name
+        %td
+          %span.uk-label{class: "uk-label-#{notification.email_deliver.is_active ? 'success' : 'danger'}"}
+            = notification.email_deliver.is_active ? 'yes' : 'no'
+        %td.uk-text-right
+          = link_to 'Settings', notification, class: 'uk-button uk-button-small uk-button-default'
+          = link_to 'Destroy', notification, class: 'uk-button uk-button-small uk-button-danger',  method: :delete, data: { confirm: 'Are you sure?' }

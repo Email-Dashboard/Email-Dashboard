@@ -3,9 +3,15 @@
     = f.error_notification
 
     .uk-margin
-      = f.input :subject, input_html: { class: 'uk-input' }
+      = f.input :subject, input_html: { class: 'uk-input' }, autofocus: true
     .uk-margin
       = f.input :content, input_html: { rows: 15, class: 'uk-textarea' }
+      %p.uk-text-meta
+        We support
+        = link_to "Handlebars", "http://handlebarsjs.com/", target: "_blank"
+        = "."
+        You can use variables to  make your content more active.
+        = link_to "Click here to see handlebars documentation.", "http://handlebarsjs.com/", target: "_blank"
 
     .uk-margin
       = f.submit 'Save', class: 'uk-button uk-button-primary'

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root to: 'activities#index', as: :authenticated_root
+      root to: 'dashboards#index', as: :authenticated_root
     end
   end
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :notification_delivers, only: :update
   end
 
-  resources :smtp_settings
+  resources :smtp_settings, path: "smtp"
   resources :accounts do
     member do
       post :set_current
@@ -38,13 +38,15 @@ Rails.application.routes.draw do
 
   resources :invitations, only: [:create, :update]
 
-  resources :notification_contents do
+  resources :notification_contents, path: "templates" do
     member do
       get :preview
     end
   end
 
   resources :activities, only: %i(index show)
+
+  resources :dashboards, only: :index
 
   # Sidekiq Web UI
   require 'sidekiq/web'

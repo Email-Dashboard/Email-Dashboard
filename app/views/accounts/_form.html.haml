@@ -1,7 +1,7 @@
 .uk-card.uk-card-default.uk-card-body
-  = simple_form_for(@account,  html: { class: 'form-horizontal' }) do |f|
+  = simple_form_for(account,  html: { class: 'form-horizontal' }) do |f|
     = f.error_notification
     .uk-margin
-      = f.input :name, input_html: { class: 'uk-input' }
+      = f.input :name, input_html: { class: 'uk-input' }, autofocus: true
 
     = f.submit 'Save', class: 'uk-button uk-button-primary'

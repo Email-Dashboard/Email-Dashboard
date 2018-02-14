@@ -1,1 +1,4 @@
-= render partial: 'activities/table_activities', locals: { activities: @activities }
+- if @activities.size == 0
+  = render partial: 'activities/blank'
+- else
+  = render partial: 'activities/index', locals: { activities: @activities }

@@ -4,16 +4,7 @@
     New Account
 
 
-%table.uk-table.uk-table-responsive.uk-table-divider
-  %thead
-    %tr
-      %th Name
-      %th{:colspan => "3"}
-  %tbody
-    - @accounts.each do |account|
-      %tr
-        %td= account.name
-        %td.uk-text-right
-          = link_to 'Dashboard', set_current_account_path(account), method: :post, class: 'uk-button uk-button-small uk-button-default'
-          = link_to 'Settings', edit_account_path(account), class: 'uk-button uk-button-small uk-button-default'
-          = link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'
+- if @accounts.size == 0
+  = render 'accounts/blank'
+- else
+  = render 'accounts/index'
