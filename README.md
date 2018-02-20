@@ -1,5 +1,21 @@
 # Notification Center
 
+
+## Development
+```bash
+git clone git@gitlab.com:rails-auth/auth.git
+cd auth
+git checkout feature/notification
+rails s webrick
+# http://lvh.me:3000/
+
+cd ..
+git clone git@gitlab.com:notification-center/dashboard.git
+cd dashboard
+rails s webrick -p 3001
+# http://lvh.me:3001
+```
+
 ## User
 
 * `has_and_belongs_to_many :accounts`

@@ -15,7 +15,7 @@ set :copy_exclude, %w(.git/* tmp/*)
 set :linked_dirs, %w{log tmp/pids tmp/cache vendor/bundle}
 set :bundle_jobs, 4 #This is only available for bundler 1.4+
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/initializers/sidekiq.rb}
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
 # set :format, :pretty airbrush
 set :log_level, :debug
