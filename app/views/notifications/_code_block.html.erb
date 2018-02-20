@@ -13,12 +13,29 @@
       <%= "curl -i -H \"Authorization: Token token=#{current_account.api_key}\" \\ " %>
       -H "Content-type: application/json" \
       -X POST -d '{ "variables":{ "<%= variables.first || 'variable' %>":"some_value"},
-          "email":{ "to":["test@example.com"], "cc":["test@exapmle.com"], "bcc":["test@exapmle.com"], "from":"test@example.com" },
+          "email":{ "to":["test@example.com"], "cc":["test@exapmle.com"], "bcc":["test@exapmle.com"], reply_to":["test@exapmle.com"], "from":"test@example.com" },
           "delivery":{ "time":"21:00", "date":"2018-02-12", "zone": "Central Time (US & Canada)" } }' \
       <%= "\"https://notifications.svteknoloji.website/api/v2/notifications/#{@notification.slug}/notifiers\"" %>
 
-      # Delivery is optional
+      # Delivery is optional, If delivery not set notification will send immediately.
       # <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+      # Example JSON body
+        {
+          "variables":{
+             "user_fullname":"Test User"
+          },
+          "email":{
+             "to":["test@gmail.com", "test2@gmail.com"],
+             "cc": ["cc@test.com"],
+             "reply_to": ["reply@test.com"],
+             "from":"from@test.com"
+          },
+          "delivery": {
+            "time": "21:00",
+            "date": "2018-02-12",
+            "zone": "Central Time (US & Canada)"
+          }
+       }
       </code>
     </pre>
   </li>
@@ -32,7 +49,8 @@
             to: ['to@example.com'],
             cc: ['cc@test.com'],
             bcc: ['bcc@test.com'],
-            from: 'from@test.com'
+            from: 'from@test.com',
+            reply_to: ['reply@test.com']
           },
           variables: {
           <% variables.each do |variable| %>
@@ -70,7 +88,8 @@
               'to' => ['to@example.com'],
               'cc' => ['cc@test.com'],
               'bcc' => ['bcc@test.com'],
-              'from' => 'from@test.com'
+              'from' => 'from@test.com',
+              'reply_to': ['reply@test.com']
             ),
             'variables' => array(
             <% variables.each do |variable| %>

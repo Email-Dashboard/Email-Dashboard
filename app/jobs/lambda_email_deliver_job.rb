@@ -11,6 +11,7 @@ class LambdaEmailDeliverJob < ApplicationJob
     email_to  = data['email']['to'].is_a?(Array) ? data['email']['to'].join(', ') : data['email']['to']
     email_cc  = data['email']['cc'].is_a?(Array) ? data['email']['cc'].join(', ') : data['email']['cc']
     email_bcc = data['email']['bcc'].is_a?(Array) ? data['email']['bcc'].join(', ') : data['email']['bcc']
+    reply_to  = data['email']['reply_to'].is_a?(Array) ? data['email']['reply_to'].join(', ') : data['email']['reply_to']
 
     # Create Notification Activity
     activity = deliver.activities.create({
@@ -31,7 +32,8 @@ class LambdaEmailDeliverJob < ApplicationJob
       email_to: email_to,
       email_from: data['email']['from'],
       cc: email_cc,
-      bcc: email_bcc
+      bcc: email_bcc,
+      reply_to: reply_to
     }
 
     req_payload = {
