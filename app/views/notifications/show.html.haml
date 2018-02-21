@@ -33,6 +33,11 @@
         %h2.uk-text-muted.uk-text-center Coming Soon!
 
 .uk-margin
+  .uk-card.uk-card-default.uk-card-body{'data-controller': 'notification'}
+    %input.uk-input{'data-target': 'notification.name', type: 'text'}
+    %button.uk-button.uk-button-default{'data-action': 'click->notification#log'} Click Me!
+
+.uk-margin
 .uk-card.uk-card-default.uk-card-body
   = render 'code_block'
 
