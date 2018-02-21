@@ -16,6 +16,15 @@ GIT
       rake (>= 10.4, < 13.0)
 
 GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 0e58183d806c63ea76cd5e7f04549265044c129b
+  specs:
+    webpacker (3.2.2)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+
+GIT
   remote: https://github.com/seuros/capistrano-puma.git
   revision: 81647bc8402ff1cb485e81d9ec803dfec31aa851
   specs:
@@ -729,6 +738,8 @@ GEM
     rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
+    rack-proxy (0.6.3)
+      rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -878,6 +889,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker!
 
 BUNDLED WITH
    1.16.0
