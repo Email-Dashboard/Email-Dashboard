@@ -1,3 +1,10 @@
+%table{style: 'width: 40%;margin-left: 30%;margin-top: 2%;border: 1px solid black;'}
+  - @activity_email.each do |key, value|
+    %tr
+      %td
+        %b= "#{key}:"
+      %td= value.is_a?(Array) ? value.join(', ') : value
+
 %h2{style: 'text-align: center;margin: 10px;'}
   = raw @activity_subject
-= raw @activity_content
+= raw @activity_variables
