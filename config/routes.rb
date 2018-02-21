@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'activities#index'
+  root 'dashboards#index'
 
   namespace :api do
     namespace :v1 do

@@ -1,2 +1,11 @@
-%h2 1233 emails sent.
-%h2 123 sms sent.
+.uk-text-center{:class => "uk-child-width-expand@s", "uk-grid" => ""}
+  %div
+    .uk-card.uk-card-default.uk-card-body
+      %h3
+        = @sent_emails_count
+        Emails sent
+  %div
+    .uk-card.uk-card-default.uk-card-body
+      %h3
+        = @sent_sms_count
+        SMS sent
