@@ -1,6 +1,5 @@
 set :application, 'notification-center'
 set :repo_url, 'git@gitlab.com:notification-center/dashboard.git'
-set :branch, 'feature/stimulus'
 set :deploy_to, "/home/ubuntu/apps/#{fetch(:application)}"
 set :migration_role, 'migrator'
 
@@ -10,8 +9,6 @@ set :keep_releases, 5
 set :copy_exclude, %w(.git/* tmp/*)
 set :rails_env, 'production'
 # set :linked_files, %w{config/database.yml public/sitemap.xml.gz}
-
-set :default_env, { 'NODE_ENV': 'production' }
 
 set :copy_exclude, %w(.git/* tmp/*)
 # set :linked_files, %w{config/mongoid.yml} # we are using mongoidgerenrate.rb to generate smart app base pool
@@ -24,6 +21,17 @@ set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
 set :log_level, :debug
 set :pty, true
 
-namespace :deploy do
 
+before 'deploy:assets:precompile', 'deploy:yarn_install'
+
+namespace :deploy do
+  desc 'Run rake yarn:install'
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install")
+        execute("cd #{release_path} && NODE_ENV=production RAILS_ENV=production $HOME/.rbenv/bin/rbenv exec bundle exec rake webpacker:compile")
+      end
+    end
+  end
 end
