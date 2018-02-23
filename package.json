@@ -2,7 +2,8 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
     "rails-ujs": "^5.1.5",
-    "stimulus": "^1.0.1"
+    "stimulus": "^1.0.1",
+    "turbolinks": "^5.1.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"
