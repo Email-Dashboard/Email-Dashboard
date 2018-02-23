@@ -1,0 +1,45 @@
+%nav.uk-navbar-container{"uk-navbar" => ""}
+  .uk-navbar-left
+    %ul.uk-navbar-nav
+      %li.uk-active
+        %a
+          %span{"uk-icon" => "icon: bell"}
+      %li{class: "#{'uk-active' if (current_page?(root_path) || current_page?(dashboards_path))}"}
+        %a{:href => root_path} Home
+
+      %li{class: "#{'uk-active' if current_page?(activities_path)}"}
+        %a{:href => activities_path } Activities
+
+      %li{class: "#{'uk-active' if current_page?(notifications_path)}"}
+        %a{:href => notifications_path } Notifications
+
+      %li{class: "#{'uk-active' if current_page?(smtp_settings_path)}"}
+        %a{:href => smtp_settings_path }
+          SMTP Settings
+      %li{class: "#{'uk-active' if current_page?(notification_contents_path)}"}
+        %a{:href => notification_contents_path }
+          Templates
+  .uk-navbar-right
+    %ul.uk-navbar-nav
+      %li
+        %a{:href => "#"}
+          = current_account.try(:name) || 'No Account Created'
+          %span{"uk-icon" => "icon: chevron-down"}
+        .uk-navbar-dropdown
+          %ul.uk-nav.uk-dropdown-nav
+            - current_user.accounts.persisted.each do |account|
+              %li{class: ('uk-active' if account == current_account) }
+                = link_to set_current_account_path(account), method: :post do
+                  = account.name
+            %li.uk-nav-divider
+            %li
+              = link_to 'Manage Accounts', accounts_path
+      %li
+        %a{:href => "#"}
+          = current_user.email
+          %span{"uk-icon" => "icon: chevron-down"}
+        .uk-navbar-dropdown
+          %ul.uk-nav.uk-navbar-dropdown-nav
+            %li
+              = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
+                Logout

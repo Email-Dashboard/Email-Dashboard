@@ -1,0 +1,14 @@
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th Subject
+      %th
+
+  %tbody
+    - notification_contents.each do |notification_content|
+      %tr
+        %td= notification_content.subject
+        %td.uk-text-right
+          = link_to 'Show', notification_content, class: 'uk-button uk-button-small uk-button-default'
+          = link_to 'Edit', edit_notification_content_path(notification_content), class: 'uk-button uk-button-small uk-button-default'
+          = link_to 'Destroy', notification_content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'

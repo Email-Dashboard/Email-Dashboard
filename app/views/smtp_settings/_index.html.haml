@@ -1,0 +1,20 @@
+%table.uk-table.uk-table-responsive.uk-table-divider
+  %thead
+    %tr
+      %th Provider
+      %th Address
+      %th Port
+      %th Username
+      %th
+
+  %tbody
+    - smtp_settings.each do |smtp_setting|
+      %tr
+        %td= smtp_setting.provider
+        %td= smtp_setting.address
+        %td= smtp_setting.port
+        %td= smtp_setting.username
+        %td.uk-text-right
+          = link_to 'Show', smtp_setting, class: 'uk-button uk-button-default uk-button-small'
+          = link_to 'Edit', edit_smtp_setting_path(smtp_setting), class: 'uk-button uk-button-default uk-button-small'
+          = link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger uk-button-small'

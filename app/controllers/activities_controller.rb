@@ -1,11 +1,8 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activities
+  before_action :set_activities, :set_custom_breadcrumbs
   before_action :authorize_view_token, only: :show
 
-  # GET /activities
-  # GET /activities.json
   def index
-    add_breadcrumb ''
     @activities = @activities.order(created_at: :desc).page(params[:page])
   end
 
@@ -34,6 +31,10 @@ class ActivitiesController < ApplicationController
 
   private
 
+  def set_custom_breadcrumbs
+    add_breadcrumb 'Activities', activities_path
+  end
+
   def authorize_view_token
     if params[:token].present?
       decoded_token = JWT.decode params[:token], nil, false
@@ -41,11 +42,9 @@ class ActivitiesController < ApplicationController
       # View token expires in 15 minutes
       if Time.current > (Time.at(decoded_token.first['data']) + 15.minutes)
         redirect_to activities_path, flash: { error: 'View token expired! Please try again...' }
-        return
       end
     else
       redirect_to activities_path, flash: { error: 'View token required!' }
-      return
     end
   end
 

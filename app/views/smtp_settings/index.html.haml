@@ -1,25 +1,9 @@
 = content_for :action_buttons do
   = link_to new_smtp_setting_path, class: 'uk-button uk-button-success' do
     %i{'uk-icon': 'plus'}
-    New Smtp
+    New SMTP
 
-%table.uk-table.uk-table-responsive.uk-table-divider
-  %thead
-    %tr
-      %th Provider
-      %th Address
-      %th Port
-      %th Username
-      %th
-
-  %tbody
-    - @smtp_settings.each do |smtp_setting|
-      %tr
-        %td= smtp_setting.provider
-        %td= smtp_setting.address
-        %td= smtp_setting.port
-        %td= smtp_setting.username
-        %td.uk-text-right
-          = link_to 'Show', smtp_setting, class: 'uk-button uk-button-default uk-button-small'
-          = link_to 'Edit', edit_smtp_setting_path(smtp_setting), class: 'uk-button uk-button-default uk-button-small'
-          = link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger uk-button-small'
+- if @smtp_settings.size == 0
+  = render 'smtp_settings/blank'
+- else
+  = render 'smtp_settings/index', { smtp_settings: @smtp_settings }

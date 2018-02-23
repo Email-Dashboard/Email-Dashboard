@@ -1,5 +1,6 @@
 set :application, 'notification-center'
 set :repo_url, 'git@gitlab.com:notification-center/dashboard.git'
+set :branch, 'feature/stimulus'
 set :deploy_to, "/home/ubuntu/apps/#{fetch(:application)}"
 set :migration_role, 'migrator'
 
@@ -9,6 +10,8 @@ set :keep_releases, 5
 set :copy_exclude, %w(.git/* tmp/*)
 set :rails_env, 'production'
 # set :linked_files, %w{config/database.yml public/sitemap.xml.gz}
+
+set :default_env, { 'NODE_ENV': 'production' }
 
 set :copy_exclude, %w(.git/* tmp/*)
 # set :linked_files, %w{config/mongoid.yml} # we are using mongoidgerenrate.rb to generate smart app base pool

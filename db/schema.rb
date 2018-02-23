@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20180212095846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_receivers_on_activity_id"
+    t.index ["email"], name: "index_receivers_on_email"
+    t.index ["phone"], name: "index_receivers_on_phone"
   end
 
   create_table "smtp_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
