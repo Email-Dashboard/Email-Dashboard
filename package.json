@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
+    "jquery": "^3.3.1",
     "rails-ujs": "^5.1.5",
     "stimulus": "^1.0.1",
     "turbolinks": "^5.1.1"
