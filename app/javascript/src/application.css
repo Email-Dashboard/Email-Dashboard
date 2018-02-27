@@ -53,3 +53,7 @@ footer{
 .hint {
   font-size: 12px;
 }
+
+.error {
+  color: #f93e3e;
+}

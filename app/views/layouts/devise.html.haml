@@ -1,0 +1,32 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render partial: 'layouts/head_tags'
+  %body.uk-background-default
+    %nav.uk-navbar-container{"uk-navbar" => ""}
+      .uk-navbar-left
+        %ul.uk-navbar-nav
+          %li.uk-active
+            %a
+              %span{"uk-icon" => "icon: bell"}
+    .uk-container
+      %div{:class => "uk-child-width-1-2@m", "uk-grid" => ""}
+        %div
+          .uk-card
+            .uk-card-body
+              %h3.uk-card-title Welcome to Notification Center!
+              %p Organize and manage your system Email and SMS notifications.
+              %p Customize your templates, variables and more...
+        %div
+          .uk-card
+            .uk-card-body
+              = yield
+
+    / Footer
+    %footer.uk-text-center.uk-text-muted.uk-background-muted
+      .uk-margin
+      Made with
+      %i{'uk-icon': 'heart', style: 'color: red'}
+      by Remote Team.
+      .uk-margin
+

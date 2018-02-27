@@ -1,0 +1,12 @@
+.uk-text-center
+  %h3.uk-card-title= t "devise.invitations.edit.header"
+
+  = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { class: 'm-login__form m-form',  method: :put } do |f|
+    = devise_error_messages!
+    = f.hidden_field :invitation_token
+    .uk-form-controls.uk-margin
+      = f.input :password, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Password', label: false
+    .uk-form-controls.uk-margin
+      = f.input :password_confirmation, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Password Confirmation', label: false
+    .m-login__form-action
+      = f.button :submit, t("devise.invitations.edit.submit_button"), class: 'uk-button uk-button-primary'

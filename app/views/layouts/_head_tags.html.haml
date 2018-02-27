@@ -1,0 +1,15 @@
+%title Notification Center
+%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+/ Required meta tags
+%meta{:charset => "utf-8"}/
+%meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+/ UIKit CSS
+%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/css/uikit.min.css", :rel => "stylesheet"}/
+
+= csrf_meta_tags
+/ UIKit JS.
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit-icons.min.js"}
+
+= javascript_pack_tag 'application'
+= stylesheet_pack_tag 'application'

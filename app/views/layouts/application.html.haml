@@ -1,27 +1,11 @@
 !!!
 %html{:lang => "en"}
   %head
-    %title Notification Center
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    / Required meta tags
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    / UIKit CSS
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/css/uikit.min.css", :rel => "stylesheet"}/
-
-    = csrf_meta_tags
+    = render partial: 'layouts/head_tags'
     / Import highlight.js
     %link{:href => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css", :rel => "stylesheet"}/
     %script{:src => "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"}
 
-    / UIKit JS.
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit.min.js"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.38/js/uikit-icons.min.js"}
-
-    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    -# = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application'
-    = stylesheet_pack_tag 'application'
   %body.uk-background-default
 
     = render 'layouts/navbar'

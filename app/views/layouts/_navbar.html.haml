@@ -41,5 +41,9 @@
         .uk-navbar-dropdown
           %ul.uk-nav.uk-navbar-dropdown-nav
             %li
+              = link_to edit_user_registration_path, class: 'dropdown-item' do
+                Profile Settings
+            %li.uk-nav-divider
+            %li
               = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
                 Logout

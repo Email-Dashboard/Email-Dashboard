@@ -1,0 +1,25 @@
+.uk-grid{'uk-grid': ''}
+  %div
+    %h3 Update Email / Password
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'uk-form-stacked') do |f|
+      = f.error_notification
+      .uk-form-controls.uk-margin
+        = f.input :email, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Email', label: false
+
+      .uk-form-controls.uk-margin
+        = f.input :password, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Password', label: false, hint: 'leave it blank if you don\'t want to change it'
+      .uk-form-controls.uk-margin
+        = f.input :password_confirmation, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Password Confirmation', label: false
+      .uk-form-controls.uk-margin
+        = f.input :current_password, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Current Password', label: false, hint: 'we need your current password to confirm your changes'
+      .uk-form-row
+        = f.button :submit, "Sign UP", class: 'uk-button uk-button-primary'
+    %br
+    = render "devise/shared/links"
+  %div
+    %h3 Cancel my account
+    %p
+      Unhappy?
+    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'uk-text-danger'
+    %br
+    = link_to "Back", :back
