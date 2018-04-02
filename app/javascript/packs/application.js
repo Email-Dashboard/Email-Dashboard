@@ -6,13 +6,11 @@ Rails.start();
 import Turbolinks from "turbolinks";
 Turbolinks.start();
 
-import { Application } from 'stimulus'
-import { definitionsFromContext } from "stimulus/webpack-helpers"
+// import Filter from 'components/filter'
 
-const application = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
+import WebpackerReact from 'webpacker-react'
 
+// WebpackerReact.setup({Filter})
 
 document.addEventListener("turbolinks:load", function() {
   $('pre code').each(function(i, block) {

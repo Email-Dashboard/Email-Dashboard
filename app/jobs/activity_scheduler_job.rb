@@ -4,8 +4,8 @@ class ActivitySchedulerJob < ApplicationJob
   queue_as :default
 
   def perform
-    Activity.where(status: ['pending', 'scheduled']).each do |activity|
-      Sidekiq.logger.info "Activty runned: #{Time.current}"
+    Activity.where(status: ['pending', 'scheduled']).where('send_at < ?', Time.current).each do |activity|
+      Sidekiq.logger.info "Activty run in: #{Time.current}, for activity send_at: #{activity.send_at}"
       LambdaEmailDeliverJob.perform_later(activity.id)
     end
   end

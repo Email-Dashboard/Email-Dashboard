@@ -16,5 +16,5 @@ class Activity < ApplicationRecord
 
   has_many :receivers
 
-  STATUSES = %w[pending scheduled fail success].freeze
+  STATUSES = %w[pending scheduled fail success canceled].freeze
 end

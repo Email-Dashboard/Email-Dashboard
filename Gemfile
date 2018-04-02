@@ -11,6 +11,7 @@ gem 'puma', '~> 3.7'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+gem 'webpacker-react', "~> 0.3.2"
 
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
@@ -49,6 +50,7 @@ gem 'simple_form'
 gem 'bugsnag'
 gem 'responders'
 gem 'kaminari'
+gem 'ransack'
 
 # Enable Cross-Origin
 gem 'rack-cors', :require => 'rack/cors'

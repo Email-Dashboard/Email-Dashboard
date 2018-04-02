@@ -3,7 +3,9 @@ class ActivitiesController < ApplicationController
   before_action :authorize_view_token, only: :show
 
   def index
-    @activities = @activities.order(created_at: :desc).page(params[:page])
+    @q = @activities.ransack(params[:q])
+    @q.sorts = 'created_at DESC'
+    @list_activities = @q.result(distinct: true).page(params[:page])
   end
 
   def show
