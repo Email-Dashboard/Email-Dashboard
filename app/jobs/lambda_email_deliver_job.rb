@@ -2,12 +2,13 @@ require 'aws-sdk-lambda'
 
 # Used in API v2
 class LambdaEmailDeliverJob < ApplicationJob
-  queue_as :default
+  queue_as :critical
 
   def perform(activity_id)
     activity = Activity.find(activity_id)
     return unless %w[pending scheduled].include? activity.status
 
+    deliver = activity.notification_deliver
     data = JSON.parse(activity.request_content)
 
     email_to  = data['email']['to'].is_a?(Array) ? data['email']['to'].join(', ') : data['email']['to']
