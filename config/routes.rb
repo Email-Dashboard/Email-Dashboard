@@ -51,7 +51,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :activities, only: %i(index show)
+  resources :activities, only: %i(index show) do
+    resource :schedulers, only: %i(show update)
+  end
 
   resources :dashboards, only: :index
 

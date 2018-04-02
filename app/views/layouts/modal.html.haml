@@ -1,0 +1,10 @@
+#modal-sections.modal{"uk-modal" => ""}
+  .uk-modal-dialog
+    %button.uk-modal-close-default{:type => "button", "uk-close" => ""}
+    .uk-modal-header
+      %h6.uk-modal-title{style: 'font-size: 1.2rem;'}
+        = yield :modal_title if content_for? :modal_title
+    .uk-modal-body
+      = yield
+    .uk-modal-footer.uk-text-right
+      %button.uk-button.uk-button-default.uk-modal-close{:type => "button"} Close

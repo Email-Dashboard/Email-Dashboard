@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @q = @activities.ransack(params[:q])
-    @q.sorts = 'created_at DESC'
+    @q.sorts = 'send_at DESC'
     @list_activities = @q.result(distinct: true).page(params[:page])
   end
 

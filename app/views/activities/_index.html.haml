@@ -16,6 +16,9 @@
           = badge_status(activity.status)
           - if activity.status == 'fail'
             %span.uk-margin-small-right.uk-icon{'uk-icon': 'info', 'uk-tooltip': "title: #{activity.error_message}"}
+          - elsif activity.status == 'scheduled'
+            = link_to activity_schedulers_path(activity), data: { modal: true } do
+              %span.uk-margin-small-right.uk-icon{'uk-icon': 'cog', 'uk-tooltip': "title: Scheduled to: #{activity.send_at}"}
         - payload = { data: Time.current.to_i, id: activity.id }
         %td= link_to 'Content Preview', activity_path(activity, token: (JWT.encode payload, nil, 'none')), class: 'uk-button uk-button-small uk-button-default', target: '_blank'
 
