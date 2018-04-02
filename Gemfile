@@ -57,6 +57,7 @@ gem 'rack-attack'
 
 gem 'sidekiq'
 gem 'redis-namespace'
+gem 'sidekiq-scheduler'
 
 gem 'aws-sdk', '~> 3'
 gem 'coderay'

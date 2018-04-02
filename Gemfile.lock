@@ -649,6 +649,8 @@ GEM
     encryptor (3.0.0)
     erubi (1.7.0)
     erubis (2.7.0)
+    et-orbi (1.1.0)
+      tzinfo
     execjs (2.7.0)
     ffi (1.9.18)
     friendly_id (5.1.0)
@@ -769,12 +771,19 @@ GEM
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
+    rufus-scheduler (3.4.2)
+      et-orbi (~> 1.0)
     sexp_processor (4.10.0)
     sidekiq (5.0.5)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    sidekiq-scheduler (2.2.1)
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      tilt (>= 1.4.0)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -854,6 +863,7 @@ DEPENDENCIES
   redis-namespace
   responders
   sidekiq
+  sidekiq-scheduler
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -42,9 +42,18 @@ class Api::V2::NotifiersController < Api::V2::ApiBaseController
       # ActiveSupport::TimeZone[zone].parse("2018-02-07 21:00:00").utc
       send_at = ActiveSupport::TimeZone[zone].parse("#{params['delivery']['date']} #{params['delivery']['time']}").utc
 
-      LambdaEmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json, @notification.email_deliver.id)
+      Activty.create(
+        notification_deliver: @notification.email_deliver,
+        request_content: params.to_json, send_at: send_at,
+        status: 'scheduled'
+      )
+      # LambdaEmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json, @notification.email_deliver.id)
     else
-      LambdaEmailDeliverJob.perform_later(params.to_json, @notification.email_deliver.id)
+      Activty.create(
+        notification_deliver: @notification.email_deliver,
+        request_content: params.to_json, send_at: Time.current,
+        status: 'pending'
+      )
     end
   end
 end

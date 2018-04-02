@@ -4,20 +4,16 @@ require 'aws-sdk-lambda'
 class LambdaEmailDeliverJob < ApplicationJob
   queue_as :default
 
-  def perform(params, deliver_id)
-    deliver = NotificationDeliver.find(deliver_id)
-    data = JSON.parse(params)
+  def perform(activity_id)
+    activity = Activity.find(activity_id)
+    return unless %w[pending scheduled].include? activity.status
+
+    data = JSON.parse(activity.request_content)
 
     email_to  = data['email']['to'].is_a?(Array) ? data['email']['to'].join(', ') : data['email']['to']
     email_cc  = data['email']['cc'].is_a?(Array) ? data['email']['cc'].join(', ') : data['email']['cc']
     email_bcc = data['email']['bcc'].is_a?(Array) ? data['email']['bcc'].join(', ') : data['email']['bcc']
     reply_to  = data['email']['reply_to'].is_a?(Array) ? data['email']['reply_to'].join(', ') : data['email']['reply_to']
-
-    # Create Notification Activity
-    activity = deliver.activities.create({
-      request_content: data.to_json,
-      status: 'pending'
-    })
 
     # Create activity receivers
     if data['email']['to'].is_a?(Array)
@@ -51,19 +47,23 @@ class LambdaEmailDeliverJob < ApplicationJob
       credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
     )
 
-    resp = client.invoke({
-      function_name: 'notification-center-mail-sender-v2-prod-notifier',
-      invocation_type: 'RequestResponse',
-      log_type: 'None',
-      payload: payload
-    })
+    begin
+      resp = client.invoke({
+        function_name: 'notification-center-mail-sender-v2-prod-notifier',
+        invocation_type: 'RequestResponse',
+        log_type: 'None',
+        payload: payload
+      })
 
-    resp_payload = JSON.parse(resp.payload.string)
+      resp_payload = JSON.parse(resp.payload.string)
 
-    if resp_payload['statusCode'] == 200
-      activity.update(status: 'success')
-    else
-      activity.update(status: 'fail', error_message: resp_payload['errorMessage'])
+      if resp_payload['statusCode'] == 200
+        activity.update(status: 'success')
+      else
+        activity.update(status: 'fail', error_message: resp_payload['errorMessage'])
+      end
+    rescue => e
+      activity.update(status: 'fail', error_message: e)
     end
   end
 end

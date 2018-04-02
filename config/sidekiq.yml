@@ -22,3 +22,8 @@ process_limits:
 
 :ignore_queues:
   - [no_ignore, 10]
+
+:schedule:
+  activity_scheduler_job:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: ActivitySchedulerJob
