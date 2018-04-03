@@ -8,7 +8,7 @@
   %tbody
     - activities.includes(notification_deliver: :notification).each do |activity|
       %tr
-        %td= activity.created_at
+        %td= activity.send_at || activity.created_at
         %td
           - if activity.notification_deliver.try(:notification).present?
             = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)

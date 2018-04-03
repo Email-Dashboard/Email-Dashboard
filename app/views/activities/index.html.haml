@@ -1,28 +1,28 @@
 .uk-grid-collapse.uk-text-center{:class => "uk-child-width-expand@s", "uk-grid" => ""}
   %div
-    .uk-label-success.uk-padding.uk-light
+    .uk-label-success.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'success' }) do
-        Success
+        Success:
         = @activities.where(status: 'success').count
   %div
-    .uk-background-primary.uk-padding.uk-light
+    .uk-background-primary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'pending' }) do
-        Pending
+        Pending:
         = @activities.where(status: 'pending').count
   %div
-    .uk-label-warning.uk-padding.uk-light
+    .uk-label-warning.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'scheduled' }) do
-        Scheduled
+        Scheduled:
         = @activities.where(status: 'scheduled').count
   %div
-    .uk-label-danger.uk-padding.uk-light
+    .uk-label-danger.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'fail' }) do
-        Failed
+        Failed:
         = @activities.where(status: 'fail').count
   %div
-    .uk-background-secondary.uk-padding.uk-light
+    .uk-background-secondary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'canceled' }) do
-        Canceled
+        Canceled:
         = @activities.where(status: 'canceled').count
 
 - if @list_activities.size == 0
