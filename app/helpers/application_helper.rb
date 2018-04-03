@@ -13,7 +13,9 @@ module ApplicationHelper
     klass = case status
             when 'success' then 'success'
             when 'fail' then 'danger'
-            else 'warning'
+            when 'scheduled' then 'warning'
+            when 'canceled' then 'secondary'
+            else 'default'
             end
     content_tag(:span, status.humanize, class: "uk-label uk-label-#{klass}")
   end

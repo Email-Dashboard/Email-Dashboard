@@ -24,9 +24,8 @@ class NotificationDeliver < ApplicationRecord
 
   private
   def validate_active_deliver
-    puts "HAHAHAHAH!"
     if is_active && (smtp_setting_id.nil? || notification_content_id.nil?)
-      errors.add(:notification_deliver, "Not activated! SMTP and Content required!")
+      errors.add(:notification_deliver, "Not activated! SMTP and Template required!")
     end
   end
 end

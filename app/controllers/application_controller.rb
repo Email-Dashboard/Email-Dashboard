@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     @current_account ||= current_user.accounts.find_by(id: session[:current_account_id]) || current_user.accounts.first
   end
 
+  def respond_modal_with(*args, &blk)
+    options = args.extract_options!
+    options[:responder] = ModalResponder
+    respond_with *args, options, &blk
+  end
+
   private
 
   def check_current_account

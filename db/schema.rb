@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212095846) do
+ActiveRecord::Schema.define(version: 20180402093657) do
 
   create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180212095846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "error_message"
+    t.datetime "send_at"
     t.index ["notification_deliver_id"], name: "index_activities_on_notification_deliver_id"
   end
 
@@ -93,8 +94,6 @@ ActiveRecord::Schema.define(version: 20180212095846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_receivers_on_activity_id"
-    t.index ["email"], name: "index_receivers_on_email"
-    t.index ["phone"], name: "index_receivers_on_phone"
   end
 
   create_table "smtp_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

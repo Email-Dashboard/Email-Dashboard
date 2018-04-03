@@ -3,8 +3,12 @@
     "@rails/webpacker": "^3.2.2",
     "jquery": "^3.3.1",
     "rails-ujs": "^5.1.5",
-    "stimulus": "^1.0.1",
-    "turbolinks": "^5.1.1"
+    "turbolinks": "^5.1.1",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpacker-react": "^0.3.2"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"

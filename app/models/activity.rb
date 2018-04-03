@@ -15,4 +15,6 @@ class Activity < ApplicationRecord
   belongs_to :notification_deliver
 
   has_many :receivers
+
+  STATUSES = %w[pending scheduled fail success canceled].freeze
 end

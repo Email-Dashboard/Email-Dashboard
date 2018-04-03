@@ -1,4 +1,32 @@
-- if @activities.size == 0
+.uk-grid-collapse.uk-text-center{:class => "uk-child-width-expand@s", "uk-grid" => ""}
+  %div
+    .uk-label-success.uk-padding-small.uk-light
+      = link_to activities_path(q: { status_eq: 'success' }) do
+        Success:
+        = @activities.where(status: 'success').count
+  %div
+    .uk-background-primary.uk-padding-small.uk-light
+      = link_to activities_path(q: { status_eq: 'pending' }) do
+        Pending:
+        = @activities.where(status: 'pending').count
+  %div
+    .uk-label-warning.uk-padding-small.uk-light
+      = link_to activities_path(q: { status_eq: 'scheduled' }) do
+        Scheduled:
+        = @activities.where(status: 'scheduled').count
+  %div
+    .uk-label-danger.uk-padding-small.uk-light
+      = link_to activities_path(q: { status_eq: 'fail' }) do
+        Failed:
+        = @activities.where(status: 'fail').count
+  %div
+    .uk-background-secondary.uk-padding-small.uk-light
+      = link_to activities_path(q: { status_eq: 'canceled' }) do
+        Canceled:
+        = @activities.where(status: 'canceled').count
+
+- if @list_activities.size == 0
+  .uk-padding
   = render partial: 'activities/blank'
 - else
-  = render partial: 'activities/index', locals: { activities: @activities }
+  = render partial: 'activities/index', locals: { activities: @list_activities }

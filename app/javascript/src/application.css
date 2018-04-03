@@ -44,6 +44,9 @@ footer{
 .uk-label-success {
   background-color: #34bfa3;
 }
+.uk-label-secondary {
+  background-color: #222;
+}
 
 .uk-button-success:hover, .uk-button-success:focus, .uk-button-success.uk-active, .uk-button-success:active {
   background-color: #2ca189;

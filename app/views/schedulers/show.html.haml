@@ -1,0 +1,10 @@
+= content_for :modal_title do
+  Scheduled Activity
+
+%p
+  This notification going to be send at:
+  %b= @activity.send_at
+  \.
+%p If you want to change it, use the actions below.
+= link_to 'Send Now', activity_schedulers_path(@activity, status: 'pending'), method: :put, class: 'uk-button uk-button-primary'
+= link_to 'Cancel Notification', activity_schedulers_path(@activity, status: 'canceled'), method: :put, class: 'uk-button uk-button-danger'
