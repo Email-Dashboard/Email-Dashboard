@@ -53,10 +53,19 @@ footer{
   color: #fff;
 }
 
+.uk-metal {
+  background-color: #cac7c7;
+  color: #fff;
+}
+
 .hint {
   font-size: 12px;
 }
 
 .error {
   color: #f93e3e;
+}
+
+.uk-notification-message {
+  background: #d9eafc;
 }

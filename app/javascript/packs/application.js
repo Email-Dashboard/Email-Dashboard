@@ -16,7 +16,19 @@ document.addEventListener("turbolinks:load", function() {
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
-})
+
+  $('#accountLiveMode').click(function() {
+    if ($('#accountLiveMode').is(':checked')) {
+      $('#testModeEmail').css({
+        display: 'none'
+      });
+    } else {
+      $('#testModeEmail').css({
+        display: 'block'
+      });
+    };
+  });
+});
 
 // To respond with modal
 $(function() {

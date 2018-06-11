@@ -27,7 +27,7 @@ class AccountsController < ApplicationController
   def update
     respond_to do |format|
       if @account.update(account_params)
-        format.html { redirect_to @account, notice: 'Account was successfully updated.' }
+        format.html { redirect_to accounts_path, notice: 'Account was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class AccountsController < ApplicationController
 
   def check_owner_access
     if current_user.role_in_account(@account) != 'owner'
-      redirect_to(accounts_path, flash: { error: 'No access!' }) && return
+      redirect_to(accounts_path, flash: { error: 'No access! Only owners can perform.' }) && return
     end
   end
   # Use callbacks to share common setup or constraints between actions.
@@ -63,6 +63,6 @@ class AccountsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def account_params
-    params.require(:account).permit(:name)
+    params.require(:account).permit(:name, :live_mode, :to_email_for_test)
   end
 end

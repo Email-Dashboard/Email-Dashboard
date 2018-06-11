@@ -1,11 +1,11 @@
 module ApplicationHelper
   def flash_class(level)
     case level
-    when 'notice' then "uk-alert-primary"
-    when 'success' then "uk-alert-success"
-    when 'error' then "uk-alert-danger"
-    when 'alert' then "uk-alert-danger"
-    else 'uk-alert-info'
+    when 'notice' then "success"
+    when 'success' then "success"
+    when 'error' then "danger"
+    when 'alert' then "danger"
+    else 'warning'
     end
   end
 

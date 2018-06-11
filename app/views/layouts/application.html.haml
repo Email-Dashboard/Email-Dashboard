@@ -10,11 +10,14 @@
 
     = render 'layouts/navbar'
 
-    .uk-text-center.uk-grid
-      - flash.each do |key, value|
-        %div.uk-width@m{"uk-alert" => "", class: flash_class(key)}
-          %a.uk-alert-close{"uk-close" => ""}
-          %p= value
+    - unless current_account.live_mode
+      .uk-text-center.uk-grid
+        %div.uk-width@m{"uk-alert" => "", class: 'uk-alert-primary'}
+          %p
+            %span{'uk-icon': 'info'}
+            %i= current_account.name
+            account in the test mode. Notifications wont send to real adresses. Go to
+            = link_to 'settings.', edit_account_path(current_account)
 
     .uk-container
       = render partial: 'layouts/head_tools'
@@ -32,3 +35,7 @@
       by Remote Team.
       .uk-margin
 
+
+    - flash.each do |key, value|
+      :javascript
+        UIkit.notification({message: "#{value}", status: "#{flash_class(key)}", pos: 'bottom-right'})

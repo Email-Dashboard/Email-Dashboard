@@ -1,16 +1,13 @@
 class Api::V2::NotifiersController < Api::V2::ApiBaseController
   before_action :check_required_params
 
+  # POST: /api/v2/notifications/:notification_id/notifiers
   def create
     @notification = @api_account.notifications.friendly.find(params[:notification_id])
     email_options = params.except(:action, :controller)
 
-    if @notification.email_deliver.is_active
-      enqueue_email_job
-      render json: { info: 'success' }, status: :ok
-    else
-      render json: { errors: 'Notification inactive' }, status: 422
-    end
+    enqueue_email_job
+    render json: { info: 'success' }, status: :ok
   end
 
   private
@@ -47,7 +44,7 @@ class Api::V2::NotifiersController < Api::V2::ApiBaseController
         request_content: params.to_json, send_at: send_at,
         status: 'scheduled'
       )
-      # LambdaEmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json, @notification.email_deliver.id)
+      # EmailDeliverJob.set(wait_until: send_at).perform_later(params.to_json, @notification.email_deliver.id)
     else
       Activity.create(
         notification_deliver: @notification.email_deliver,

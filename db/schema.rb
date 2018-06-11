@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402093657) do
+ActiveRecord::Schema.define(version: 20180611084617) do
 
   create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180402093657) do
     t.string "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "live_mode", default: false
+    t.string "to_email_for_test"
     t.index ["api_key"], name: "index_accounts_on_api_key"
     t.index ["slug"], name: "index_accounts_on_slug"
   end
