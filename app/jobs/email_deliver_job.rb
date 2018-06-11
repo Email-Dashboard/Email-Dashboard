@@ -1,13 +1,13 @@
 class EmailDeliverJob < ApplicationJob
-  queue_as :critical
+  queue_as :mailer
 
   def perform(activity_id)
     @activity = Activity.find(activity_id)
-    @deliver = @deliver
+    @deliver = @activity.notification_deliver
     return unless %w[pending scheduled].include? @activity.status
 
     # If notification active and account in live mode send to lambda
-    if @deliver.notification.account.live_mode && @deliver.notification.is_active
+    if @deliver.notification.account.live_mode && @deliver.is_active
       process_for_live_mode
     else
       process_for_test_mode
@@ -54,6 +54,7 @@ class EmailDeliverJob < ApplicationJob
 
         invoke_lambda(deliver_options, data['variables'])
         @activity.error_message += " => Test Mode only to: #{@deliver.notification.account.to_email_for_test}"
+        @activity.save
       else
         @activity.update(status: 'canceled', error_message: 'Test Mode Account!')
       end

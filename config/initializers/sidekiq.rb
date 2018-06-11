@@ -19,3 +19,5 @@ Sidekiq.configure_server do |config|
                     password: ENV['REDIS_PASSWORD']
                   }
 end
+
+Sidekiq.default_worker_options = { retry: 0 }
