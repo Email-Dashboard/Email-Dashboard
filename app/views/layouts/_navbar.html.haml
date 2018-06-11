@@ -32,10 +32,7 @@
                 = link_to set_current_account_path(account), method: :post do
                   = account.name
                   %span.uk-float-right
-                    - if account.live_mode
-                      .uk-badge.uk-label-success Live
-                    - else
-                      .uk-badge.uk-metal Test
+                    .uk-badge{class: (account.live_mode ? 'uk-label-success' : 'uk-metal')}
             %li.uk-nav-divider
             %li
               = link_to 'Manage Accounts', accounts_path

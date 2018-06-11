@@ -53,7 +53,7 @@ class EmailDeliverJob < ApplicationJob
         }
 
         invoke_lambda(deliver_options, data['variables'])
-        @activity.error_message += " => Test Mode only to: #{@deliver.notification.account.to_email_for_test}"
+        @activity.error_message = "#{@activity.error_message} => Test Mode only to: #{@deliver.notification.account.to_email_for_test}"
         @activity.save
       else
         @activity.update(status: 'canceled', error_message: 'Test Mode Account!')
