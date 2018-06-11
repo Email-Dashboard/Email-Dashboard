@@ -1,3 +1,26 @@
+.uk-margin
+.uk-card.uk-card-default.uk-card-body
+  %h3.text-center
+    Status
+    - if @account.live_mode
+      %span.uk-label.uk-label-success Live Mode
+    - else
+      %span.uk-label.uk-metal Test Mode
+
+  = simple_form_for(@account,  html: { class: 'form-horizontal' }) do |f|
+    = f.error_notification
+    .uk-margin
+    = f.input :live_mode, input_html: { id: 'accountLiveMode', class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
+    #testModeEmail{style: "display: #{@account.live_mode ? 'none' : 'block'};"}
+      .uk-margin
+      %label Set an email address to receive all notifications in for test mode.
+      = f.input :to_email_for_test, input_html: { class: 'uk-input uk-form-width-large' }, autofocus: true, label: false, placeholder: 'example@email.com'
+
+    .uk-margin
+    = f.submit 'Save', class: 'uk-button uk-button-primary'
+
+
+.uk-margin
 = render 'form', account: @account
 
 .uk-margin

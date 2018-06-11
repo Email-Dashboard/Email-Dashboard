@@ -1,7 +1,8 @@
 .uk-card.uk-card-default.uk-card-body
+  %h3.text-center Info
   = simple_form_for(account,  html: { class: 'form-horizontal' }) do |f|
     = f.error_notification
     .uk-margin
-      = f.input :name, input_html: { class: 'uk-input' }, autofocus: true
+      = f.input :name, input_html: { class: 'uk-input' }, required: true, autofocus: true
 
     = f.submit 'Save', class: 'uk-button uk-button-primary'

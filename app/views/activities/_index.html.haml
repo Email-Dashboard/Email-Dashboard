@@ -14,7 +14,7 @@
             = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)
         %td
           = badge_status(activity.status)
-          - if activity.status == 'fail'
+          - if activity.error_message.present?
             %span.uk-margin-small-right.uk-icon{'uk-icon': 'info', 'uk-tooltip': "title: #{activity.error_message}"}
           - elsif activity.status == 'scheduled'
             = link_to activity_schedulers_path(activity), data: { modal: true } do
