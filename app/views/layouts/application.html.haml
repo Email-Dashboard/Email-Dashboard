@@ -10,14 +10,13 @@
 
     = render 'layouts/navbar'
 
-    - unless current_account.live_mode
+    - if current_account.present? && !current_account.live_mode && current_account.persisted?
       .uk-text-center.uk-grid
         %div.uk-width@m{"uk-alert" => "", class: 'uk-alert-primary'}
           %p
             %span{'uk-icon': 'info'}
-            %i= current_account.name
-            account in the test mode. Notifications wont send to real adresses. Go to
-            = link_to 'settings.', edit_account_path(current_account)
+            %i= link_to current_account.name, edit_account_path(current_account)
+            account in the test mode. Notifications wont send to real adresses.
 
     .uk-container
       = render partial: 'layouts/head_tools'
