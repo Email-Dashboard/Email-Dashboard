@@ -1,5 +1,3 @@
-import "./../src/application.css"
-
 const Rails = require('rails-ujs');
 Rails.start();
 
@@ -10,7 +8,15 @@ Turbolinks.start();
 
 import WebpackerReact from 'webpacker-react'
 
+import CodeMirror from 'codemirror';
+import 'codemirror/lib/codemirror.css';
+// import 'codemirror/theme/railscasts.css'
+import 'codemirror/mode/htmlmixed/htmlmixed';
+
 // WebpackerReact.setup({Filter})
+
+import "./../src/application.css"
+
 
 document.addEventListener("turbolinks:load", function() {
   $('pre code').each(function(i, block) {
@@ -28,7 +34,15 @@ document.addEventListener("turbolinks:load", function() {
       });
     };
   });
+
+  if ($('#codeContent').length) {
+    var editor = CodeMirror.fromTextArea(document.getElementById('codeContent'), {
+      lineNumbers: true
+    });
+    // editor.setOption("theme", 'railscasts');
+  }
 });
+
 
 // To respond with modal
 $(function() {

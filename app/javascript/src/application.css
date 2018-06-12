@@ -69,3 +69,8 @@ footer{
 .uk-notification-message {
   background: #d9eafc;
 }
+
+.CodeMirror {
+    background: #f7f7f7;
+    height: 500px;
+}

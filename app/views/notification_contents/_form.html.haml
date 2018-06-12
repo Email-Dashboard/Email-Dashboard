@@ -5,7 +5,8 @@
     .uk-margin
       = f.input :subject, input_html: { class: 'uk-input' }, autofocus: true
     .uk-margin
-      = f.input :content, input_html: { rows: 15, class: 'uk-textarea' }
+      = f.input :content, input_html: { id: 'codeContent', rows: 18, class: 'uk-textarea' }
+      / %textarea#codeContent{name: 'notification_content[content]'}
       %p.uk-text-meta
         We support
         = link_to "Handlebars", "http://handlebarsjs.com/", target: "_blank"

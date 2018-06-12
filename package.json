@@ -1,13 +1,14 @@
 {
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
-    "jquery": "^3.3.1",
-    "rails-ujs": "^5.1.5",
-    "turbolinks": "^5.1.1",
     "babel-preset-react": "^6.24.1",
+    "codemirror": "^5.38.0",
+    "jquery": "^3.3.1",
     "prop-types": "^15.6.1",
+    "rails-ujs": "^5.1.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "turbolinks": "^5.1.1",
     "webpacker-react": "^0.3.2"
   },
   "devDependencies": {
