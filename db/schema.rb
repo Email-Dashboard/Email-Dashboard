@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611084617) do
+ActiveRecord::Schema.define(version: 20180613130359) do
 
   create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20180611084617) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "aws_region"
     t.index ["account_id"], name: "index_smtp_settings_on_account_id"
   end
 

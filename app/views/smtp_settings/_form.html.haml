@@ -1,17 +1,14 @@
-.uk-card.uk-card-default.uk-card-body
-  = simple_form_for(@smtp_setting) do |f|
-    = f.error_notification
-
-    .uk-margin
-      = f.input :provider, label: 'Title', placeholder: 'My Office365 Account', input_html: { class: 'uk-input' }
-    .uk-margin
-      = f.input :address, placeholder: 'smtp.office365.com', input_html: { class: 'uk-input' }
-    .uk-margin
-      = f.input :port, placeholder: '587', input_html: { class: 'uk-input' }
-    .uk-margin
-      = f.input :username, placeholder: 'myemail@office365.com', input_html: { class: 'uk-input' }
-    .uk-margin
-      = f.input :password, input_html: { class: 'uk-input' }
-
-    .form-actions
-      = f.submit 'Save', class: 'uk-button uk-button-primary'
+%ul{"uk-tab" => ""}
+  %li
+    %a{:href => "#"} AWS SES
+  %li
+    %a{:href => "#"} Office 365
+  %li
+    %a{:href => "#"} Custom
+%ul.uk-switcher.uk-margin
+  %li
+    = render partial: 'smtp_settings/templates/aws_ses'
+  %li
+    = render partial: 'smtp_settings/templates/office365'
+  %li
+    = render partial: 'smtp_settings/templates/custom'

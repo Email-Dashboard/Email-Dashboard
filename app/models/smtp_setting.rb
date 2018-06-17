@@ -22,4 +22,17 @@ class SmtpSetting < ApplicationRecord
   # attr_encrypted :username, key: SecureRandom.random_bytes(32)
 
   validates :provider, :address, :port, :username, :password, presence: true
+
+  before_save :update_aws_ses_address, :if => Proc.new { |smtp| smtp.address == 'email-smtp.amazonaws.com' }
+
+  AWS_SES_REGIONS = {
+    'us-east-1': 'US East (N. Virginia)',
+    'us-west-2': 'US West (Oregon)',
+    'eu-west-1': 'EU (Ireland)'
+  }.freeze
+
+
+  def update_aws_ses_address
+    self.address = "email-smtp.#{aws_region}.amazonaws.com"
+  end
 end

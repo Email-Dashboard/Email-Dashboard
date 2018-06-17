@@ -69,6 +69,6 @@ class SmtpSettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def smtp_setting_params
-      params.require(:smtp_setting).permit(:provider, :address, :port, :username, :password)
+      params.require(:smtp_setting).permit(:provider, :address, :port, :username, :password, :aws_region)
     end
 end

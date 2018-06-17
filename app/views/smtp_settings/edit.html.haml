@@ -1,1 +1,6 @@
-= render 'form'
+- if @smtp_setting.address.end_with?('amazonaws.com')
+  = render 'smtp_settings/templates/aws_ses'
+- elsif @smtp_setting.address.end_with?('office365.com')
+  = render 'smtp_settings/templates/office365'
+- else
+  = render 'smtp_settings/templates/custom'
