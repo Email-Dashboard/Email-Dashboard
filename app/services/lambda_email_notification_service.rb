@@ -1,7 +1,5 @@
 require 'aws-sdk-lambda'
 
-# Used in API v1
-# TODO: Remove after moving to v2
 class LambdaEmailNotificationService
   def initialize(activity, payload)
     @activity = activity
@@ -27,7 +25,7 @@ class LambdaEmailNotificationService
       if resp_payload['statusCode'] == 200
         @activity.update(status: 'success')
       else
-        @activity.update(status: 'fail', error_message: resp_payload['errorMessage'])
+        @activity.update(status: 'fail', error_message: (resp_payload['errorMessage'].presence || resp_payload['body']))
       end
     rescue => e
       @activity.update(status: 'fail', error_message: e)
