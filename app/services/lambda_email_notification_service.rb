@@ -22,12 +22,12 @@ class LambdaEmailNotificationService
         payload: @payload
       })
 
-      resp_payload = JSON.parse(resp.payload.string)
+      response = JSON.parse(resp.payload.string)
 
-      if resp_payload['statusCode'] == 200
+      if response['statusCode'] == 200
         @activity.update(status: 'success')
       else
-        @activity.update(status: 'fail', error_message: resp_payload['errorMessage'])
+        @activity.update(status: 'fail', error_message: (response['errorMessage'].presence || response['body']))
       end
     rescue => e
       @activity.update(status: 'fail', error_message: e)
