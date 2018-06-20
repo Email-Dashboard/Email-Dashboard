@@ -20,7 +20,7 @@ class LambdaEmailNotificationService
         payload: @payload
       })
 
-      resp_payload = JSON.parse(resp.payload.string)
+      response = JSON.parse(resp.payload.string)
 
       if resp_payload['statusCode'] == 200
         @activity.update(status: 'success', message_header_id: response['body']['messageId'], track_status: 'sent')
