@@ -14,7 +14,6 @@ class SnsListenerService
   end
 
   def self.notification raw_message
-    Bugsnag.notify(raw_message) # TODO: remove later
     message = Hashie::Mash.new(JSON.parse(raw_message))
     if message.notificationType == 'AmazonSnsSubscriptionSucceeded'
       return
