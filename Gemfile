@@ -49,6 +49,7 @@ gem 'haml-rails', '~> 1.0'
 gem 'simple_form'
 gem 'bugsnag'
 gem 'responders'
+gem 'hashie'
 gem 'kaminari'
 gem 'ransack'
 

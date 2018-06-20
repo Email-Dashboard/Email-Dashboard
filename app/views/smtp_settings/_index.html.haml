@@ -15,6 +15,7 @@
         %td= smtp_setting.port
         %td= smtp_setting.username
         %td.uk-text-right
-          = link_to 'Show', smtp_setting, class: 'uk-button uk-button-default uk-button-small'
+          - if smtp_setting.address.try(:end_with?, 'amazonaws.com')
+            = link_to 'Configure Tracking', trackings_path, class: 'uk-button uk-button-default uk-button-small'
           = link_to 'Edit', edit_smtp_setting_path(smtp_setting), class: 'uk-button uk-button-default uk-button-small'
           = link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger uk-button-small'

@@ -1,0 +1,17 @@
+.uk-card.uk-card-default.uk-card-body
+  = simple_form_for(@smtp_setting, namespace: 'custom') do |f|
+    = f.error_notification
+
+    .uk-margin
+      = f.input :provider, label: 'Title', placeholder: 'My Office365 Account', input_html: { class: 'uk-input' }
+    .uk-margin
+      = f.input :address, placeholder: 'smtp.office365.com', input_html: { class: 'uk-input' }
+    .uk-margin
+      = f.input :port, placeholder: '587', input_html: { class: 'uk-input' }
+    .uk-margin
+      = f.input :username, placeholder: 'myemail@office365.com', input_html: { class: 'uk-input' }
+    .uk-margin
+      = f.input :password, input_html: { class: 'uk-input' }
+
+    .form-actions
+      = f.submit 'Save', class: 'uk-button uk-button-primary'
