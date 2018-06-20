@@ -23,7 +23,7 @@ class SnsListenerService
   end
 
   def self.confirm_subscription(arn, token, account)
-    sns = Aws::SNS::Client.new(region: 'us-east-1', credentials: Aws::Credentials.new(account.sns_access_key, account.sns_secret_key))
+    sns = Aws::SNS::Client.new(region: account.sns_region, credentials: Aws::Credentials.new(account.sns_access_key, account.sns_secret_key))
 
     resp = sns.confirm_subscription({
       topic_arn: arn,
