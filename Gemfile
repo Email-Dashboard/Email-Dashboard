@@ -62,6 +62,9 @@ gem 'sidekiq'
 gem 'redis-namespace'
 gem 'sidekiq-scheduler'
 
+gem 'bugsnag'
+gem 'newrelic_rpm'
+
 gem 'aws-sdk', '~> 3'
 gem 'coderay'
 gem 'awesome_print'
