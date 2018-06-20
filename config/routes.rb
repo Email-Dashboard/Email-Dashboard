@@ -17,18 +17,20 @@ Rails.application.routes.draw do
   root 'dashboards#index'
 
   namespace :api do
-    namespace :v1 do
-      resources :notifications, except: [:new, :create, :edit, :update, :destroy] do
-        member do
-          post :notify_email
-        end
-      end
-    end
+    # namespace :v1 do
+    #   resources :notifications, except: [:new, :create, :edit, :update, :destroy] do
+    #     member do
+    #       post :notify_email
+    #     end
+    #   end
+    # end
 
     namespace :v2 do
       resources :notifications, only: [] do
         resources :notifiers, only: %i(create)
       end
+
+      resources :events, only: %i(create)
     end
   end
 

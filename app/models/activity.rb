@@ -17,4 +17,11 @@ class Activity < ApplicationRecord
   has_many :receivers
 
   STATUSES = %w[pending scheduled fail success canceled].freeze
+
+  TRACK_STATUSES = {
+    sent: 'Sent',
+    delivery: 'Deliveried',
+    bounce: 'Bounced',
+    complaint: 'Complained'
+  }
 end
