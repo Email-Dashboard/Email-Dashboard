@@ -4,6 +4,15 @@
       = link_to activities_path(q: { status_eq: 'success' }) do
         Success:
         = @activities.where(status: 'success').count
+
+      %a.uk-pull-right.uk-icon{'uk-icon': 'chevron-down'}
+      %div{"uk-dropdown" => "mode: click"}
+        %ul.uk-nav.uk-dropdown-nav.uk-text-left
+          %li.uk-nav-header Tracking Status
+          %li= link_to 'Delivered', activities_path(q: { track_status_eq: 'delivery' })
+          %li= link_to 'Bounced', activities_path(q: { track_status_eq: 'bounce' })
+          %li= link_to 'Complained', activities_path(q: { track_status_eq: 'complaint' })
+
   %div
     .uk-background-primary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'pending' }) do

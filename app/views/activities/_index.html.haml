@@ -14,6 +14,7 @@
             = link_to activity.notification_deliver.notification.name, notification_path(activity.notification_deliver.notification)
         %td
           = badge_status(activity.status)
+          = tracking_status(activity.track_status)
           - if activity.error_message.present?
             %span.uk-margin-small-right.uk-icon{'uk-icon': 'info', 'uk-tooltip': "title: #{activity.error_message}"}
           - elsif activity.status == 'scheduled'

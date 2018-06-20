@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :trackings
+
   resources :invitations, only: [:create, :update]
 
   resources :notification_contents, path: "templates" do

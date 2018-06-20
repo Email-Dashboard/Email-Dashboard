@@ -1,0 +1,32 @@
+.uk-child-width-1-2{'uk-grid': ''}
+  %div
+    .uk-card.uk-card-default.uk-card-body
+      %h3 AWS SNS Credentials
+      = simple_form_for(@account, url: trackings_path, method: :put, html: { class: 'form-horizontal' }) do |f|
+        = f.error_notification
+        .uk-margin
+        = f.input :sns_access_key, input_html: { class: 'uk-input' }, label: 'AWS Access Key ID'
+        .uk-margin
+        = f.input :sns_secret_key, as: :password, input_html: { class: 'uk-input' }, label: 'AWS Secret Key', placeholder: '***************'
+        .uk-margin
+        = f.input :sns_region, collection: SmtpSetting::AWS_SES_REGIONS.sort.map { |k,v| [v,k] }, input_html: { class: 'uk-input' }, include_blank: false  
+        .uk-margin
+        = f.submit 'Save', class: 'uk-button uk-button-primary'
+  %div
+    .uk-card.uk-card-default.uk-card-body
+      %h3 AWS SNS Tracking
+
+      %dl.uk-description-list
+        %dt Create SNS Topic
+        %dd
+        Create topics on aws managment console (name ex: deliver, bounce, complaint etc..) as described
+        %a{href: 'https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-sns-notifications.html', target: '_blank'}
+          here.
+
+        %dt Create Subscription
+        %dd
+          Create at least one subscription for each topic to endpoint:
+          %br
+          %span.uk-text-primary= "https://notifications.svteknoloji.website/api/v2/events?aid=#{@account.id}"
+        %dt Confirm Subscription
+        %dd Send confirm request and configure your SES or SMS settings to those topics with accepting original headers.

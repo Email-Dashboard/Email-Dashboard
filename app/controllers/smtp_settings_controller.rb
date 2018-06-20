@@ -33,7 +33,7 @@ class SmtpSettingsController < ApplicationController
 
     respond_to do |format|
       if @smtp_setting.save
-        format.html { redirect_to @smtp_setting, notice: 'Smtp setting was successfully created.' }
+        format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully created.' }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class SmtpSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @smtp_setting.update(smtp_setting_params)
-        format.html { redirect_to @smtp_setting, notice: 'Smtp setting was successfully updated.' }
+        format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully updated.' }
       else
         format.html { render :edit }
       end
