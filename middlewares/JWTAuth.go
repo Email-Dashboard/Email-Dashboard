@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"gin-gorm-api-example/models"
+	"notification-center-go-api/models"
 	"github.com/gin-gonic/gin"
 )
 

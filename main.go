@@ -2,8 +2,8 @@ package main
 
 import (
 	"encoding/json"
-	"gin-gorm-api-example/middlewares"
-	"gin-gorm-api-example/models"
+	"notification-center-go-api/middlewares"
+	"notification-center-go-api/models"
 	"time"
 
 	"github.com/gin-gonic/gin"
