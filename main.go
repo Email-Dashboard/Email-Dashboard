@@ -25,7 +25,7 @@ func CreateActivity(c *gin.Context) {
 	id := c.Params.ByName("id")
 	models.GetDB().Where("slug = ?", id).First(&notification)
 
-	deliver := models.FindNotificationDeliver(notification.ID)
+	deliver := models.FindDeliverByNotificationID(notification.ID)
 
 	if deliver.ID != 0 {
 

@@ -1,10 +1,10 @@
 package models
 
 type Notification struct {
-	ID            uint `gorm:"primary_key"`
-	Name          string
-	Slug          string
-  AccountID     uint `gorm:"foreign_key"`
+	ID        uint `gorm:"primary_key"`
+	Name      string
+	Slug      string
+	AccountID uint `gorm:"foreign_key"`
 }
 
 // FindBySlug

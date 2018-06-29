@@ -6,6 +6,7 @@ import (
 
 // Activity content received from api
 type Activity struct {
+	ID                    uint `gorm:"primary_key"`
 	NotificationDeliverID uint `gorm:"foreign_key"`
 	RequestContent        []byte
 	Status                string
@@ -14,14 +15,16 @@ type Activity struct {
 	UpdatedAt             *time.Time
 }
 
+// RawContent for request json
 type RawContent struct {
 	Variables interface{} `json:"variables"`
 
 	Email struct {
-		To   []string `json:"to"`
-		Cc   []string `json:"cc"`
-		Bcc  []string `json:"bcc"`
-		From string   `json:"from"`
+		To      []string `json:"to"`
+		Cc      []string `json:"cc"`
+		Bcc     []string `json:"bcc"`
+		From    string   `json:"from"`
+		ReplyTo string   `json:"reply_to"`
 	} `json:"email"`
 
 	Delivery struct {
