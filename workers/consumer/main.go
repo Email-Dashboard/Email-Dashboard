@@ -2,11 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
+	"notification-center-go-api/mailer"
 	"os"
 	"os/signal"
 
-	"notification-center-go-api/mailer"
 	"notification-center-go-api/models"
 	"notification-center-go-api/workers/conf"
 
@@ -28,7 +29,7 @@ func main() {
 	pool.Middleware((*Context).CheckParams)
 
 	// Map the name of jobs to handler functions
-	pool.Job("send_email", (*Context).SendEmail)
+	pool.Job("send_email", (*Context).PrepareEmail)
 
 	// Customize options:
 	pool.JobWithOptions("export", work.JobOptions{Priority: 10, MaxFails: 1}, (*Context).Export)
@@ -58,8 +59,8 @@ func (c *Context) CheckParams(job *work.Job, next work.NextMiddlewareFunc) error
 	return next()
 }
 
-// SendEmail activity email sender
-func (c *Context) SendEmail(job *work.Job) error {
+// PrepareEmail activity email sender
+func (c *Context) PrepareEmail(job *work.Job) error {
 	var activity models.Activity
 	models.GetDB().Find(&activity, "id = ?", c.activityID)
 
@@ -70,12 +71,37 @@ func (c *Context) SendEmail(job *work.Job) error {
 		}
 
 		var deliver models.NotificationDeliver
-
 		deliver = models.FindDeliverByID(activity.NotificationDeliverID)
 
-		log.Println(deliver.ID)
+		var notification models.Notification
+		notification = models.FindNotificationByID(deliver.NotificationID)
 
-		mailer.SendEmail(activity, data)
+		fmt.Println(notification.AccountID)
+		fmt.Println("sss")
+
+		var account models.Account
+		account = models.FindAccountByID(notification.AccountID)
+
+		fmt.Println(account.ID)
+		fmt.Println(account.LiveMode)
+
+		if deliver.IsActive && account.LiveMode {
+			mailer.SendEmailToReceivers(activity, data)
+		} else {
+			// if deliver active but account in test mode
+			// check if account has to test email and send only to test email
+			if deliver.IsActive {
+				if len(account.ToEmailForTest) > 0 {
+					mailer.SendEmailToTest()
+				} else {
+					models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
+				}
+			} else {
+				models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Notification not active!"})
+			}
+		}
+
+		// mailer.SendEmail(activity, data)
 	}
 
 	return nil

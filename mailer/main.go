@@ -7,9 +7,9 @@ import (
 	"notification-center-go-api/models"
 )
 
-// SendEmail via smtp
-func SendEmail(activity models.Activity, data models.RawContent) {
-	fmt.Println("holaa")
+// SendEmailToReceivers via smtp
+func SendEmailToReceivers(activity models.Activity, data models.RawContent) {
+
 	emailTo := strings.Join(data.Email.To, ", ")
 	emailCc := strings.Join(data.Email.Cc, ", ")
 	emailBcc := strings.Join(data.Email.Bcc, ", ")
@@ -25,4 +25,9 @@ func SendEmail(activity models.Activity, data models.RawContent) {
 	for _, receiver := range data.Email.To {
 		fmt.Println("create receiver: " + receiver)
 	}
+}
+
+// SendEmailToTest email for test
+func SendEmailToTest() {
+
 }

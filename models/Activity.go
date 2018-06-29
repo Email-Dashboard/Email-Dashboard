@@ -10,6 +10,7 @@ type Activity struct {
 	NotificationDeliverID uint `gorm:"foreign_key"`
 	RequestContent        []byte
 	Status                string
+	ErrorMessage          string
 	SendAt                time.Time
 	CreatedAt             *time.Time
 	UpdatedAt             *time.Time

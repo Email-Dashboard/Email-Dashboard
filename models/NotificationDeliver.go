@@ -3,6 +3,7 @@ package models
 type NotificationDeliver struct {
 	ID             uint `gorm:"primary_key"`
 	NotificationID uint `gorm:"foreign_key"`
+	IsActive       bool
 }
 
 // FindDeliverByNotificationID func
@@ -10,7 +11,6 @@ func FindDeliverByNotificationID(notification_id uint) NotificationDeliver {
 	var deliver NotificationDeliver
 
 	GetDB().Find(&deliver, "delivery_method = 'email' AND notification_id = ?", notification_id)
-
 	return deliver
 }
 
@@ -18,7 +18,6 @@ func FindDeliverByNotificationID(notification_id uint) NotificationDeliver {
 func FindDeliverByID(id uint) NotificationDeliver {
 	var deliver NotificationDeliver
 
-	GetDB().Find(&deliver, "delivery_method = 'email' AND notification_id = ?", id)
-
+	GetDB().Find(&deliver, "id = ?", id)
 	return deliver
 }
