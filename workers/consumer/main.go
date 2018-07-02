@@ -85,14 +85,22 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 		fmt.Println(account.ID)
 		fmt.Println(account.LiveMode)
 
+		// Assign HTML template
+		var template models.NotificationContent
+		models.GetDB().Model(&deliver).Related(&template)
+
+		// Assign SMTP settings
+		var smtp models.SMTPSetting
+		models.GetDB().Model(&deliver).Related(&smtp)
+
 		if deliver.IsActive && account.LiveMode {
-			mailer.SendEmailToReceivers(activity, data)
+			mailer.SendEmailToReceivers(activity, data, template, smtp)
 		} else {
 			// if deliver active but account in test mode
 			// check if account has to test email and send only to test email
 			if deliver.IsActive {
 				if len(account.ToEmailForTest) > 0 {
-					mailer.SendEmailToTest()
+					mailer.SendEmailToTestAccount()
 				} else {
 					models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
 				}
@@ -100,8 +108,6 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 				models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Notification not active!"})
 			}
 		}
-
-		// mailer.SendEmail(activity, data)
 	}
 
 	return nil
