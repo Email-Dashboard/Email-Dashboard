@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"notification-center-go-api/mailer"
 	"os"
@@ -76,14 +75,8 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 		var notification models.Notification
 		notification = models.FindNotificationByID(deliver.NotificationID)
 
-		fmt.Println(notification.AccountID)
-		fmt.Println("sss")
-
 		var account models.Account
 		account = models.FindAccountByID(notification.AccountID)
-
-		fmt.Println(account.ID)
-		fmt.Println(account.LiveMode)
 
 		// Assign HTML template
 		var template models.NotificationContent
@@ -94,13 +87,14 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 		models.GetDB().Model(&deliver).Related(&smtp)
 
 		if deliver.IsActive && account.LiveMode {
+
 			mailer.SendEmailToReceivers(activity, data, template, smtp)
 		} else {
 			// if deliver active but account in test mode
 			// check if account has to test email and send only to test email
 			if deliver.IsActive {
 				if len(account.ToEmailForTest) > 0 {
-					mailer.SendEmailToTestAccount()
+					mailer.SendEmailToTestAccount(account.ToEmailForTest, activity, data, template, smtp)
 				} else {
 					models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
 				}

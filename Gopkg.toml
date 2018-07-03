@@ -45,6 +45,10 @@
   name = "github.com/jinzhu/gorm"
   version = "1.9.1"
 
+[[constraint]]
+  name = "gopkg.in/gomail.v2"
+  branch = "v2"
+
 [prune]
   go-tests = true
   unused-packages = true

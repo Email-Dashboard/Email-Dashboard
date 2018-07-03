@@ -1,13 +1,14 @@
 package mailer
 
 import (
+	"crypto/tls"
 	"fmt"
-	"net/smtp"
 
 	"notification-center-go-api/models"
 
 	"github.com/aymerick/raymond"
-	"github.com/jordan-wright/email"
+
+	"gopkg.in/gomail.v2"
 )
 
 type mailOptions struct {
@@ -22,13 +23,12 @@ type mailOptions struct {
 
 // SendEmailToReceivers via smtp
 func SendEmailToReceivers(activity models.Activity, data models.RawContent, template models.NotificationContent, smtpOpt models.SMTPSetting) {
-
 	var options mailOptions
 
+	options.emailFrom = data.Email.From
 	options.emailTo = data.Email.To
 	options.emailCc = data.Email.Cc
 	options.emailBcc = data.Email.Bcc
-	options.emailFrom = data.Email.From
 	options.emailReplyTo = data.Email.ReplyTo
 
 	parsedSubject := raymond.MustParse(template.Subject)
@@ -44,23 +44,43 @@ func SendEmailToReceivers(activity models.Activity, data models.RawContent, temp
 	deliverEmail(options, smtpOpt)
 }
 
-// SendEmailToTest email for test
-func SendEmailToTestAccount() {
+// SendEmailToTestAccount email for test
+func SendEmailToTestAccount(emailTo string, activity models.Activity, data models.RawContent, template models.NotificationContent, smtpOpt models.SMTPSetting) {
+	var options mailOptions
 
+	options.emailFrom = data.Email.From
+	options.emailTo[0] = emailTo
+
+	parsedSubject := raymond.MustParse(template.Subject)
+	options.subject = parsedSubject.MustExec(data.Variables)
+
+	parsedContent := raymond.MustParse(template.Content)
+	options.content = parsedContent.MustExec(data.Variables)
+
+	err := deliverEmail(options, smtpOpt)
+
+	if err != nil {
+		// models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
+	}
 }
 
 // deliverEmail a private function to deliver smtp emails
-func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) {
-	e := email.NewEmail()
-	e.From = options.emailFrom
-	e.To = options.emailTo
-	e.Bcc = options.emailBcc
-	e.Cc = options.emailCc
-	e.Subject = options.subject
-	// e.Text = []byte("Text Body is, of course, supported!")
-	e.HTML = []byte(options.content)
+func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (err error) {
 
-	e.Send(smtpOpt.Address+":"+smtpOpt.Port, smtp.PlainAuth("", smtpOpt.Username, smtpOpt.Password, smtpOpt.Address))
+	m := gomail.NewMessage()
+	m.SetHeader("From", options.emailFrom)
+	m.SetHeader("To", options.emailTo...)
+	m.SetHeader("Cc", options.emailCc...)
+	m.SetHeader("Bcc", options.emailBcc...)
+	m.SetHeader("Subject", options.subject)
+	m.SetBody("text/html", options.content)
 
-	fmt.Println(e)
+	d := gomail.NewDialer(smtpOpt.Address, smtpOpt.Port, smtpOpt.Username, smtpOpt.Password)
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+
+	// Send the email to receivers
+	if err := d.DialAndSend(m); err != nil {
+		return err
+	}
+	return nil
 }

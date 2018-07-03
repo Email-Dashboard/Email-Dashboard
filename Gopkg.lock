@@ -68,12 +68,6 @@
   revision = "04140366298a54a039076d798123ffa108fff46c"
 
 [[projects]]
-  name = "github.com/jordan-wright/email"
-  packages = ["."]
-  revision = "94ae17dedda217a49e3b47d68f1b54b3c946e16b"
-  version = "v3.0"
-
-[[projects]]
   name = "github.com/mattn/go-isatty"
   packages = ["."]
   revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
@@ -104,10 +98,22 @@
   version = "v1.1.0"
 
 [[projects]]
+  branch = "v3"
+  name = "gopkg.in/alexcesaro/quotedprintable.v3"
+  packages = ["."]
+  revision = "2caba252f4dc53eaf6b553000885530023f54623"
+
+[[projects]]
   name = "gopkg.in/go-playground/validator.v8"
   packages = ["."]
   revision = "5f1438d3fca68893a817e4a66806cea46a9e4ebf"
   version = "v8.18.2"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/gomail.v2"
+  packages = ["."]
+  revision = "81ebce5c23dfd25c6c67194b37d3dd3f338c98b1"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -118,6 +124,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b0a5a44b171e64b9646e2ded6deb09a3651c7d002a712d0d10c812fc628f139b"
+  inputs-digest = "6d7f8cf3384815becf58dde57e8ff8b5dfbc71b790e0c118b0ecbd269adf4982"
   solver-name = "gps-cdcl"
   solver-version = 1

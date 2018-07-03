@@ -20,8 +20,9 @@ type NotificationContent struct {
 
 // SMTPSetting for mailer
 type SMTPSetting struct {
+	ID       uint `gorm:"primary_key"`
 	Address  string
-	Port     string
+	Port     int
 	Username string
 	Password string
 }
