@@ -11,6 +11,7 @@ type Activity struct {
 	RequestContent        []byte
 	Status                string
 	ErrorMessage          string
+	MessageHeaderID       string
 	SendAt                time.Time
 	CreatedAt             *time.Time
 	UpdatedAt             *time.Time

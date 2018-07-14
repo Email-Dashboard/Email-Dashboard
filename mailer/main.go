@@ -1,8 +1,13 @@
 package mailer
 
 import (
+	"crypto/rand"
 	"crypto/tls"
 	"fmt"
+	"math"
+	"math/big"
+	"os"
+	"time"
 
 	"notification-center-go-api/models"
 
@@ -19,6 +24,10 @@ type mailOptions struct {
 	emailReplyTo string
 	subject      string
 	content      string
+}
+
+type error interface {
+	Error() string
 }
 
 // SendEmailToReceivers via smtp
@@ -41,7 +50,12 @@ func SendEmailToReceivers(activity models.Activity, data models.RawContent, temp
 		fmt.Println("create receiver: " + receiver)
 	}
 
-	deliverEmail(options, smtpOpt)
+	mid, err := deliverEmail(options, smtpOpt)
+	if err != nil {
+		models.GetDB().Model(&activity).Updates(models.Activity{Status: "fail", ErrorMessage: err.Error()})
+	} else {
+		models.GetDB().Model(&activity).Updates(models.Activity{Status: "success", MessageHeaderID: mid})
+	}
 }
 
 // SendEmailToTestAccount email for test
@@ -49,7 +63,7 @@ func SendEmailToTestAccount(emailTo string, activity models.Activity, data model
 	var options mailOptions
 
 	options.emailFrom = data.Email.From
-	options.emailTo[0] = emailTo
+	options.emailTo = []string{emailTo}
 
 	parsedSubject := raymond.MustParse(template.Subject)
 	options.subject = parsedSubject.MustExec(data.Variables)
@@ -57,15 +71,18 @@ func SendEmailToTestAccount(emailTo string, activity models.Activity, data model
 	parsedContent := raymond.MustParse(template.Content)
 	options.content = parsedContent.MustExec(data.Variables)
 
-	err := deliverEmail(options, smtpOpt)
-
+	mid, err := deliverEmail(options, smtpOpt)
 	if err != nil {
-		// models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
+		models.GetDB().Model(&activity).Updates(models.Activity{Status: "fail", ErrorMessage: err.Error()})
+	} else {
+		models.GetDB().Model(&activity).Updates(models.Activity{Status: "success", MessageHeaderID: mid, ErrorMessage: ("Sent to test account! " + emailTo)})
 	}
 }
 
 // deliverEmail a private function to deliver smtp emails
-func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (err error) {
+func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (mid string, err error) {
+
+	messageID, _ := generateMessageID()
 
 	m := gomail.NewMessage()
 	m.SetHeader("From", options.emailFrom)
@@ -73,6 +90,7 @@ func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (err error) {
 	m.SetHeader("Cc", options.emailCc...)
 	m.SetHeader("Bcc", options.emailBcc...)
 	m.SetHeader("Subject", options.subject)
+	m.SetHeader("Message-Id", messageID)
 	m.SetBody("text/html", options.content)
 
 	d := gomail.NewDialer(smtpOpt.Address, smtpOpt.Port, smtpOpt.Username, smtpOpt.Password)
@@ -80,7 +98,27 @@ func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (err error) {
 
 	// Send the email to receivers
 	if err := d.DialAndSend(m); err != nil {
-		return err
+		return "", err
 	}
-	return nil
+	return messageID, nil
+}
+
+var maxBigInt = big.NewInt(math.MaxInt64)
+
+// generateMessageID generates and returns a string suitable for an RFC 2822
+// compliant Message-ID, e.g.: <1444789264909237300.3464.1819418242800517193@DESKTOP01>
+func generateMessageID() (string, error) {
+	t := time.Now().UnixNano()
+	pid := os.Getpid()
+	rint, err := rand.Int(rand.Reader, maxBigInt)
+	if err != nil {
+		return "", err
+	}
+	h, err := os.Hostname()
+	// If we can't get the hostname, we'll use localhost
+	if err != nil {
+		h = "localhost.localdomain"
+	}
+	msgid := fmt.Sprintf("<%d.%d.%d@%s>", t, pid, rint, h)
+	return msgid, nil
 }
