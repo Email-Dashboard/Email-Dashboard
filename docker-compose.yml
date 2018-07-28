@@ -1,0 +1,27 @@
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  whoami:
+    image: jwilder/whoami
+    container_name: whoami
+    environment:
+      - VIRTUAL_HOST=whoami.local
+
+  web:
+    image: sadikay/notification-center-rails
+    volumes:
+      - /datadrive/data/db:/var/db
+      - /datadrive/database.yml:/notification-center/config/database.yml
+
+    environment:
+      VIRTUAL_HOST: yourdomain.com
+      SECRET_KEY_BASE: yourSercretKeyBase
+
+version: '3.6'

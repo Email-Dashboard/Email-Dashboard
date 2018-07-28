@@ -5,25 +5,25 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/rails-dashboard/.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/
-/log/*
-/tmp/*
+/rails-dashboard/log/
+/rails-dashboard/log/*
+/rails-dashboard/tmp/*
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
+/rails-dashboard/node_modules
+/rails-dashboard/yarn-error.log
 
-.byebug_history
-.idea/
-/public/packs
-/public/packs-test
-/node_modules
-yarn-debug.log*
-.yarn-integrity
+/rails-dashboard/.byebug_history
+/rails-dashboard/.idea/
+/rails-dashboard/public/packs
+/rails-dashboard/public/packs-test
+/rails-dashboard/node_modules
+/rails-dashboard/yarn-debug.log*
+/rails-dashboard/.yarn-integrity
 
-.vscode
-/vendor
+/rails-dashboard/.vscode
+/rails-dashboard/vendor
