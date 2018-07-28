@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/capistrano/bundler.git
-  revision: d1ae0f173b71835a0ab9a170bfd34a3b2b7cfeb7
-  branch: master
-  specs:
-    capistrano-bundler (1.3.0)
-      capistrano (~> 3.1)
-      sshkit (~> 1.2)
-
-GIT
   remote: https://github.com/ctran/annotate_models.git
   revision: 5f37a974f3dff68f92b3495115f1399e7db5c584
   specs:
@@ -23,15 +14,6 @@ GIT
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
-
-GIT
-  remote: https://github.com/seuros/capistrano-puma.git
-  revision: 81647bc8402ff1cb485e81d9ec803dfec31aa851
-  specs:
-    capistrano3-puma (3.1.1)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (~> 3.4)
 
 GEM
   remote: https://rubygems.org/
@@ -75,8 +57,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    airbrussh (1.3.0)
-      sshkit (>= 1.6.1, != 1.7.0)
     arel (8.0.0)
     attr_encrypted (3.0.3)
       encryptor (~> 3.0.0)
@@ -610,33 +590,14 @@ GEM
     aws-sigv4 (1.0.2)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    binding_of_caller (0.7.3)
-      debug_inspector (>= 0.0.1)
     breadcrumbs_on_rails (3.0.1)
     bugsnag (6.2.0)
     builder (3.2.3)
     byebug (9.1.0)
-    capistrano (3.10.1)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-faster-assets (1.1.0)
-      capistrano (>= 3.1)
-    capistrano-rails (1.3.1)
-      capistrano (~> 3.1)
-      capistrano-bundler (~> 1.1)
-    capistrano-rbenv (2.1.3)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-    capistrano-sidekiq (0.20.0)
-      capistrano (>= 3.9.0)
-      sidekiq (>= 3.4)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
-    debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -715,9 +676,6 @@ GEM
     minitest (5.11.3)
     multi_json (1.12.2)
     mysql2 (0.4.10)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (4.2.0)
     newrelic_rpm (5.2.0.345)
     nio4r (2.1.0)
     nokogiri (1.8.2)
@@ -809,9 +767,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.15.1)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     temple (0.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -844,17 +799,9 @@ DEPENDENCIES
   attr_encrypted (~> 3.0.0)
   awesome_print
   aws-sdk (~> 3)
-  binding_of_caller
   breadcrumbs_on_rails
   bugsnag
   byebug
-  capistrano
-  capistrano-bundler!
-  capistrano-faster-assets (~> 1.0)
-  capistrano-rails
-  capistrano-rbenv
-  capistrano-sidekiq
-  capistrano3-puma!
   coderay
   devise (~> 4.2)
   devise_invitable (~> 1.7.0)
