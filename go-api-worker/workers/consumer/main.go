@@ -31,7 +31,7 @@ func main() {
 	pool.Job("send_email", (*Context).PrepareEmail)
 
 	// Customize options:
-	pool.JobWithOptions("export", work.JobOptions{Priority: 10, MaxFails: 1}, (*Context).Export)
+	pool.JobWithOptions("export", work.JobOptions{Priority: 10, MaxFails: 0}, (*Context).Export)
 
 	// Start processing jobs
 	pool.Start()

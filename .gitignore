@@ -14,6 +14,8 @@
 !/log/.keep
 !/tmp/.keep
 
+.DS_store
+
 /rails-dashboard/node_modules
 /rails-dashboard/yarn-error.log
 
@@ -27,3 +29,6 @@
 
 /rails-dashboard/.vscode
 /rails-dashboard/vendor
+
+/go-api-worker/vendor/
+/go-api-worker/dump.rdb
