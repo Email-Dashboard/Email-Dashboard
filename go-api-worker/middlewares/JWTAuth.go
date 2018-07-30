@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"notification-center-go-api/models"
+	"go-api-worker/models"
 	"github.com/gin-gonic/gin"
 )
 

@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	"notification-center-go-api/models"
+	"go-api-worker/models"
 
 	"github.com/aymerick/raymond"
 

@@ -13,7 +13,8 @@ var db *gorm.DB
 // init
 func init() {
 	// connect db
-	dbConn, err := gorm.Open("mysql", "root@tcp(127.0.0.1:3306)/notification_dashboard_development?charset=utf8&parseTime=True&loc=Local")
+	// dbConn, err := gorm.Open("mysql", "root@tcp(127.0.0.1:3306)/notification_dashboard_development?charset=utf8&parseTime=True&loc=Local")
+	dbConn, err := gorm.Open("mysql", "root@tcp(db)/notification_dashboard_development?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		log.Fatal(err.Error())
 	}

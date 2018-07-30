@@ -1,27 +1,40 @@
 version: '2'
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
+  db:
+    image: mysql:5.7
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  whoami:
-    image: jwilder/whoami
-    container_name: whoami
+      - '/Users/sadikay/Documents/dbdata:/var/lib/mysql'
+    restart: always
     environment:
-      - VIRTUAL_HOST=whoami.local
+     MYSQL_ROOT_PASSWORD: '12341234'
+     MYSQL_DATABASE: notification_dashboard_development
+     MYSQL_USER: notification_user
+     MYSQL_PASSWORD: 12341234
+    ports:
+      - '3306:3306'
+
+  redis:
+      image: redis:alpine
+      environment:
+        # ALLOW_EMPTY_PASSWORD is recommended only for development.
+        - ALLOW_EMPTY_PASSWORD=yes
+      ports:
+        - '6379'
 
   web:
-    image: sadikay/notification-center-rails
-    volumes:
-      - /datadrive/data/db:/var/db
-      - /datadrive/database.yml:/notification-center/config/database.yml
+    command: "/go-api-worker/main"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - 'db'
+      - 'redis'
+    image: notification-center/go-worker-api
+    build: ./go-api-worker
+    # environment:
+    #   VIRTUAL_HOST: yourdomain.com
+    links:
+      - redis:redis
+      - db
 
-    environment:
-      VIRTUAL_HOST: yourdomain.com
-      SECRET_KEY_BASE: yourSercretKeyBase
-
-version: '3.6'
+volumes:
+  'dbdata':

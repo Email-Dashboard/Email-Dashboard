@@ -1,14 +1,15 @@
-package main
+package consumer
 
 import (
 	"encoding/json"
 	"log"
-	"notification-center-go-api/mailer"
+	"fmt"
+	"go-api-worker/mailer"
 	"os"
 	"os/signal"
 
-	"notification-center-go-api/models"
-	"notification-center-go-api/workers/conf"
+	"go-api-worker/models"
+	"go-api-worker/workers/conf"
 
 	"github.com/gocraft/work"
 )
@@ -18,9 +19,11 @@ type Context struct {
 	activityID int64
 }
 
-func main() {
+// Start consumer : consumer.Start()
+func Start() {
 	// 10 is the max concurrency
 	// "notification_center_work" is the Redis namespace
+	fmt.Println("Consumer has started...")
 	pool := work.NewWorkerPool(Context{}, 10, "notification_center_work", redisconf.RedisPool)
 
 	// Add middleware that will be executed for each job

@@ -2,14 +2,20 @@ package main
 
 import (
 	"encoding/json"
-	"notification-center-go-api/middlewares"
-	"notification-center-go-api/models"
+	"go-api-worker/middlewares"
+	"go-api-worker/models"
+	"go-api-worker/workers/consumer"
+	"go-api-worker/workers/producer"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	// Start worker
+	go consumer.Start()
+	go producer.Start()
+
 	router := gin.Default()
 	api := router.Group("/api/v3")
 	api.Use(middlewares.JWTAuth())

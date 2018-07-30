@@ -1,13 +1,14 @@
-package main
+package producer
 
 import (
 	"log"
 	"os"
+	"fmt"
 	"os/signal"
 	"time"
 
-	"notification-center-go-api/models"
-	"notification-center-go-api/workers/conf"
+	"go-api-worker/models"
+	"go-api-worker/workers/conf"
 
 	"github.com/gocraft/work"
 	"github.com/robfig/cron"
@@ -16,7 +17,9 @@ import (
 // Make an enqueuer with a particular namespace
 var enqueuer = work.NewEnqueuer("notification_center_work", redisconf.RedisPool)
 
-func main() {
+// Start producer : consumer.Start()
+func Start() {
+	fmt.Println("Producer has started...")
 	c := cron.New()
 	c.AddFunc("0 * * * * *", enqueueJobs)
 	c.Start()
