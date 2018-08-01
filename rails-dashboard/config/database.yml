@@ -18,6 +18,6 @@ production:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
   host:     <%= ENV['DB_PRODUCTION_HOST'] %>
-  database: <%= ENV['DB_PRODUCTION_NAME'] %>
+  database: notification_center_prod
   username: <%= ENV['DB_PRODUCTION_USERNAME'] %>
   password: <%= ENV['DB_PRODUCTION_PASSWORD'] %>
