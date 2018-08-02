@@ -20,14 +20,12 @@ services:
       - '/Users/sadikay/Documents/dbdata:/var/lib/mysql'
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=rootpasswd
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=notification_center_prod
-      - MYSQL_USER=nc_db_user
-      - MYSQL_PASSWORD=nc_db_user_pwd
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
       - '3306:3306'
-    # healthcheck:
-    #   test: ["CMD", "mysql", "-u", "root", "-e", "select 1"]
 
 
   redis:
@@ -36,8 +34,6 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - '6379'
-    # healthcheck:
-    #   test: ["CMD", "redis-cli", "ping"]
 
   web:
     ports:
@@ -47,22 +43,24 @@ services:
       - 'redis'
     build: ./rails-dashboard
     environment:
-      SECRET_KEY_BASE: CHANGE_ME=yourSecureSercretKeyBase2ndi2nrfiaskd3r94nr
-      DB_PRODUCTION_USERNAME: nc_db_user
-      DB_PRODUCTION_PASSWORD: nc_db_user_pwd
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      DB_PRODUCTION_USERNAME: ${MYSQL_USER}
+      DB_PRODUCTION_PASSWORD: ${MYSQL_PASSWORD}
       DB_PRODUCTION_HOST: db
 
   api:
     command: "/go-api-worker/main"
     ports:
       - "8080:8080"
-    # depends_on:
-    #   - 'db'
-    #   - 'redis'
+    depends_on:
+      - 'db'
+      - 'redis'
     # image: notification-center/go-worker-api
     build: ./go-api-worker
     environment:
       - GIN_MODE=release
+      - DB_PRODUCTION_USERNAME=${MYSQL_USER}
+      - DB_PRODUCTION_PASSWORD=${MYSQL_PASSWORD}
     links:
       - redis:redis
       - db
