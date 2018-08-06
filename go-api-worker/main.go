@@ -45,17 +45,17 @@ func CreateActivity(c *gin.Context) {
 			var activity = models.Activity{NotificationDeliverID: deliver.ID, Status: "pending", SendAt: time.Now(), RequestContent: data}
 			models.GetDB().Create(&activity)
 		} else {
-			// TODO: Add zone support content.Delivery.Zone
-
 			layout := "2006-01-02 15:04"
+			loc, _ := time.LoadLocation(content.Delivery.Zone)
 			sendTime := content.Delivery.Date + " " + content.Delivery.Time
-			parsedTime, err := time.Parse(layout, sendTime)
+
+			toSendAt, err := time.ParseInLocation(layout, sendTime, loc)
 
 			if err != nil {
 				c.JSON(422, gin.H{"error": err})
 				return
 			} else {
-				var activity = models.Activity{NotificationDeliverID: deliver.ID, Status: "pending", SendAt: parsedTime, RequestContent: data}
+				var activity = models.Activity{NotificationDeliverID: deliver.ID, Status: "scheduled", SendAt: toSendAt, RequestContent: data}
 				models.GetDB().Create(&activity)
 			}
 		}
