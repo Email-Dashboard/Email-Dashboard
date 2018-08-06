@@ -16,6 +16,6 @@ RUN go get -u github.com/golang/dep/...
 RUN dep ensure
 RUN go build -o /go-api-worker/main .
 
-# CMD ["/go-api-worker/main"]
+CMD ["/go-api-worker/main"]
 
 EXPOSE 8080

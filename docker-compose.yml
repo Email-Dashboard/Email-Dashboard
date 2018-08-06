@@ -1,19 +1,5 @@
-version: '2'
+version: '2.1'
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  # whoami:
-  #   image: jwilder/whoami
-  #   container_name: whoami
-  #   environment:
-  #     - VIRTUAL_HOST=whoami.local
-
   db:
     image: mysql:5.7
     volumes:
@@ -26,6 +12,10 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
       - '3306:3306'
+    healthcheck:
+      test: "/etc/init.d/mysql status"
+      timeout: 16s
+      interval: 5s
 
 
   redis:
@@ -39,8 +29,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - 'db'
-      - 'redis'
+      - db
+      - redis
     build: ./rails-dashboard
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
@@ -49,12 +39,11 @@ services:
       DB_PRODUCTION_HOST: db
 
   api:
-    command: "/go-api-worker/main"
     ports:
       - "8080:8080"
     depends_on:
-      - 'db'
-      - 'redis'
+      db:
+        condition: service_healthy
     # image: notification-center/go-worker-api
     build: ./go-api-worker
     environment:
