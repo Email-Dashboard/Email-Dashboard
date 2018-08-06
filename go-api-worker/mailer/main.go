@@ -21,7 +21,7 @@ type mailOptions struct {
 	emailTo      []string
 	emailCc      []string
 	emailBcc     []string
-	emailReplyTo string
+	emailReplyTo []string
 	subject      string
 	content      string
 }
@@ -89,8 +89,10 @@ func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (mid string, 
 	m.SetHeader("To", options.emailTo...)
 	m.SetHeader("Cc", options.emailCc...)
 	m.SetHeader("Bcc", options.emailBcc...)
-	m.SetHeader("Subject", options.subject)
+	m.SetHeader("Reply-To", options.emailReplyTo...)
+
 	m.SetHeader("Message-Id", messageID)
+	m.SetHeader("Subject", options.subject)
 	m.SetBody("text/html", options.content)
 
 	d := gomail.NewDialer(smtpOpt.Address, smtpOpt.Port, smtpOpt.Username, smtpOpt.Password)

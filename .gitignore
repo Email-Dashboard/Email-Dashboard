@@ -32,3 +32,4 @@
 
 /go-api-worker/vendor/
 /go-api-worker/dump.rdb
+/go-api-worker/tmp/

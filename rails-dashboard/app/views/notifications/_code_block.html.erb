@@ -18,7 +18,7 @@
       <%= "\"https://notifications.svteknoloji.website/api/v2/notifications/#{@notification.slug}/notifiers\"" %>
 
       # Delivery is optional, If delivery not set notification will send immediately.
-      # <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+      # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">See available timezones.</a></u>
       # Example JSON body
         {
           "variables":{
@@ -61,7 +61,7 @@
           delivery: {
             time: "21:00",
             date: "<%= Time.current.to_date %>",
-            time_zone: "<%= Time.zone.name %>" # <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+            time_zone: "<%= Time.zone.name %>" # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">See available timezones.</a></u>
           }
         }
         headers = {
@@ -100,7 +100,7 @@
           delivery => {
             'time' => "21:00",
             'date' => "<%= Time.current.to_date %>",
-            'time_zone' => "<%= Time.zone.name %>" // <u><a href="#modal-center" uk-toggle>See available timezones.</a></u>
+            'time_zone' => "<%= Time.zone.name %>" // <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">See available timezones.</a></u>
           }
         );
 
@@ -121,36 +121,3 @@
     </pre>
   </li>
 </ul>
-
-<div id="modal-center" class="uk-flex-top" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body">
-    <button class="uk-modal-close-default" type="button" uk-close></button>
-    <h2 class="uk-modal-title">Available Time Zones</h2>
-    <% zone_arr = ActiveSupport::TimeZone.all.collect(&:name).each_slice(50).to_a %>
-    <div class="uk-child-width-expand" uk-grid>
-      <div>
-        <ul class="uk-list">
-          <% zone_arr[0].each do |zone| %>
-            <li><%= zone %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div>
-        <ul class="uk-list">
-          <% zone_arr[1].each do |zone| %>
-            <li><%= zone %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div>
-        <ul class="uk-list">
-          <% zone_arr[2].each do |zone| %>
-            <li><%= zone %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>

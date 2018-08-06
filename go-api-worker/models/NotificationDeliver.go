@@ -15,7 +15,7 @@ type NotificationDeliver struct {
 type NotificationContent struct {
 	ID      uint `gorm:"primary_key"`
 	Subject string
-	Content string
+	Content string // html content
 }
 
 // SMTPSetting for mailer

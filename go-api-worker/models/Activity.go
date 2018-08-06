@@ -25,8 +25,8 @@ type RawContent struct {
 		To      []string `json:"to"`
 		Cc      []string `json:"cc"`
 		Bcc     []string `json:"bcc"`
+		ReplyTo []string `json:"reply_to"`
 		From    string   `json:"from"`
-		ReplyTo string   `json:"reply_to"`
 	} `json:"email"`
 
 	Delivery struct {
