@@ -686,9 +686,6 @@ GEM
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
-    rack-attack (5.0.1)
-      rack
-    rack-cors (1.0.2)
     rack-protection (2.0.0)
       rack
     rack-proxy (0.6.3)
@@ -817,8 +814,6 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   newrelic_rpm
   puma (~> 3.7)
-  rack-attack
-  rack-cors
   rails (~> 5.1.4)
   rails_param
   ransack

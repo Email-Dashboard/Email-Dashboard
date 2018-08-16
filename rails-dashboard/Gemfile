@@ -44,11 +44,6 @@ gem 'hashie'
 gem 'kaminari'
 gem 'ransack'
 
-# Enable Cross-Origin
-gem 'rack-cors', :require => 'rack/cors'
-# Rate Limiting and Throttling
-gem 'rack-attack'
-
 gem 'sidekiq'
 gem 'redis-namespace'
 gem 'sidekiq-scheduler'

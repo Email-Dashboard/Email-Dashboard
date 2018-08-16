@@ -8,7 +8,6 @@ require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
-require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -27,14 +26,5 @@ module NotificationDashboard
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post]
-      end
-    end
-
-    config.middleware.use Rack::Attack
   end
 end
