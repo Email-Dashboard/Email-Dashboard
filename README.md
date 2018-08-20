@@ -8,7 +8,7 @@ This service helps you to manage notifications that you are sending to your user
 - [x] Interactive tempates.
 - [x] Multiple SMTP support.
 - [x] Scheduled delivery with time zone.
-- [] Tracking.
+- [ ] Tracking.
 - [ ] A/B testing.
 
 ## Deployment
