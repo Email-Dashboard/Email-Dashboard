@@ -1,9 +1,17 @@
 version: '2.1'
 services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
   db:
     image: mysql:5.7
     volumes:
-      - '/Users/sadikay/Documents/dbdata:/var/lib/mysql'
+      - '/datadrive/mysql:/var/lib/mysql'
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -22,6 +30,8 @@ services:
     image: redis:alpine
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - '/datadrive/redis:/data'
     ports:
       - '6379'
 
@@ -37,6 +47,7 @@ services:
       DB_PRODUCTION_USERNAME: ${MYSQL_USER}
       DB_PRODUCTION_PASSWORD: ${MYSQL_PASSWORD}
       DB_PRODUCTION_HOST: db
+      VIRTUAL_HOST: notifications.svteknoloji.website
 
   api:
     ports:
@@ -50,9 +61,10 @@ services:
       - GIN_MODE=release
       - DB_PRODUCTION_USERNAME=${MYSQL_USER}
       - DB_PRODUCTION_PASSWORD=${MYSQL_PASSWORD}
+      - VIRTUAL_HOST=api.svteknoloji.website
     links:
       - redis:redis
       - db
 
 volumes:
-  'dbdata':
+  'datadrive':
