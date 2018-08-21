@@ -36,8 +36,6 @@ services:
       - '6379'
 
   web:
-    ports:
-      - "80:3000"
     depends_on:
       - db
       - redis
@@ -50,8 +48,6 @@ services:
       VIRTUAL_HOST: notifications.svteknoloji.website
 
   api:
-    ports:
-      - "80:8080"
     depends_on:
       db:
         condition: service_healthy

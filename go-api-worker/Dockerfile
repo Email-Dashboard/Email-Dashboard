@@ -18,4 +18,4 @@ RUN go build -o /go-api-worker/main .
 
 CMD ["/go-api-worker/main"]
 
-EXPOSE 8080
+EXPOSE 80
