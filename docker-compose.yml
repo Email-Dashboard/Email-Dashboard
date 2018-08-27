@@ -45,7 +45,7 @@ services:
       DB_PRODUCTION_USERNAME: ${MYSQL_USER}
       DB_PRODUCTION_PASSWORD: ${MYSQL_PASSWORD}
       DB_PRODUCTION_HOST: db
-      VIRTUAL_HOST: notifications.svteknoloji.website
+      VIRTUAL_HOST: dashboard.${APP_DOMAIN}
 
   api:
     depends_on:
@@ -57,7 +57,7 @@ services:
       - GIN_MODE=release
       - DB_PRODUCTION_USERNAME=${MYSQL_USER}
       - DB_PRODUCTION_PASSWORD=${MYSQL_PASSWORD}
-      - VIRTUAL_HOST=api.svteknoloji.website
+      - VIRTUAL_HOST=api.${APP_DOMAIN}
     links:
       - redis:redis
       - db

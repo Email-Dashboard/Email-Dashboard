@@ -22,21 +22,6 @@
       .uk-margin
         = f.submit 'Save', class: 'uk-button uk-button-primary'
 
-  .uk-card.uk-card-default.uk-card-body
-    = simple_form_for([@notification, @notification.email_deliver],  html: { class: 'form-horizontal uk-disabled' }, namespace: 'sms', method: :patch) do |f|
-      %fieldset.uk-fieldset
-        = f.error_notification
-        %h3 SMS Deliver Options
-        .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
-          = f.input :is_active, input_html: { checked: false, class: 'uk-checkbox uk-form-width-medium uk-disabled', style: 'margin-right: 5px;' }
-      .uk-margin
-        %h2.uk-text-muted.uk-text-center Coming Soon!
-
--# .uk-margin
--#   .uk-card.uk-card-default.uk-card-body{'data-controller': 'notification'}
--#     %input.uk-input{'data-target': 'notification.name', type: 'text'}
--#     %button.uk-button.uk-button-default{'data-action': 'click->notification#log'} Click Me!
-
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
   = render 'code_block'
