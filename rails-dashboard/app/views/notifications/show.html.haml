@@ -1,8 +1,11 @@
+= content_for :action_buttons do
+  = link_to 'Send Notification Doc', '#doc-ntf', 'uk-scroll': '', class: 'uk-text-right uk-button uk-button-default'
+
 .uk-card.uk-card-default.uk-card-body
   %p
     %strong Name:
     = @notification.name
-    = link_to 'Edit', edit_notification_path(@notification), class: 'uk-button uk-button-small uk-button-default'
+    = link_to 'Edit', edit_notification_path(@notification), class: 'uk-button uk-button-small uk-button-default'   
 .uk-margin
 
 .uk-grid-collapse{'uk-grid': '', class: 'uk-child-width-expand@s'}
@@ -22,7 +25,7 @@
       .uk-margin
         = f.submit 'Save', class: 'uk-button uk-button-primary'
 
-.uk-margin
+.uk-margin#doc-ntf
 .uk-card.uk-card-default.uk-card-body
   = render 'code_block'
 

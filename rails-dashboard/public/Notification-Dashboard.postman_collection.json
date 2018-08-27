@@ -1,0 +1,78 @@
+{
+	"id": "c3165238-c216-4c2a-a5ef-e3e415a446f2",
+	"name": "Notification-Dashboard",
+	"description": "API requests to notification dashboard.",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"47055864-56b1-460d-b002-bfe1ff4e34ac",
+		"924a132c-4b73-4005-b1ed-8cb3688fe8d3"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "47055864-56b1-460d-b002-bfe1ff4e34ac",
+			"name": "sample",
+			"url": "https://{{myHost}}/api/v3/notifications/{{notification-slug}}",
+			"description": "Notification dashbord basic request example.",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Token {{AccountToken}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n   \"variables\":{  \n      \"button_name\":\"Click me!\",\n      \"name\": \"John\"\n   },\n   \"email\":{  \n      \"to\":[\"test@example.com\", \"second-to@example.com\"],\n      \"cc\": [\"cc-test@example.com\"],\n      \"reply_to\": [\"reply-to@example.com\"],\n      \"from\":\"myapp@example.com\"\n   }\n}\n",
+			"headers": "Authorization: Token {{AccountToken}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "924a132c-4b73-4005-b1ed-8cb3688fe8d3",
+			"name": "deliveryTimeOption",
+			"url": "https://{{myHost}}/api/v3/notifications/{{notification-slug}}",
+			"description": "Notification dashbord delivery time request example.",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Token {{AccountToken}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n   \"variables\":{  \n      \"button_name\":\"Click me!\",\n      \"name\": \"John\"\n   },\n   \"email\":{  \n      \"to\":[\"test@example.com\", \"second-to@example.com\"],\n      \"cc\": [\"cc-test@example.com\"],\n      \"reply_to\": [\"reply-to@example.com\"],\n      \"from\":\"myapp@example.com\"\n   },\n   \"delivery\": {\n     \"time\": \"21:00\",\n     \"date\": \"2018-09-22\",\n     \"zone\": \"Europe/Istanbul\"\n   }\n}\n",
+			"headers": "Authorization: Token {{AccountToken}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}
