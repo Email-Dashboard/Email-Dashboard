@@ -2,6 +2,10 @@
 
 This service helps you to manage notifications that you are sending to your users. It's an amazing tool to manage your outgoing emails from your apps.
 
+![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/activities.png?raw=true)
+
+<br/>
+
 
 ## Features
 - [x] Monitor email activies that your service sent.
