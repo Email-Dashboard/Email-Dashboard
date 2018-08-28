@@ -2,10 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"go-api-worker/middlewares"
 	"go-api-worker/models"
 	"go-api-worker/workers/consumer"
 	"go-api-worker/workers/producer"
+	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -17,6 +19,12 @@ func main() {
 	go producer.Start()
 
 	router := gin.Default()
+
+	// get request to base url
+	router.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, fmt.Sprintf("Hello from Email Dashboard API!"))
+	})
+
 	api := router.Group("/api/v3")
 	api.Use(middlewares.JWTAuth())
 	api.POST("notifications/:id", CreateActivity)

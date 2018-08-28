@@ -1,4 +1,7 @@
 FROM ruby:2.4.2
+
+LABEL maintainer="Sadik Ay <sadikay2@gmail.com>"
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
 RUN apt-get install -y wget

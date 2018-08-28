@@ -1,8 +1,10 @@
 FROM golang:latest
 
-MAINTAINER Sadik Ay <sadikay2@gmail.com>
+LABEL maintainer="Sadik Ay <sadikay2@gmail.com>"
 
 ENV GOBIN /go/bin
+ENV GIN_MODE release
+
 RUN mkdir /go-api-worker
 RUN mkdir /go/src/go-api-worker
 
