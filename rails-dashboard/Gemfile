@@ -28,7 +28,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
   gem 'letter_opener'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -44,14 +43,9 @@ gem 'hashie'
 gem 'kaminari'
 gem 'ransack'
 
-gem 'sidekiq'
-gem 'redis-namespace'
-gem 'sidekiq-scheduler'
-
 gem 'bugsnag'
 gem 'newrelic_rpm'
 
-gem 'aws-sdk', '~> 3'
 gem 'coderay'
 gem 'awesome_print'
 gem 'breadcrumbs_on_rails'

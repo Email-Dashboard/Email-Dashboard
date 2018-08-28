@@ -14,7 +14,7 @@
       -H "Content-type: application/json" \
       -X POST -d '{ "variables":{ "<%= variables.first || 'variable' %>":"some_value"},
           "email":{ "to":["test@example.com"], "cc":["test@exapmle.com"], "bcc":["test@exapmle.com"], reply_to":["test@exapmle.com"], "from":"test@example.com" } \
-      <%= "\"https://api.#{ENV['VIRTUAL_HOST']}/api/v3/notifications/#{@notification.slug}\"" %>
+      <%= "\"https://api.#{request.domain}/api/v3/notifications/#{@notification.slug}\"" %>
 
       # Delivery is optional, If delivery not set notification will send immediately.
       # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">See available timezones.</a></u>
@@ -68,7 +68,7 @@
         }
 
         HTTParty.post(
-          '"https://api.<%= ENV['VIRTUAL_HOST'] %>/api/v3/notifications/<%= @notification.slug %>"',
+          '"https://api.<%= request.domain %>/api/v3/notifications/<%= @notification.slug %>"',
           query: query, headers: headers
         )
       </code>
