@@ -51,7 +51,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    # image: notification-center/go-worker-api
     build: ./go-api-worker
     environment:
       - GIN_MODE=release
