@@ -19,11 +19,6 @@ module NotificationDashboard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-
-    config.autoload_paths += Dir["#{config.root}/app/services/**/"]
-
-    config.active_job.queue_adapter = :sidekiq
-
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
