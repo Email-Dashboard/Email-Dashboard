@@ -9,7 +9,7 @@ This service helps you to manage notifications that you are sending to your user
 
 ## Features
 - [x] Monitor email activites that your service sent.
-- [x] Interactive tempates.
+- [x] Interactive templates.
 - [x] Multiple SMTP support.
 - [x] Scheduled delivery with time zone.
 - [x] Perform / Cancel scheduled activites optionally.
@@ -61,7 +61,7 @@ wget -qO- https://get.docker.com/ | sh
 ```
 
 ### Install Docker Compose
-Install docker compose from the [official page](https://docs.docker.com/compose/install/).
+Install docker compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
 
 ```bash
 curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
