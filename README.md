@@ -25,7 +25,7 @@ Posting to REST API.
 `Authorization: Token {{AccountToken}}`
 
 
-```json
+```
 {
    "variables":{
       "button_name": "Click me!",
@@ -37,8 +37,7 @@ Posting to REST API.
       "reply_to": ["reply-to@example.com"],
       "from": "myapp@example.com"
    },
-   // optional
-   "delivery": {
+   "delivery": { # optional
      "time": "21:00",
      "date": "2018-09-22",
      "zone": "Europe/Istanbul"
@@ -65,7 +64,13 @@ chmod +x /usr/local/bin/docker-compose
 
 ### Create data folders
 ```bash
-  mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
+ mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
+```
+
+### Clone repo
+
+```bash
+ git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
 * Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env
