@@ -29,7 +29,7 @@ func main() {
 	api.Use(middlewares.JWTAuth())
 	api.POST("notifications/:id", CreateActivity)
 
-	router.Run(":8080")
+	router.Run(":80")
 }
 
 // CreateActivity Handle activity request
