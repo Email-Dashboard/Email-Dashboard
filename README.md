@@ -4,7 +4,10 @@ This service helps you to manage notifications that you are sending to your user
 
 ![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/activities.png?raw=true)
 
-<br/>
+## Code Overview
+* The REST API builded with superfast language [golang](https://github.com/golang/go).
+* The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)
+* Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.
 
 
 ## Features
@@ -45,11 +48,6 @@ Posting to REST API.
    }
 }
 ```
-
-## Code Overview
-* The REST API builded with superfast language [golang](https://github.com/golang/go).
-* The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)
-* Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.
 
 ## Installation
 
