@@ -11,18 +11,22 @@ This service helps you to manage notifications that you are sending to your user
 
 
 ## Features
-- [x] Monitor email activites that your service sent.
+- [x] Monitor email activities that your service sent.
 - [x] Interactive templates.
 - [x] Multiple SMTP support.
 - [x] Scheduled delivery with time zone.
-- [x] Perform / Cancel scheduled activites optionally.
+- [x] Perform / Cancel scheduled activities optionally.
 - [ ] Tracking.
 - [ ] A/B testing.
 
 
 ## Usage
+### In Dashboard
+* Add your SMTP Settings
+* Create email template with [handlebars](http://handlebarsjs.com/) variables.
+* Create notification
 
-Posting to REST API.
+### Posting to REST API
 
 `/POST https://api.{{yourhost}}/api/v3/notifications/{{notification-slug}}`
 
