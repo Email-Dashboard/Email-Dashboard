@@ -2,7 +2,7 @@
 
 This service helps you to manage notifications that you are sending to your users. It's an amazing tool to manage your outgoing emails from your apps.
 
-![Email Dashboard Intro](https://s3.amazonaws.com/email-dashbboard/intro.gif)
+![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/intro.gif?raw=true)
 
 ## Code Overview
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
