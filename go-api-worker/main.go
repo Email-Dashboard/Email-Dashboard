@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"io"
 	"go-api-worker/middlewares"
 	"go-api-worker/models"
 	"go-api-worker/workers/consumer"
@@ -14,6 +16,9 @@ import (
 )
 
 func main() {
+	// Enable logging
+	startGinLogger()
+
 	// Start worker
 	go consumer.Start()
 	go producer.Start()
@@ -72,4 +77,13 @@ func CreateActivity(c *gin.Context) {
 	} else {
 		c.JSON(422, gin.H{"error": "Email type deliver not found!"})
 	}
+}
+
+func startGinLogger() {
+	// Disable Console Color
+	gin.DisableConsoleColor()
+
+	// Logging to a file.
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f)
 }
