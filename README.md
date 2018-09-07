@@ -6,7 +6,7 @@ This service helps you to manage notifications that you are sending to your user
 
 ## Demo
 
-https://dashboard.email-dashboard.tk/
+https://dashboard.pigon.ws
 
 ## Code Overview
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
