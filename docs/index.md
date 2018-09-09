@@ -81,7 +81,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ### Clone repo
 
-```bash
+```console
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
@@ -89,7 +89,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ## Deployment
 
-```bash
+```console
   sudo docker-compose build
   sudo docker-compose run web rake db:migrate
   sudo docker-compose up -d
