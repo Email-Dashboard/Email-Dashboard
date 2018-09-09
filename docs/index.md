@@ -116,4 +116,4 @@ chmod +x /usr/local/bin/docker-compose
 
 ## License
 
-Use of this software is subject to important terms and conditions as set forth in the [LICENSE](LICENSE) file
+Use of this software is subject to important terms and conditions as set forth in the [LICENSE](LICENSE.md) file
