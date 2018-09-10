@@ -4,9 +4,11 @@ This service helps you to manage notifications that you are sending to your user
 
 ![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/intro.gif?raw=true)
 
-## Demo
+## Demo & Docs
 
-https://dashboard.pigon.ws
+Demo: https://dashboard.pigon.ws
+
+Docs: https://email-dashboard.readthedocs.io/en/latest
 
 ## Code Overview
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
@@ -96,6 +98,7 @@ chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Contributing
+See [contributing](https://email-dashboard.readthedocs.io/en/latest/Contributing/) guide.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
