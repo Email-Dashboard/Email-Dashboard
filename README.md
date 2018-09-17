@@ -78,7 +78,7 @@ chmod +x /usr/local/bin/docker-compose
 
 ### Create data folders
 ```bash
- mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
+ mkdir -p ~/datadrive/mysql && mkdir -p ~/datadrive/data/redis
 ```
 
 ### Clone repo
