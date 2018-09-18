@@ -77,6 +77,13 @@ chmod +x /usr/local/bin/docker-compose
 ```
 
 ### Create data folders
+
+##### Ubuntu
+```bash
+ mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
+```
+
+##### macOS
 ```bash
  mkdir -p ~/datadrive/mysql && mkdir -p ~/datadrive/data/redis
 ```
@@ -88,6 +95,8 @@ chmod +x /usr/local/bin/docker-compose
 ```
 
 * Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env
+
+* If you are running on macOS enable commented lines in `docker-compose.yml`
 
 ## Deployment
 
