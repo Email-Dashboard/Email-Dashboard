@@ -62,11 +62,22 @@ Docs: https://email-dashboard.readthedocs.io/en/latest
 ## Installation
 
 ### Install Docker
+
+#### Linux
 Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
 
 ```bash
 wget -qO- https://get.docker.com/ | sh
 ```
+
+Execute this line to allow docker to execute without being root
+```bash
+sudo usermod -aG docker ${USER}
+```
+Logout, then login again. Permissions should be applied.
+
+#### MacOS
+Follow installation instructions here: https://store.docker.com/editions/community/docker-ce-desktop-mac
 
 ### Install Docker Compose
 Install docker compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
@@ -101,9 +112,9 @@ chmod +x /usr/local/bin/docker-compose
 ## Deployment
 
 ```bash
-  sudo docker-compose build
-  sudo docker-compose run web rake db:migrate
-  sudo docker-compose up -d
+  docker-compose build
+  docker-compose run web rake db:migrate
+  docker-compose up -d
 ```
 
 ## Contributing
