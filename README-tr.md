@@ -1,6 +1,6 @@
 # Email Dashboard
 
-Uygulamalarından kullanıcılara gönderdiğin emailleri görüntüleyebilmek ve bu emailleri tek bir yerde toplayıp yönetmeni sağlar.
+Uygulamalarından kullanıcılara gönderdiğin emailleri görüntüleyebilmek ve bu emailleri tek bir yerde toplayıp yönetmeyi sağlar.
 
 
 ![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true)
