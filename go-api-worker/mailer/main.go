@@ -94,7 +94,7 @@ func deliverEmail(options mailOptions, smtpOpt models.SMTPSetting) (mid string, 
 	m.SetHeader("Message-Id", messageID)
 	m.SetHeader("Subject", options.subject)
 	m.SetBody("text/html", options.content)
-	m.SetBody("text/plain" options.content)
+	m.SetBody("text/plain", options.content)
 
 	d := gomail.NewDialer(smtpOpt.Address, smtpOpt.Port, smtpOpt.Username, smtpOpt.Password)
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
