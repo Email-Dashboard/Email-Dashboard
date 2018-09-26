@@ -1,5 +1,7 @@
 # Email Dashboard
 
+🇺🇸[English](./README.md)
+
 这个服务可以帮助您管理要发送给用户的通知。这是一个很棒的工具，可以管理您应用中的外发电子邮件。
 
 ![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true)
