@@ -1,10 +1,10 @@
 %table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
-      %th Provider
-      %th Address
-      %th Port
-      %th Username
+      %th= t('smtp.form.title')
+      %th= t('smtp.form.address')
+      %th= t('smtp.form.port')
+      %th= t('smtp.form.username')
       %th
 
   %tbody
@@ -15,5 +15,5 @@
         %td= smtp_setting.port
         %td= smtp_setting.username
         %td.uk-text-right
-          = link_to 'Edit', edit_smtp_setting_path(smtp_setting), class: 'uk-button uk-button-default uk-button-small'
-          = link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger uk-button-small'
+          = link_to t('actions.edit'), edit_smtp_setting_path(smtp_setting), class: 'uk-button uk-button-default uk-button-small'
+          = link_to t('actions.destroy'), smtp_setting, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-danger uk-button-small'

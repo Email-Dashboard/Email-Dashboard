@@ -14,8 +14,8 @@
       -X POST -d '{ "variables": { "<%= variables.first || 'variable' %>": "Test", "button_name": "Click Me!"}, "email":{ "to":["test-to@email.com"], "from":"test-from@email.com" } }' \
       <%= "\"https://api.#{request.domain}/api/v3/notifications/#{@notification.slug}\"" %>
 
-      # Delivery is optional, If delivery not set notification will send immediately.
-      # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">See available timezones.</a></u>
+      # <%= t('notifications.docs.delivery_optional') %>
+      # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank"><%= t('notifications.docs.available_timezone') %></a></u>
       # Example JSON body
         {
           "variables":{

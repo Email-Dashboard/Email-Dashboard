@@ -1,7 +1,7 @@
 = content_for :action_buttons do
   = link_to new_smtp_setting_path, class: 'uk-button uk-button-success' do
     %i{'uk-icon': 'plus'}
-    New SMTP
+    = t('smtp.new_smtp')
 
 - if @smtp_settings.size == 0
   = render 'smtp_settings/blank'

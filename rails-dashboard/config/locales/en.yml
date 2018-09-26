@@ -76,6 +76,42 @@ en:
       content: HTML Content
       support_handlebars_html: '<p class="uk-text-meta">We support <a target="_blank" href="http://handlebarsjs.com/">Handlebars</a>. You can use variables to  make your content more active.<a target="_blank" href="http://handlebarsjs.com/">Click here to see handlebars documentation.</a></p>'
 
+  notifications:
+    new_notification: New Notification
+    not_created_yet: You have not created any Notification yet.
+    go_to_docs: Go To Docs
+    email_deliver_options: Email Deliver Options
+    form:
+      name: Name
+      is_active: Is Active
+      template: Template
+    docs:
+      delivery_optional: Delivery is optional, If delivery not set notification will send immediately.
+      available_timezone: See available timezones.
+
+  scheduled:
+    activity: Scheduled Activity
+    going_to_be_sent: 'This notification going to be send at:'
+    send_now: Send Now
+    cancel: Cancel Notification
+    if_you_want_to_change: If you want to change it, use the actions below.
+
+  smtp:
+    title: SMTP
+    new_smtp: New SMTP
+    settings: SMTP Settings
+    not_created_yet: You have not added any SMTP yet.
+    custom: Custom
+    form:
+      title: Title
+      address: Address
+      port: Port
+      username: Username
+      password: Password
+      aws_access_key: AWS access key ID
+      aws_secret_key: AWS secret key
+
+
   auth:
     logout: Logout
     profile_settings: Profile Settings
@@ -87,5 +123,9 @@ en:
     show: Show
     edit: Edit
     destroy: Destroy
+    settings: Settings
     save: Save
     create_new: Create New One
+
+  confirm:
+    are_you_sure: 'Are you sure?'
