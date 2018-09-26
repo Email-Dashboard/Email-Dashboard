@@ -45,16 +45,47 @@ en:
 
   accounts:
     manage: Manage Accounts
+    new_account: New Account
     no_account: No Account Created
+    not_created_yet: You have not created any account yet.
+    status: Status
+    modes:
+      live: Live Mode
+      test: Test Mode
+    form:
+      info: Info
+      name: Name
+      email: Email
+      invite: Invite
+      role: Role
     warnings:
       in_test_mode: account in the test mode. Notifications will not send to real adresses.
+      notifications_not_send_to_real_address: '* In the test mode notifications not sending to real addresses but still you can monitorize them from the activities.'
+    info:
+      test_mode_email: Set an email address to receive all notifications in for test mode.
+    team:
+      members: Team Members
+      resend_confirm: Resend Confirmation
+
+  templates:
+    new_template: New Template
+    not_have_template: You have not created any template yet.
+    variables: 'Variables:'
+    form:
+      subject: Subject
+      content: HTML Content
+      support_handlebars_html: '<p class="uk-text-meta">We support <a target="_blank" href="http://handlebarsjs.com/">Handlebars</a>. You can use variables to  make your content more active.<a target="_blank" href="http://handlebarsjs.com/">Click here to see handlebars documentation.</a></p>'
 
   auth:
     logout: Logout
     profile_settings: Profile Settings
 
-
-
-
   modal:
     close: Close
+
+  actions:
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    save: Save
+    create_new: Create New One

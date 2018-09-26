@@ -1,7 +1,7 @@
 %table.uk-table.uk-table-responsive.uk-table-divider
   %thead
     %tr
-      %th Subject
+      %th= t('templates.form.subject')
       %th
 
   %tbody
@@ -9,6 +9,6 @@
       %tr
         %td= notification_content.subject
         %td.uk-text-right
-          = link_to 'Show', notification_content, class: 'uk-button uk-button-small uk-button-default'
-          = link_to 'Edit', edit_notification_content_path(notification_content), class: 'uk-button uk-button-small uk-button-default'
-          = link_to 'Destroy', notification_content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'
+          = link_to t('actions.show'), notification_content, class: 'uk-button uk-button-small uk-button-default'
+          = link_to t('actions.edit'), edit_notification_content_path(notification_content), class: 'uk-button uk-button-small uk-button-default'
+          = link_to t('actions.destroy'), notification_content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'

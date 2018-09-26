@@ -1,8 +1,7 @@
 = content_for :action_buttons do
   = link_to new_account_path, class: 'uk-button uk-button-success' do
     %i{'uk-icon': 'plus'}
-    New Account
-
+    = t('accounts.new_account')
 
 - if @accounts.size == 0
   = render 'accounts/blank'
