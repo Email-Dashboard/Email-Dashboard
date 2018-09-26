@@ -52,3 +52,5 @@ gem 'breadcrumbs_on_rails'
 gem 'handlebars'
 gem 'jwt'
 gem 'rails_param'
+
+gem 'rails-i18n', '~> 5.1'

@@ -8,7 +8,7 @@
   %div
     .uk-background-primary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'pending' }) do
-        = t('dashboard.activities.status.success')
+        = t('dashboard.activities.status.pending')
         = @activities.where(status: 'pending').count
   %div
     .uk-label-warning.uk-padding-small.uk-light

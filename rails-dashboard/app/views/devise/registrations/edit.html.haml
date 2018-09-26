@@ -13,7 +13,7 @@
       .uk-form-controls.uk-margin
         = f.input :current_password, required: true, autofocus: true, input_html: { class: 'uk-input' }, placeholder: 'Current Password', label: false, hint: 'we need your current password to confirm your changes'
       .uk-form-row
-        = f.button :submit, "Sign UP", class: 'uk-button uk-button-primary'
+        = f.button :submit, t('actions.save'), class: 'uk-button uk-button-primary'
     %br
     = render "devise/shared/links"
   %div
