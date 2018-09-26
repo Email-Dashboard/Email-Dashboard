@@ -1,2 +1,131 @@
 zh-CN:
-  dashboard: "Hello world"
+  main:
+    welcome_to_email_dashboard: Welcome to Email Dashboard!
+    features:
+      post_variables: Post your email variables to the app.
+      manage_notifications: Organize and manage your notifications.
+      customize: Customize your templates, variables and more...
+    footer:
+      crafted_with: Crafted with
+      sunny_california: in Sunny California
+
+  dashboard:
+    home:
+      title: Home
+      emails_sent: "%{emails_count} Emails Sent"
+    activities:
+      title: Activities
+      content: Content
+      no_activity: There is no any activity.
+      status:
+        success: Success
+        pending: Pending
+        scheduled: Scheduled
+        failed: Failed
+        canceled: Canceled
+      fields:
+        sent_at: Sent At
+        notification: Notification
+        status: Status
+        content_preview: Content Preview
+
+    notifications:
+      title: Notifications
+    smtp:
+      title: SMTP
+    templates:
+      title:
+        Templates
+    instructions:
+      add_smtp: 1. Add SMTP
+      create_template: 2. Create Template
+      create_notification: 3. Create Notification
+      submit_api: 4. Submit to API
+      monitor_activities: 5. Monitor Activities
+
+  accounts:
+    manage: Manage Accounts
+    new_account: New Account
+    no_account: No Account Created
+    not_created_yet: You have not created any account yet.
+    status: Status
+    modes:
+      live: Live Mode
+      test: Test Mode
+    form:
+      info: Info
+      name: Name
+      email: Email
+      invite: Invite
+      role: Role
+    warnings:
+      in_test_mode: account in the test mode. Notifications will not send to real adresses.
+      notifications_not_send_to_real_address: '* In the test mode notifications not sending to real addresses but still you can monitorize them from the activities.'
+    info:
+      test_mode_email: Set an email address to receive all notifications in for test mode.
+    team:
+      members: Team Members
+      resend_confirm: Resend Confirmation
+
+  templates:
+    new_template: New Template
+    not_have_template: You have not created any template yet.
+    variables: 'Variables:'
+    form:
+      subject: Subject
+      content: HTML Content
+      support_handlebars_html: '<p class="uk-text-meta">We support <a target="_blank" href="http://handlebarsjs.com/">Handlebars</a>. You can use variables to  make your content more active.<a target="_blank" href="http://handlebarsjs.com/">Click here to see handlebars documentation.</a></p>'
+
+  notifications:
+    new_notification: New Notification
+    not_created_yet: You have not created any Notification yet.
+    go_to_docs: Go To Docs
+    email_deliver_options: Email Deliver Options
+    form:
+      name: Name
+      is_active: Is Active
+      template: Template
+    docs:
+      delivery_optional: Delivery is optional, If delivery not set notification will send immediately.
+      available_timezone: See available timezones.
+
+  scheduled:
+    activity: Scheduled Activity
+    going_to_be_sent: 'This notification going to be send at:'
+    send_now: Send Now
+    cancel: Cancel Notification
+    if_you_want_to_change: If you want to change it, use the actions below.
+
+  smtp:
+    title: SMTP
+    new_smtp: New SMTP
+    settings: SMTP Settings
+    not_created_yet: You have not added any SMTP yet.
+    custom: Custom
+    form:
+      title: Title
+      address: Address
+      port: Port
+      username: Username
+      password: Password
+      aws_access_key: AWS access key ID
+      aws_secret_key: AWS secret key
+
+
+  auth:
+    logout: Logout
+    profile_settings: Profile Settings
+
+  modal:
+    close: Close
+
+  actions:
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    settings: Settings
+    save: Save
+    create_new: Create New One
+
+  confirm:
+    are_you_sure: 'Are you sure?'
