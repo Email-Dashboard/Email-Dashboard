@@ -5,25 +5,20 @@
         %a
           %span{"uk-icon" => "icon: bell"}
       %li{class: "#{'uk-active' if (current_page?(root_path) || current_page?(dashboards_path))}"}
-        %a{:href => root_path} Home
-
+        %a{:href => root_path}= t('dashboard.home.title')
       %li{class: "#{'uk-active' if current_page?(activities_path)}"}
-        %a{:href => activities_path } Activities
-
+        %a{:href => activities_path }= t('dashboard.activities.title')
       %li{class: "#{'uk-active' if current_page?(notifications_path)}"}
-        %a{:href => notifications_path } Notifications
-
+        %a{:href => notifications_path }= t('dashboard.notifications.title')
       %li{class: "#{'uk-active' if current_page?(smtp_settings_path)}"}
-        %a{:href => smtp_settings_path }
-          SMTP
+        %a{:href => smtp_settings_path }= t('dashboard.smtp.title')
       %li{class: "#{'uk-active' if current_page?(notification_contents_path)}"}
-        %a{:href => notification_contents_path }
-          Templates
+        %a{:href => notification_contents_path }= t('dashboard.templates.title')
   .uk-navbar-right
     %ul.uk-navbar-nav
       %li
         %a{:href => "#"}
-          = current_account.try(:name) || 'No Account Created'
+          = current_account.try(:name) || t('accounts.no_account')
           %span{"uk-icon" => "icon: chevron-down"}
         .uk-navbar-dropdown
           %ul.uk-nav.uk-dropdown-nav
@@ -35,7 +30,7 @@
                     .uk-badge{class: (account.live_mode ? 'uk-label-success' : 'uk-metal')}
             %li.uk-nav-divider
             %li
-              = link_to 'Manage Accounts', accounts_path
+              = link_to t('accounts.manage'), accounts_path
       %li
         %a{:href => "#"}
           = current_user.email
@@ -43,9 +38,7 @@
         .uk-navbar-dropdown
           %ul.uk-nav.uk-navbar-dropdown-nav
             %li
-              = link_to edit_user_registration_path, class: 'dropdown-item' do
-                Profile Settings
+              = link_to t('auth.profile_settings'), edit_user_registration_path, class: 'dropdown-item'
             %li.uk-nav-divider
             %li
-              = link_to destroy_user_session_path, class: 'dropdown-item', method: :delete do
-                Logout
+              = link_to t('auth.logout'), destroy_user_session_path, class: 'dropdown-item', method: :delete

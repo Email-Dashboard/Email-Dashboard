@@ -1,6 +1,6 @@
 .uk-grid{'uk-grid': ''}
   %div
-    %h3 Update Email / Password
+    %h3= t('devise.registrations.update_title')
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'uk-form-stacked') do |f|
       = f.error_notification
       .uk-form-controls.uk-margin
@@ -17,9 +17,7 @@
     %br
     = render "devise/shared/links"
   %div
-    %h3 Cancel my account
-    %p
-      Unhappy?
-    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'uk-text-danger'
+    %h3= t('devise.registrations.cancel_my_account')
+    %p= link_to t('devise.registrations.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'uk-text-danger'
     %br
     = link_to "Back", :back

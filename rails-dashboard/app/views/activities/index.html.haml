@@ -2,36 +2,28 @@
   %div
     .uk-label-success.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'success' }) do
-        Success:
+        = t('dashboard.activities.status.success')
         = @activities.where(status: 'success').count
-
-      %a.uk-pull-right.uk-icon{'uk-icon': 'chevron-down'}
-      %div{"uk-dropdown" => "mode: click"}
-        %ul.uk-nav.uk-dropdown-nav.uk-text-left
-          %li.uk-nav-header Tracking Status
-          %li= link_to 'Delivered', activities_path(q: { track_status_eq: 'delivery' })
-          %li= link_to 'Bounced', activities_path(q: { track_status_eq: 'bounce' })
-          %li= link_to 'Complained', activities_path(q: { track_status_eq: 'complaint' })
 
   %div
     .uk-background-primary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'pending' }) do
-        Pending:
+        = t('dashboard.activities.status.success')
         = @activities.where(status: 'pending').count
   %div
     .uk-label-warning.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'scheduled' }) do
-        Scheduled:
+        = t('dashboard.activities.status.scheduled')
         = @activities.where(status: 'scheduled').count
   %div
     .uk-label-danger.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'fail' }) do
-        Failed:
+        = t('dashboard.activities.status.failed')
         = @activities.where(status: 'fail').count
   %div
     .uk-background-secondary.uk-padding-small.uk-light
       = link_to activities_path(q: { status_eq: 'canceled' }) do
-        Canceled:
+        = t('dashboard.activities.status.canceled')
         = @activities.where(status: 'canceled').count
 
 - if @list_activities.size == 0

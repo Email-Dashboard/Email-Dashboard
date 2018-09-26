@@ -16,7 +16,7 @@
           %p
             %span{'uk-icon': 'info'}
             %i= link_to current_account.name, edit_account_path(current_account)
-            account in the test mode. Notifications will not send to real adresses.
+            = t('accounts.warnings.in_test_mode')
 
     .uk-container
       = render partial: 'layouts/head_tools'
@@ -29,11 +29,10 @@
     / Footer
     %footer.uk-text-center.uk-text-muted.uk-background-muted
       .uk-margin
-      Crafted with
+      = t('main.footer.crafted_with')
       %i{'uk-icon': 'heart', style: 'color: red'}
-      in Sunny California.
+      = t('main.footer.sunny_california')
       .uk-margin
-
 
     - flash.each do |key, value|
       :javascript

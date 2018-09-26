@@ -1,33 +1,60 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  main:
+    welcome_to_email_dashboard: Welcome to Email Dashboard!
+    features:
+      post_variables: Post your email variables to the app.
+      manage_notifications: Organize and manage your notifications.
+      customize: Customize your templates, variables and more...
+    footer:
+      crafted_with: Crafted with
+      sunny_california: in Sunny California
+
+  dashboard:
+    home:
+      title: Home
+      emails_sent: "%{emails_count} Emails Sent"
+    activities:
+      title: Activities
+      content: Content
+      no_activity: There is no any activity.
+      status:
+        success: Success
+        pending: Pending
+        scheduled: Scheduled
+        failed: Failed
+        canceled: Canceled
+      fields:
+        sent_at: Sent At
+        notification: Notification
+        status: Status
+        content_preview: Content Preview
+
+    notifications:
+      title: Notifications
+    smtp:
+      title: SMTP
+    templates:
+      title:
+        Templates
+    instructions:
+      add_smtp: 1. Add SMTP
+      create_template: 2. Create Template
+      create_notification: 3. Create Notification
+      submit_api: 4. Submit to API
+      monitor_activities: 5. Monitor Activities
+
+  accounts:
+    manage: Manage Accounts
+    no_account: No Account Created
+    warnings:
+      in_test_mode: account in the test mode. Notifications will not send to real adresses.
+
+  auth:
+    logout: Logout
+    profile_settings: Profile Settings
+
+
+
+
+  modal:
+    close: Close
