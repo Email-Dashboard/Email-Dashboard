@@ -36,7 +36,7 @@ class NotificationsController < ApplicationController
 
     respond_to do |format|
       if @notification.save
-        format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
+        format.html { redirect_to @notification, notice: I18n.t('notifications.flash.create_success') }
       else
         format.html { render :new }
       end
@@ -48,7 +48,7 @@ class NotificationsController < ApplicationController
   def update
     respond_to do |format|
       if @notification.update(notification_params)
-        format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
+        format.html { redirect_to @notification, notice: I18n.t('notifications.flash.success_update') }
       else
         format.html { render :edit }
       end
@@ -60,7 +60,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.html { redirect_to notifications_url, notice: I18n.t('notifications.flash.success_destroy') }
     end
   end
 

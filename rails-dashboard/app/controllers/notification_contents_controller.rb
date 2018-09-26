@@ -70,7 +70,7 @@ class NotificationContentsController < ApplicationController
   private
 
     def set_custom_breadcrumbs
-      add_breadcrumb 'Templates', notification_contents_path
+      add_breadcrumb I18n.t('dashboard.templates.title'), notification_contents_path
     end
 
     # Use callbacks to share common setup or constraints between actions.

@@ -66,6 +66,13 @@ zh-CN:
     team:
       members: Team Members
       resend_confirm: Resend Confirmation
+    flash:
+      successfully_created: Account was successfully created.
+      successfully_updated: Account was successfully updated.
+      successfully_destroyed: Account was successfully destroyed.
+      can_not_destroy: Account can not destroy.
+      no_access: 'No access! Only owners can perform.'
+      invitation_sent: Invitation successfully sent!
 
   templates:
     new_template: New Template
@@ -88,6 +95,11 @@ zh-CN:
     docs:
       delivery_optional: Delivery is optional, If delivery not set notification will send immediately.
       available_timezone: See available timezones.
+    flash:
+      create_success: Notification was successfully created.
+      success_update: Succesfully Updated!
+      smtp_required: SMTP and Content Required!
+      success_destroy: Notification was successfully destroyed.
 
   scheduled:
     activity: Scheduled Activity
@@ -110,7 +122,10 @@ zh-CN:
       password: Password
       aws_access_key: AWS access key ID
       aws_secret_key: AWS secret key
-
+    flash:
+      create_success: Smtp setting was successfully created.
+      update_success: Smtp setting was successfully updated.
+      destroy_success: Smtp setting was successfully destroyed.
 
   auth:
     logout: Logout
@@ -122,6 +137,7 @@ zh-CN:
   actions:
     show: Show
     edit: Edit
+    new: New
     destroy: Destroy
     settings: Settings
     save: Save

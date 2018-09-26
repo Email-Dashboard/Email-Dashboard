@@ -17,13 +17,13 @@ class InvitationsController < ApplicationController
       @account_user = AccountUser.create!(user_id: @user.id, account_id: account.id)
       @account_user.invite
 
-      redirect_to edit_account_path(account), notice: 'Invitation successfully sent!'
+      redirect_to edit_account_path(account), notice: I18n.t('accounts.flash.invitation_sent')
     end
 
     def update
       account = Account.find(params[:account_id])
       account_user = account.account_users.find(params[:id])
       account_user.invite
-      redirect_to edit_account_path(account), notice: 'Invitation successfully resent!'
+      redirect_to edit_account_path(account), notice: I18n.t('accounts.flash.invitation_sent')
     end
 end
