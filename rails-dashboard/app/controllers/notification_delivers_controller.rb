@@ -4,9 +4,9 @@ class NotificationDeliversController < ApplicationController
 
   def update
     if @deliver.update(notification_deliver_params)
-      redirect_to notification_path(@notification), flash: { success: 'Succesfully Updated!' }
+      redirect_to notification_path(@notification), flash: { success: I18n.t('notifications.flash.success_update') }
     else
-      redirect_to notification_path(@notification), flash: { error: "SMTP and Content Required!" }
+      redirect_to notification_path(@notification), flash: { error: I18n.t('notifications.flash.smtp_required') }
     end
   end
 

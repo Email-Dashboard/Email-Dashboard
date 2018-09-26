@@ -7,7 +7,7 @@ module BreadcrumbExtension
   end
 
   def edit
-    add_breadcrumb 'Edit'
+    add_breadcrumb I18n.t('actions.edit')
   end
 
   private
@@ -17,6 +17,6 @@ module BreadcrumbExtension
   end
 
   def set_new_type
-    add_breadcrumb 'New'
+    add_breadcrumb I18n.t('actions.new')
   end
 end

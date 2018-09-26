@@ -1,25 +1,22 @@
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
   %h3.text-center
-    Status
-    - if @account.live_mode
-      %span.uk-label.uk-label-success Live Mode
-    - else
-      %span.uk-label.uk-metal Test Mode
+    = t('accounts.status')
+    = mode_status(@account)
 
   = simple_form_for(@account,  html: { class: 'form-horizontal' }) do |f|
     = f.error_notification
     .uk-margin
-    = f.input :live_mode, input_html: { id: 'accountLiveMode', class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
+    = f.input :live_mode, label: t('accounts.modes.live'), input_html: { id: 'accountLiveMode', class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
     #testModeEmail{style: "display: #{@account.live_mode ? 'none' : 'block'};"}
       .uk-margin
-      %label Set an email address to receive all notifications in for test mode.
+      %label= t('accounts.info.test_mode_email')
       = f.input :to_email_for_test, input_html: { class: 'uk-input uk-form-width-large' }, autofocus: true, label: false, placeholder: 'example@email.com'
       %p.uk-text-danger
-        %i * In the test mode notifications not sending to real addresses but still you can monitorize them from the activities.
+        %i= t('accounts.warnings.notifications_not_send_to_real_address')
 
     .uk-margin
-    = f.submit 'Save', class: 'uk-button uk-button-primary'
+    = f.submit t('actions.save'), class: 'uk-button uk-button-primary'
 
 
 .uk-margin
@@ -27,20 +24,20 @@
 
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
-  %h3.text-center Team Members
+  %h3.text-center= t('accounts.team.members')
   = simple_form_for(:invitation,  html: { class: 'form-horizontal' }, url: invitations_path, method: :post) do |f|
     .uk-margin
-      = f.input :email, placeholder: 'email@example.com', input_html: { class: 'uk-input' }
+      = f.input :email, label: t('accounts.form.email'), placeholder: 'email@example.com', input_html: { class: 'uk-input' }
       = f.input :account, :as => :hidden, :input_html => { :value => @account.id }
-    = f.submit 'Invite', class: 'uk-button uk-button-primary'
+    = f.submit t('accounts.form.invite'), class: 'uk-button uk-button-primary'
   %br
 
   %table.uk-table.uk-table-responsive.uk-table-divider
     %thead
       %tr
         %th #
-        %th Email
-        %th Role
+        %th= t('accounts.form.email')
+        %th= t('accounts.form.role')
         %th
     %tbody
       - @account.account_users.each do |au|
@@ -52,4 +49,4 @@
             - unless au.role == 'owner'
               = link_to invitation_path(au.id, account_id: @account.id), method: :patch do
                 %span.badge.badge-pill.badge-default
-                  Resend Confirm
+                  = t('accounts.team.resend_confirm')

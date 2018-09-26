@@ -34,7 +34,7 @@ class ActivitiesController < ApplicationController
   private
 
   def set_custom_breadcrumbs
-    add_breadcrumb 'Activities', activities_path
+    add_breadcrumb I18n.t('dashboard.activities.title'), activities_path
   end
 
   def authorize_view_token

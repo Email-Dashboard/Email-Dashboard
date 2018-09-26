@@ -3,16 +3,11 @@
     = f.error_notification
 
     .uk-margin
-      = f.input :subject, input_html: { class: 'uk-input' }, autofocus: true
+      = f.input :subject, labe: t('templates.form.subject'), input_html: { class: 'uk-input' }, autofocus: true
     .uk-margin
-      = f.input :content, input_html: { id: 'codeContent', rows: 18, class: 'uk-textarea' }
-      / %textarea#codeContent{name: 'notification_content[content]'}
+      = f.input :content, labe: t('templates.form.content'), input_html: { id: 'codeContent', rows: 18, class: 'uk-textarea' }
       %p.uk-text-meta
-        We support
-        = link_to "Handlebars", "http://handlebarsjs.com/", target: "_blank"
-        = "."
-        You can use variables to  make your content more active.
-        = link_to "Click here to see handlebars documentation.", "http://handlebarsjs.com/", target: "_blank"
+        = t('templates.form.support_handlebars_html')
 
     .uk-margin
-      = f.submit 'Save', class: 'uk-button uk-button-primary'
+      = f.submit t('actions.save'), class: 'uk-button uk-button-primary'

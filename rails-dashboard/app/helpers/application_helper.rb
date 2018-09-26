@@ -20,6 +20,14 @@ module ApplicationHelper
     content_tag(:span, status.humanize, class: "uk-label uk-label-#{klass}")
   end
 
+  def mode_status(account)
+    if account.live_mode
+      content_tag(:span, I18n.t('accounts.modes.live'), class: 'uk-label uk-label-success')
+    else
+      content_tag(:span, I18n.t('accounts.modes.test'), class: 'uk-label uk-metal')
+    end
+  end
+
   def tracking_status(status)
     case status
     when 'delivery'

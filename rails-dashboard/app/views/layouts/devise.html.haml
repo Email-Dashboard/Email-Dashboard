@@ -14,10 +14,10 @@
         %div
           .uk-card
             .uk-card-body
-              %h3.uk-card-title Welcome to Email Dashboard!
-              %p Post your email variables to the app.
-              %p Organize and manage your notifications.
-              %p Customize your templates, variables and more...
+              %h3.uk-card-title= t('main.welcome_to_email_dashboard')
+              %p= t('main.features.post_variables')
+              %p= t('main.features.manage_notifications')
+              %p= t('main.features.customize')
         %div
           .uk-card
             .uk-card-body
@@ -26,8 +26,8 @@
     / Footer
     %footer.uk-text-center.uk-text-muted.uk-background-muted
       .uk-margin
-      Crafted with
+      = t('main.footer.crafted_with')
       %i{'uk-icon': 'heart', style: 'color: red'}
-      in Sunny California.
+      = t('main.footer.sunny_california')
       .uk-margin
 

@@ -1,16 +1,13 @@
 .uk-card.uk-card-default.uk-card-body
   %p
-    %b Provider:
+    %b= t('smtp.form.title')
     = @smtp_setting.provider
   %p
-    %b Address:
+    %b= t('smtp.form.address')
     = @smtp_setting.address
   %p
-    %b Port:
+    %b= t('smtp.form.port')
     = @smtp_setting.port
   %p
-    %b Username:
+    %b= t('smtp.form.username')
     = @smtp_setting.username
-  %p
-    %b Password:
-    ***********

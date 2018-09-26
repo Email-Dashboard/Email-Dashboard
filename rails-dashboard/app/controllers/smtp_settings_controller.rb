@@ -33,7 +33,7 @@ class SmtpSettingsController < ApplicationController
 
     respond_to do |format|
       if @smtp_setting.save
-        format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully created.' }
+        format.html { redirect_to smtp_settings_url, notice: I18n.t('smtp.flash.create_success') }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class SmtpSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @smtp_setting.update(smtp_setting_params)
-        format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully updated.' }
+        format.html { redirect_to smtp_settings_url, notice: I18n.t('smtp.flash.update_success') }
       else
         format.html { render :edit }
       end
@@ -57,7 +57,7 @@ class SmtpSettingsController < ApplicationController
   def destroy
     @smtp_setting.destroy
     respond_to do |format|
-      format.html { redirect_to smtp_settings_url, notice: 'Smtp setting was successfully destroyed.' }
+      format.html { redirect_to smtp_settings_url, notice: I18n.t('smtp.flash.destroy_success') }
     end
   end
 

@@ -3,17 +3,17 @@
     = f.error_notification
 
     .uk-margin
-      = f.input :provider, label: 'Title', placeholder: 'My AWS SES', input_html: { class: 'uk-input' }
+      = f.input :provider, label: t('smtp.form.title'), placeholder: 'My AWS SES', input_html: { class: 'uk-input' }
     .uk-margin
       = f.input :address, as: :hidden, input_html: { value: 'email-smtp.amazonaws.com', class: 'uk-input' }
     .uk-margin
       = f.input :port, as: :hidden, input_html: { value: '587', class: 'uk-input' }
     .uk-margin
-      = f.input :username, placeholder: 'AKIA......', input_html: { class: 'uk-input' }, label: 'AWS access key ID'
+      = f.input :username, placeholder: 'AKIA......', label: t('smtp.form.aws_access_key'), input_html: { class: 'uk-input' }
     .uk-margin
-      = f.input :password, input_html: { class: 'uk-input' }, label: 'AWS secret access key'
+      = f.input :password, input_html: { class: 'uk-input' }, label: t('smtp.form.aws_secret_key')
     .uk-margin
       = f.input :aws_region, collection: SmtpSetting::AWS_SES_REGIONS.sort.map { |k,v| [v,k] }, input_html: { class: 'uk-input' }, include_blank: false
 
     .form-actions
-      = f.submit 'Save', class: 'uk-button uk-button-primary'
+      = f.submit t('actions.save'), class: 'uk-button uk-button-primary'

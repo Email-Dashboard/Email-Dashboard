@@ -1,5 +1,5 @@
 .uk-text-center
-  %h3.uk-card-title Sign In
+  %h3.uk-card-title= t('devise.sessions.title')
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'uk-form-stacked') do |f|
     = f.error_notification
     .uk-form-controls.uk-margin
@@ -13,6 +13,6 @@
         %input{:type => 'checkbox', name: 'user[remember_me]', value: '1', ckecked: ''} Remember Me
       %a.uk-float-right.uk-link.uk-link-muted{:href => new_user_password_path} Forgot Password?
     .uk-form-row
-      = f.button :submit, 'Sign In', class: 'uk-button uk-button-primary'
+      = f.button :submit, t('devise.sessions.title'), class: 'uk-button uk-button-primary'
 %br
 = render "devise/shared/links"

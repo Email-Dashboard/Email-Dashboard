@@ -1,7 +1,7 @@
 = content_for :action_buttons do
   = link_to new_notification_content_path, class: 'uk-button uk-button-success' do
     %i{'uk-icon': 'plus'}
-    New Template
+    = t('templates.new_template')
 
 - if @notification_contents.size == 0
   = render 'notification_contents/blank'

@@ -1,15 +1,13 @@
 = content_for :action_buttons do
-  = link_to 'Edit', edit_notification_content_path(@notification_content), class: 'uk-button uk-button-small uk-button-default'
+  = link_to t('actions.edit'), edit_notification_content_path(@notification_content), class: 'uk-button uk-button-small uk-button-default'
 
 .uk-card.uk-card-default.uk-card-body
   %h1= @notification_content.subject
 
   %p
-    %b Variables:
+    %b= t('templates.variables')
     - @notification_content.content_variables.each do |vr|
       %span.uk-badge.uk-badge-default
         = vr
-
   .well
     %iframe{src: "/templates/#{@notification_content.id}/preview", width: '100%', height:'900px', style: 'border: 0' }
-

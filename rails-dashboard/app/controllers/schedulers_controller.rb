@@ -11,7 +11,7 @@ class SchedulersController < ApplicationController
     if %w[canceled pending].include?(params[:status])
       @activity.update(status: params[:status], send_at: Time.current)
     end
-    redirect_to activities_path, notice: 'Successfully Updated!'
+    redirect_to activities_path, notice: I18n.t('notifications.flash.success_update')
   end
 
   private
