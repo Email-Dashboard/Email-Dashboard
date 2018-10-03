@@ -1,147 +1,146 @@
 zh-CN:
   main:
-    welcome_to_email_dashboard: Welcome to Email Dashboard!
+    welcome_to_email_dashboard: 欢迎来到邮箱仪表盘！
     features:
-      post_variables: Post your email variables to the app.
-      manage_notifications: Organize and manage your notifications.
-      customize: Customize your templates, variables and more...
+      post_variables: 将您的电子邮件变量发布到应用。
+      manage_notifications: 组织和管理您的通知。
+      customize: 自定义模板，变量等...
     footer:
       crafted_with: Crafted with
       sunny_california: in Sunny California
 
   dashboard:
     home:
-      title: Home
-      emails_sent: "%{emails_count} Emails Sent"
+      title: 首页
+      emails_sent: "发送了 %{emails_count} 封邮件"
     activities:
-      title: Activities
-      content: Content
-      no_activity: There is no any activity.
+      title: 活动
+      content: 内容
+      no_activity: 没有任何活动。
       status:
-        success: Success
-        pending: Pending
-        scheduled: Scheduled
-        failed: Failed
-        canceled: Canceled
+        success: 成功
+        pending: 等待中
+        scheduled: 计划
+        failed: 失败
+        canceled: 已取消
       fields:
-        sent_at: Sent At
-        notification: Notification
-        status: Status
-        content_preview: Content Preview
+        sent_at: 发送于
+        notification: 通知
+        status: 状态
+        content_preview: 内容预览
 
     notifications:
-      title: Notifications
+      title: 通知
     smtp:
       title: SMTP
     templates:
-      title:
-        Templates
+      title: 模板
     instructions:
-      add_smtp: 1. Add SMTP
-      create_template: 2. Create Template
-      create_notification: 3. Create Notification
-      submit_api: 4. Submit to API
-      monitor_activities: 5. Monitor Activities
+      add_smtp: 1. 添加 SMTP
+      create_template: 2. 创建模板
+      create_notification: 3. 创建通知
+      submit_api: 4. 提交到 API
+      monitor_activities: 5. 监控活动
 
   accounts:
-    manage: Manage Accounts
-    new_account: New Account
-    no_account: No Account Created
-    not_created_yet: You have not created any account yet.
-    status: Status
+    manage: 帐户管理
+    new_account: 新建账户
+    no_account: 没有创建帐户
+    not_created_yet: 您尚未创建任何帐户。
+    status: 状态
     modes:
-      live: Live Mode
-      test: Test Mode
+      live: 实时模式
+      test: 测试模式
     form:
-      info: Info
-      name: Name
-      email: Email
-      invite: Invite
-      role: Role
+      info: 信息
+      name: 名称
+      email: 邮箱地址
+      invite: 邀请
+      role: 角色
     warnings:
-      in_test_mode: account in the test mode. Notifications will not send to real adresses.
-      notifications_not_send_to_real_address: '* In the test mode notifications not sending to real addresses but still you can monitorize them from the activities.'
+      in_test_mode: 帐户处于测试模式。 通知不会发送到真实地址。
+      notifications_not_send_to_real_address: '* 在测试模式下，通知不会发送到真实地址，但您仍可以从活动中监控它们。'
     info:
-      test_mode_email: Set an email address to receive all notifications in for test mode.
+      test_mode_email: 设置电子邮件地址以接收测试模式中的所有通知。
     team:
-      members: Team Members
-      resend_confirm: Resend Confirmation
+      members: 团队成员
+      resend_confirm: 确认重发
     flash:
-      successfully_created: Account was successfully created.
-      successfully_updated: Account was successfully updated.
-      successfully_destroyed: Account was successfully destroyed.
-      can_not_destroy: Account can not destroy.
-      no_access: 'No access! Only owners can perform.'
-      invitation_sent: Invitation successfully sent!
+      successfully_created: 帐户已成功创建。
+      successfully_updated: 帐户已成功更新。
+      successfully_destroyed: 帐户已成功销毁。
+      can_not_destroy: 帐户不能被销毁。
+      no_access: '无法访问！ 只有拥有者才可以执行。'
+      invitation_sent: 邀请发送成功！
 
   templates:
-    new_template: New Template
-    not_have_template: You have not created any template yet.
-    variables: 'Variables:'
+    new_template: 新建模板
+    not_have_template: 您尚未创建任何模板。
+    variables: '变量:'
     form:
-      subject: Subject
-      content: HTML Content
-      support_handlebars_html: '<p class="uk-text-meta">We support <a target="_blank" href="http://handlebarsjs.com/">Handlebars</a>. You can use variables to  make your content more active.<a target="_blank" href="http://handlebarsjs.com/">Click here to see handlebars documentation.</a></p>'
+      subject: 主题
+      content: HTML 内容
+      support_handlebars_html: '<p class="uk-text-meta">我们支持 <a target="_blank" href="http://handlebarsjs.com/">Handlebars 模板引擎</a>。 您可以使用变量使您的内容显示出来。<a target="_blank" href="http://handlebarsjs.com/">点击查看 Handlebars 的文档。</a></p>'
 
   notifications:
-    new_notification: New Notification
-    not_created_yet: You have not created any Notification yet.
-    go_to_docs: Go To Docs
-    email_deliver_options: Email Deliver Options
+    new_notification: 新通知
+    not_created_yet: 您尚未创建任何通知。
+    go_to_docs: 查看文档
+    email_deliver_options: 电子邮件发送选项
     form:
-      name: Name
-      is_active: Is Active
-      template: Template
+      name: 名称
+      is_active: 活跃
+      template: 模板
     docs:
-      delivery_optional: Delivery is optional, If delivery not set notification will send immediately.
-      available_timezone: See available timezones.
+      delivery_optional: 发出是可选的，如果发出未设置通知将立即发送。
+      available_timezone: 查看可用的时区。
     flash:
-      create_success: Notification was successfully created.
-      success_update: Succesfully Updated!
-      smtp_required: SMTP and Content Required!
-      success_destroy: Notification was successfully destroyed.
+      create_success: 通知已成功创建。
+      success_update: 更新成功！
+      smtp_required: 需要 SMTP 地址和内容！
+      success_destroy: 通知已成功销毁。
 
   scheduled:
-    activity: Scheduled Activity
-    going_to_be_sent: 'This notification going to be send at:'
-    send_now: Send Now
-    cancel: Cancel Notification
-    if_you_want_to_change: If you want to change it, use the actions below.
+    activity: 预定活动
+    going_to_be_sent: '该通知将发送至：'
+    send_now: 现在发送
+    cancel: 取消通知
+    if_you_want_to_change: 如果要更改它，请使用以下操作。
 
   smtp:
-    title: SMTP
-    new_smtp: New SMTP
-    settings: SMTP Settings
-    not_created_yet: You have not added any SMTP yet.
-    custom: Custom
+    title: SMTP 地址
+    new_smtp: 新建 SMTP 地址
+    settings: SMTP 设置
+    not_created_yet: 您尚未添加任何 SMTP 地址。
+    custom: 习惯
     form:
-      title: Title
-      address: Address
-      port: Port
-      username: Username
-      password: Password
+      title: 标题
+      address: 地址
+      port: 端口
+      username: 用户名
+      password: 密码
       aws_access_key: AWS access key ID
       aws_secret_key: AWS secret key
     flash:
-      create_success: Smtp setting was successfully created.
-      update_success: Smtp setting was successfully updated.
-      destroy_success: Smtp setting was successfully destroyed.
+      create_success: Smtp设置已成功创建。
+      update_success: Smtp设置已成功更新。
+      destroy_success: Smtp设置被成功销毁。
 
   auth:
-    logout: Logout
-    profile_settings: Profile Settings
+    logout: 注销
+    profile_settings: 个人资料设置
 
   modal:
-    close: Close
+    close: 关闭
 
   actions:
-    show: Show
-    edit: Edit
-    new: New
-    destroy: Destroy
-    settings: Settings
-    save: Save
-    create_new: Create New One
+    show: 显示
+    edit: 编辑
+    new: 新建
+    destroy: 销毁
+    settings: 设置
+    save: 保存
+    create_new: 创建一个新的
 
   confirm:
-    are_you_sure: 'Are you sure?'
+    are_you_sure: '你确定要这样做？'
