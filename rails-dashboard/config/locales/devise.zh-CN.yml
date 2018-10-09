@@ -65,7 +65,7 @@ zh-CN:
       not_locked: "没有被锁定"
       not_saved:
         one: "有1个错误禁止此 %{resource} 被保存："
-        other: "有" %{count} 个错误禁止此 %{resource}被保存："
+        other: "有 %{count} 个错误禁止此 %{resource}被保存："
   failure:
     invited: "您有一个待处理的邀请，接受它以完成您的帐户创建。"
   invitations:
