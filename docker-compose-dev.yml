@@ -1,22 +1,15 @@
 version: '2.1'
 services:
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
   db:
     image: mysql:5.7
     volumes:
-      - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
-      # - '/Users/macusername/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
+      # - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
+      - '/Users/macusername/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=notification_center_prod
+      - MYSQL_DATABASE=email_dashboard_development
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
@@ -32,8 +25,8 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/datadrive/redis:/data' # for ubuntu
-      # - '/Users/macusername/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
+      # - '/datadrive/redis:/data' # for ubuntu
+      - '/Users/macusername/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
     ports:
       - '6379'
 
@@ -42,13 +35,17 @@ services:
       - db
       - redis
     build: ./rails-dashboard
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       ED_DB_USERNAME: ${MYSQL_USER}
       ED_DB_PASSWORD: ${MYSQL_PASSWORD}
       ED_DB_HOST: db
-      ED_DB_NAME: email_dashboard_prod
-      VIRTUAL_HOST: dashboard.${APP_DOMAIN}
+      ED_DB_NAME: email_dashboard_development
 
   api:
     depends_on:
@@ -56,11 +53,10 @@ services:
         condition: service_healthy
     build: ./go-api-worker
     environment:
-      - GIN_MODE=release
       - ED_DB_USERNAME=${MYSQL_USER}
       - ED_DB_PASSWORD=${MYSQL_PASSWORD}
-      - ED_DB_NAME=email_dashboard_prod
-      - VIRTUAL_HOST=api.${APP_DOMAIN}
+      - ED_DB_NAME= email_dashboard_development
+
     links:
       - redis:redis
       - db

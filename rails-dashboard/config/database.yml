@@ -8,7 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: notification_dashboard_development
+  socket: /var/run/mysqld/mysqld.sock
+  host:     <%= ENV['EB_DB_HOST'] %>
+  database: <%= ENV['ED_DB_NAME'] %>
+  username: <%= ENV['EB_DB_USERNAME'] %>
+  password: <%= ENV['EB_DB_PASSWORD'] %>
 
 test:
   <<: *default
@@ -17,7 +21,7 @@ test:
 production:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
-  host:     <%= ENV['DB_PRODUCTION_HOST'] %>
-  database: notification_center_prod
-  username: <%= ENV['DB_PRODUCTION_USERNAME'] %>
-  password: <%= ENV['DB_PRODUCTION_PASSWORD'] %>
+  host:     <%= ENV['EB_DB_HOST'] %>
+  database: <%= ENV['ED_DB_NAME'] %>
+  username: <%= ENV['EB_DB_USERNAME'] %>
+  password: <%= ENV['EB_DB_PASSWORD'] %>

@@ -25,13 +25,17 @@ RUN mkdir /var/db
 
 ADD Gemfile /rails-dashboard/Gemfile
 ADD Gemfile.lock /rails-dashboard/Gemfile.lock
-RUN bundle install --without development test
+RUN bundle install
 
-ENV RAILS_ENV production
-ENV RACK_ENV production
+ENV RAILS_ENV development
+ENV RACK_ENV development
 
 ADD . /rails-dashboard
 
 RUN yarn install
 
 RUN chown -R root:root /rails-dashboard
+
+CMD ["rails", "s", "-b", "0.0.0.0"]
+
+EXPOSE 3000
