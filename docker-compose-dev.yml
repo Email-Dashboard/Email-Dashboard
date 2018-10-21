@@ -4,7 +4,6 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      # - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
       - '/Users/sadikay/datadrive/ed/mysql:/var/lib/mysql' # change sadikay for macOS and enable this line, disable ubuntu line
     restart: always
     environment:
@@ -25,7 +24,6 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      # - '/datadrive/redis:/data' # for ubuntu
       - '/Users/sadikay/datadrive/ed/redis:/data' # change sadikay for macOS and enable this line, disable ubuntu line
     ports:
       - '6379'
@@ -34,8 +32,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    depends_on:
-      - redis
     build:
       context: ./rails-dashboard
       dockerfile: dev.Dockerfile
@@ -53,19 +49,24 @@ services:
     links:
       - db
 
-  # api:
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   build: ./go-api-worker
-  #   environment:
-  #     - ED_DB_USERNAME=${MYSQL_USER}
-  #     - ED_DB_PASSWORD=${MYSQL_PASSWORD}
-  #     - ED_DB_NAME= email_dashboard_development
+  api:
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: ./go-api-worker
+      dockerfile: dev.Dockerfile
+    command: bash -c "go get github.com/pilu/fresh && fresh"
+    ports:
+      - "8080:80"
+    environment:
+      - ED_DB_USERNAME=${MYSQL_USER}
+      - ED_DB_PASSWORD=${MYSQL_PASSWORD}
+      - ED_DB_NAME=email_dashboard_development
 
-  #   links:
-  #     - redis:redis
-  #     - db
+    links:
+      - redis:redis
+      - db
 
 volumes:
   'datadrive':
