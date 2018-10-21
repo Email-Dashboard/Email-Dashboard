@@ -11,8 +11,8 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
-      # - '/Users/macusername/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
+      # - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
+      - '/Users/sadikay/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -33,7 +33,7 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - '/datadrive/redis:/data' # for ubuntu
-      # - '/Users/macusername/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
+      - '/Users/sadikay/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
     ports:
       - '6379'
 

@@ -9,10 +9,10 @@ default: &default
 development:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
-  host:     <%= ENV['EB_DB_HOST'] %>
+  host:     <%= ENV['ED_DB_HOST'] %>
   database: <%= ENV['ED_DB_NAME'] %>
-  username: <%= ENV['EB_DB_USERNAME'] %>
-  password: <%= ENV['EB_DB_PASSWORD'] %>
+  username: <%= ENV['ED_DB_USERNAME'] %>
+  password: <%= ENV['ED_DB_PASSWORD'] %>
 
 test:
   <<: *default
@@ -21,7 +21,7 @@ test:
 production:
   <<: *default
   socket: /var/run/mysqld/mysqld.sock
-  host:     <%= ENV['EB_DB_HOST'] %>
+  host:     <%= ENV['ED_DB_HOST'] %>
   database: <%= ENV['ED_DB_NAME'] %>
-  username: <%= ENV['EB_DB_USERNAME'] %>
-  password: <%= ENV['EB_DB_PASSWORD'] %>
+  username: <%= ENV['ED_DB_USERNAME'] %>
+  password: <%= ENV['ED_DB_PASSWORD'] %>

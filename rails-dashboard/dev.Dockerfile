@@ -37,5 +37,3 @@ RUN yarn install
 RUN chown -R root:root /rails-dashboard
 
 CMD ["rails", "s", "-b", "0.0.0.0"]
-
-EXPOSE 3000
