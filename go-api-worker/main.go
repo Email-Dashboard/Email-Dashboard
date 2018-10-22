@@ -80,10 +80,12 @@ func CreateActivity(c *gin.Context) {
 }
 
 func startGinLogger() {
-	// Disable Console Color
-	gin.DisableConsoleColor()
-
-	// Logging to a file.
-	f, _ := os.Create("gin.log")
-	gin.DefaultWriter = io.MultiWriter(f)
+	if os.Getenv("GIN_MODE") == "release" {
+		// Disable Console Color
+		gin.DisableConsoleColor()
+ 
+		// Logging to a file.
+		f, _ := os.Create("gin.log")
+		gin.DefaultWriter = io.MultiWriter(f)
+	}
 }

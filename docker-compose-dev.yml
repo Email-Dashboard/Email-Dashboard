@@ -4,7 +4,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - '/Users/sadikay/datadrive/ed/mysql:/var/lib/mysql' # change sadikay for macOS and enable this line, disable ubuntu line
+      - '/Users/MyUserName/datadrive/ed/mysql:/var/lib/mysql' # change MyUserName to your pc username
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -24,7 +24,7 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/Users/sadikay/datadrive/ed/redis:/data' # change sadikay for macOS and enable this line, disable ubuntu line
+      - '/Users/MyUserName/datadrive/ed/redis:/data' # change MyUserName to your pc username
     ports:
       - '6379'
 
@@ -37,8 +37,8 @@ services:
       dockerfile: dev.Dockerfile
     ports:
       - "3000:3000"
-    # volumes:
-    #   - .:/rails-dashboard
+    volumes:
+      - ./rails-dashboard:/var/app
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
@@ -57,9 +57,12 @@ services:
       context: ./go-api-worker
       dockerfile: dev.Dockerfile
     command: bash -c "go get github.com/pilu/fresh && fresh"
+    volumes:
+      - ./go-api-worker:/go/src/go-api-worker
     ports:
       - "8080:80"
     environment:
+      - GIN_MODE=debug
       - ED_DB_USERNAME=${MYSQL_USER}
       - ED_DB_PASSWORD=${MYSQL_PASSWORD}
       - ED_DB_NAME=email_dashboard_development
