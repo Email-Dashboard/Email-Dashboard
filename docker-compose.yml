@@ -11,12 +11,11 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      # - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
-      - '/Users/sadikay/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
+      - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=notification_center_prod
+      - MYSQL_DATABASE=email_dashboard_prod
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
@@ -33,13 +32,14 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - '/datadrive/redis:/data' # for ubuntu
-      - '/Users/sadikay/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
     ports:
       - '6379'
 
   web:
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    depends_on:
       - redis
     build: ./rails-dashboard
     environment:

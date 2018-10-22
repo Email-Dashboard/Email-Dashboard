@@ -32,6 +32,12 @@ ENV RACK_ENV production
 
 ADD . /rails-dashboard
 
+RUN bundle exec rake RAILS_ENV=production assets:precompile
 RUN yarn install
+RUN NODE_ENV=production RAILS_ENV=production bundle exec rake webpacker:compile
 
 RUN chown -R root:root /rails-dashboard
+
+CMD ["puma","-C", "config/puma.rb", "-e production"]
+
+EXPOSE 80
