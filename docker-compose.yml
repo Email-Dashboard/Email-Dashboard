@@ -11,8 +11,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      # - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
-      - '/Users/sadikay/datadrive/ed/mysql:/var/lib/mysql'
+      - '/datadrive/mysql:/var/lib/mysql'
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -32,7 +31,7 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/Users/sadikay/datadrive/ed/redis:/data' # for ubuntu
+      - '/datadrive/data/redis:/data
     ports:
       - '6379'
 
