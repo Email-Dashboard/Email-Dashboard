@@ -1,0 +1,75 @@
+version: '2.1'
+services:
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - '/Users/MyUserName/datadrive/ed/mysql:/var/lib/mysql' # change MyUserName to your pc username
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=email_dashboard_development
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: "/etc/init.d/mysql status"
+      timeout: 16s
+      interval: 5s
+
+
+  redis:
+    image: redis:alpine
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - '/Users/MyUserName/datadrive/ed/redis:/data' # change MyUserName to your pc username
+    ports:
+      - '6379'
+
+  web:
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: ./rails-dashboard
+      dockerfile: dev.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./rails-dashboard:/var/app
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      ED_DB_USERNAME: ${MYSQL_USER}
+      ED_DB_PASSWORD: ${MYSQL_PASSWORD}
+      ED_DB_HOST: db
+      ED_DB_NAME: email_dashboard_development
+    links:
+      - db
+
+  api:
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: ./go-api-worker
+      dockerfile: dev.Dockerfile
+    command: bash -c "go get github.com/pilu/fresh && fresh"
+    volumes:
+      - ./go-api-worker:/go/src/go-api-worker
+    ports:
+      - "8080:80"
+    environment:
+      - GIN_MODE=debug
+      - ED_DB_USERNAME=${MYSQL_USER}
+      - ED_DB_PASSWORD=${MYSQL_PASSWORD}
+      - ED_DB_NAME=email_dashboard_development
+
+    links:
+      - redis:redis
+      - db
+
+volumes:
+  'datadrive':

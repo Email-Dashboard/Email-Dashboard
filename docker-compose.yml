@@ -11,12 +11,11 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - '/datadrive/mysql:/var/lib/mysql' # for ubuntu
-      # - '/Users/macusername/datadrive/mysql:/var/lib/mysql' # change macusername for macOS and enable this line, disable ubuntu line
+      - '/datadrive/mysql:/var/lib/mysql'
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=notification_center_prod
+      - MYSQL_DATABASE=email_dashboard_prod
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
@@ -32,21 +31,23 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/datadrive/redis:/data' # for ubuntu
-      # - '/Users/macusername/datadrive/redis:/data' # change macusername for macOS and enable this line, disable ubuntu line
+      - '/datadrive/data/redis:/data
     ports:
       - '6379'
 
   web:
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    depends_on:
       - redis
     build: ./rails-dashboard
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
-      DB_PRODUCTION_USERNAME: ${MYSQL_USER}
-      DB_PRODUCTION_PASSWORD: ${MYSQL_PASSWORD}
-      DB_PRODUCTION_HOST: db
+      ED_DB_USERNAME: ${MYSQL_USER}
+      ED_DB_PASSWORD: ${MYSQL_PASSWORD}
+      ED_DB_HOST: db
+      ED_DB_NAME: email_dashboard_prod
       VIRTUAL_HOST: dashboard.${APP_DOMAIN}
 
   api:
@@ -56,8 +57,9 @@ services:
     build: ./go-api-worker
     environment:
       - GIN_MODE=release
-      - DB_PRODUCTION_USERNAME=${MYSQL_USER}
-      - DB_PRODUCTION_PASSWORD=${MYSQL_PASSWORD}
+      - ED_DB_USERNAME=${MYSQL_USER}
+      - ED_DB_PASSWORD=${MYSQL_PASSWORD}
+      - ED_DB_NAME=email_dashboard_prod
       - VIRTUAL_HOST=api.${APP_DOMAIN}
     links:
       - redis:redis
