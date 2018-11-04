@@ -10,7 +10,7 @@ This service helps you to manage notifications that you are sending to your user
 
 Demo: https://dashboard.pigon.ws
 
-Docs: https://email-dashboard.readthedocs.io/en/latest
+Docs: https://email-dashboard.github.io/guide/
 
 ## Code Overview
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
@@ -65,7 +65,7 @@ Docs: https://email-dashboard.readthedocs.io/en/latest
 
 ### Install Docker
 
-#### Linux
+#### Ubuntu (Production)
 Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
 
 ```bash
@@ -78,9 +78,6 @@ sudo usermod -aG docker ${USER}
 ```
 Logout, then login again. Permissions should be applied.
 
-#### MacOS
-Follow installation instructions here: https://store.docker.com/editions/community/docker-ce-desktop-mac
-
 ### Install Docker Compose
 Install docker compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
 
@@ -91,14 +88,8 @@ chmod +x /usr/local/bin/docker-compose
 
 ### Create data folders
 
-##### Ubuntu
 ```bash
  mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
-```
-
-##### macOS
-```bash
- mkdir -p ~/datadrive/mysql && mkdir -p ~/datadrive/data/redis
 ```
 
 ### Clone repo
@@ -118,6 +109,9 @@ chmod +x /usr/local/bin/docker-compose
   docker-compose run web rake db:migrate
   docker-compose up -d
 ```
+
+## Development
+[Development Installation](https://email-dashboard.github.io/guide/development.html)
 
 ## Contributing
 See [contributing](https://email-dashboard.readthedocs.io/en/latest/Contributing/) guide.
