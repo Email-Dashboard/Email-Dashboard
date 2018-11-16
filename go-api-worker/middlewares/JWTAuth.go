@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"go-api-worker/models"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,13 +14,15 @@ func JWTAuth() gin.HandlerFunc {
 		token := c.Request.Header.Get("Authorization")
 		token = strings.TrimPrefix(token, "Token ")
 
-    var notif models.Notification
-    models.GetDB().Find(&notif, "slug = ?", c.Params.ByName("id"))
+		trimmedToken := strings.Replace(token, "test_", "", -1)
 
-    var account models.Account
-    models.GetDB().Find(&account, "api_key = ?", token)
+		var notif models.Notification
+		models.GetDB().Find(&notif, "slug = ?", c.Params.ByName("id"))
 
-		if (notif.AccountID != account.ID || notif.AccountID == 0) {
+		var account models.Account
+		models.GetDB().Find(&account, "api_key = ?", trimmedToken)
+
+		if notif.AccountID != account.ID || notif.AccountID == 0 {
 			c.JSON(http.StatusUnauthorized, gin.H{
 				"statusCode": http.StatusUnauthorized,
 				"message":    "Unauthorized Error",
