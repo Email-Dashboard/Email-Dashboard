@@ -18,7 +18,8 @@ class AccountsController < ApplicationController
   end
 
   def create
-    current_user.setup_account(account_params[:name])
+    new_account = current_user.setup_account(account_params[:name])
+    session[:current_account_id] = new_account.id
     respond_to do |format|
       format.html { redirect_to accounts_path, notice: I18n.t('accounts.flash.successfully_created') }
     end

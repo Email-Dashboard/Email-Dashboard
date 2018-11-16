@@ -60,7 +60,7 @@ en:
       role: Role
     warnings:
       in_test_mode: account in the test mode. Notifications will not send to real adresses.
-      notifications_not_send_to_real_address: '* In the test mode notifications not sending to real addresses but still you can monitorize them from the activities.'
+      notifications_not_send_to_real_address: '* While using test mode API token notifications not sending to real addresses but still you can monitorize them from the activities.'
     info:
       test_mode_email: Set an email address to receive all notifications in for test mode.
     team:
