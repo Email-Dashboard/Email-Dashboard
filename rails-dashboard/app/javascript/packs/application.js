@@ -19,6 +19,7 @@ import "./../src/application.css"
 
 
 document.addEventListener("turbolinks:load", function() {
+  
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
@@ -32,6 +33,14 @@ document.addEventListener("turbolinks:load", function() {
       $('#testModeEmail').css({
         display: 'block'
       });
+    };
+  });
+
+  $('#testModeCheck').click(function() {
+    if ($('#testModeCheck').is(':checked')) {
+      Turbolinks.visit('/activities' + '?test_mode=true');
+    } else {
+      Turbolinks.visit('/activities');
     };
   });
 

@@ -74,3 +74,56 @@ footer{
     background: #f7f7f7;
     height: 500px;
 }
+
+/* Switch */
+
+.uk-switch {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  width: 56px;
+}
+
+/* Hide default HTML checkbox */
+.uk-switch input {
+  display:none;
+}
+/* Slider */
+.uk-switch-slider {
+  background-color: rgba(0,0,0,0.22);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 30px;
+  bottom: 0;
+  cursor: pointer;
+  transition-property: background-color;
+	transition-duration: 1.2s;
+}
+/* Switch pointer */
+.uk-switch-slider:before {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  transition-property: transform, box-shadow;
+	transition-duration: .2s;
+}
+/* Slider active color */
+input:checked + .uk-switch-slider {
+  background-color: #39f !important;
+}
+/* Pointer active animation */
+input:checked + .uk-switch-slider:before {
+  transform: translateX(26px);
+}
+
+/* Inverse Modifier - affects only default */
+.uk-light .uk-switch-slider:not(.uk-switch-on-off) {
+  background-color: rgb(143, 159, 174);
+}

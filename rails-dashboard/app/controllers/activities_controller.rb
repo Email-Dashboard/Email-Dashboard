@@ -3,7 +3,8 @@ class ActivitiesController < ApplicationController
   before_action :authorize_view_token, only: :show
 
   def index
-    @q = @activities.ransack(params[:q])
+    is_live = !params[:test_mode].present?
+    @q = @activities.where(request_mode_is_live: is_live).ransack(params[:q])
     @q.sorts = 'send_at DESC'
     @list_activities = @q.result(distinct: true).page(params[:page])
   end
