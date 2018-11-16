@@ -1,3 +1,9 @@
+= content_for :action_buttons do
+  %span.uk-margin-right Test Mode
+  %label.uk-switch.uk-light{:for => "testModeCheck"}
+    %input#testModeCheck{:type => "checkbox", "#{'checked' if params[:test_mode].present?}": ''}/
+    .uk-switch-slider
+
 .uk-grid-collapse.uk-text-center{:class => "uk-child-width-expand@s", "uk-grid" => ""}
   %div
     .uk-label-success.uk-padding-small.uk-light
