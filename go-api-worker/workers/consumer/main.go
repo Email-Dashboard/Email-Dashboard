@@ -89,7 +89,7 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 		var smtp models.SMTPSetting
 		models.GetDB().Model(&deliver).Related(&smtp)
 
-		if deliver.IsActive && account.LiveMode {
+		if deliver.IsActive && activity.RequestModeIsLive {
 
 			mailer.SendEmailToReceivers(activity, data, template, smtp)
 		} else {
