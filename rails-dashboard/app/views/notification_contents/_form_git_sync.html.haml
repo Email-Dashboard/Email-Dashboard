@@ -1,0 +1,10 @@
+= simple_form_for(@notification_content) do |f|
+  = f.error_notification
+
+  .uk-margin
+    = f.input :subject, label: t('templates.form.subject'), input_html: { class: 'uk-input' }, autofocus: true
+    = f.input :git_url, input_html: { class: 'uk-input', placeholder: 'https://raw.githubusercontent.com/Email-Dashboard/email-templates/master/simple-transactional-email.html' }
+    %p.uk-text-meta
+      = t('templates.form.support_handlebars_html')
+    .uk-margin
+      = f.submit 'Sync From Git', name: 'gitsync', class: 'uk-button uk-button-primary'

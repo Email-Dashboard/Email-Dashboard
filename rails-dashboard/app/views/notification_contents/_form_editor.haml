@@ -1,0 +1,11 @@
+= simple_form_for(@notification_content) do |f|
+  = f.error_notification
+
+  .uk-margin
+    = f.input :subject, label: t('templates.form.subject'), input_html: { class: 'uk-input' }, autofocus: true
+  %div 
+    = f.input :content, label: t('templates.form.content'), input_html: { id: 'codeContent', rows: 18, class: 'uk-textarea' }
+  %p.uk-text-meta
+    = t('templates.form.support_handlebars_html')
+  .uk-margin
+    = f.submit t('actions.save'), class: 'uk-button uk-button-primary' 

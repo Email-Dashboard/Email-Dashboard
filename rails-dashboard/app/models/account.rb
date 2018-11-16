@@ -39,8 +39,7 @@ class Account < ApplicationRecord
   private
 
   def create_default_email_template
-    require 'open-uri'
-    doc = Nokogiri::HTML(open("https://s3.amazonaws.com/contents-notification/default_template.html"))
-    notification_contents.create(subject: "HTML Test Content", content: doc.to_s)
+    content = notification_contents.create(subject: 'HTML Test Content')
+    content.sync_from_git('https://raw.githubusercontent.com/Email-Dashboard/email-templates/master/simple-transactional-email.html')
   end
 end

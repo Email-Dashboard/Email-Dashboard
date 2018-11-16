@@ -1,13 +1,11 @@
 .uk-card.uk-card-default.uk-card-body
-  = simple_form_for(@notification_content) do |f|
-    = f.error_notification
+  %ul{"uk-tab" => ""}
+    %li
+      %a{class: 'tab-link-redirect', :href => (@notification_content.persisted? ? edit_notification_content_path(@notification_content) : new_notification_content_path)} Editor
+    %li{class: ('uk-active' if params[:git_sync].present?)}
+      %a{class: 'tab-link-redirect', :href => (@notification_content.persisted? ? edit_notification_content_path(@notification_content, git_sync: 't') : new_notification_content_path(git_sync: 't'))} Git Sync
 
-    .uk-margin
-      = f.input :subject, labe: t('templates.form.subject'), input_html: { class: 'uk-input' }, autofocus: true
-    .uk-margin
-      = f.input :content, labe: t('templates.form.content'), input_html: { id: 'codeContent', rows: 18, class: 'uk-textarea' }
-      %p.uk-text-meta
-        = t('templates.form.support_handlebars_html')
-
-    .uk-margin
-      = f.submit t('actions.save'), class: 'uk-button uk-button-primary'
+  - if params[:git_sync].present?
+    = render partial: 'notification_contents/form_git_sync'
+  - else
+    = render partial: 'notification_contents/form_editor'

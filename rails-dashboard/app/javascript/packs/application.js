@@ -75,3 +75,11 @@ $(function() {
       return false;
   });
 });
+
+$(function() {
+  $(document).on('click', '.tab-link-redirect', function() {
+    const loc = $(this).attr('href');
+    Turbolinks.visit(loc);
+    return false;
+  });
+});

@@ -25,4 +25,12 @@ class NotificationContent < ApplicationRecord
 
     variables.uniq - %w(this else each)
   end
+
+  def sync_from_git(url = nil)
+    require 'open-uri'
+    doc = Nokogiri::HTML(open(url.presence || git_url))
+    self.update(content: doc.to_s)
+  rescue OpenURI::HTTPError => e
+    Rails.logger.info "!GIT SYNC ERROR: #{e}"
+  end
 end

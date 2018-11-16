@@ -51,6 +51,7 @@ class NotificationContentsController < ApplicationController
   def update
     respond_to do |format|
       if @notification_content.update(notification_content_params)
+        @notification_content.sync_from_git if request_sync?
         format.html { redirect_to @notification_content, notice: 'Notification content was successfully updated.' }
       else
         format.html { render :edit }
@@ -80,6 +81,10 @@ class NotificationContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notification_content_params
-      params.require(:notification_content).permit(:subject, :content)
+      params.require(:notification_content).permit(:subject, :content, :git_url)
+    end
+
+    def request_sync?
+      params[:gitsync].present?
     end
 end
