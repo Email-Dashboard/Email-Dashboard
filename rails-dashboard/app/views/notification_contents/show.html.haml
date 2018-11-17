@@ -1,5 +1,8 @@
 = content_for :action_buttons do
-  = link_to t('actions.edit'), edit_notification_content_path(@notification_content), class: 'uk-button uk-button-small uk-button-default'
+  - if @notification_content.last_sync_at.present?
+    = link_to t('actions.edit'), edit_notification_content_path(@notification_content, sync: 't'), class: 'uk-button uk-button-small uk-button-default'
+  - else
+    = link_to t('actions.edit'), edit_notification_content_path(@notification_content), class: 'uk-button uk-button-small uk-button-default'
 
 .uk-card.uk-card-default.uk-card-body
   %h1= @notification_content.subject

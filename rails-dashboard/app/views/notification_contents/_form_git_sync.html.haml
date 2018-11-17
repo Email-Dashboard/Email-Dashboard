@@ -6,5 +6,8 @@
     = f.input :git_url, input_html: { class: 'uk-input', placeholder: 'https://raw.githubusercontent.com/Email-Dashboard/email-templates/master/simple-transactional-email.html' }
     %p.uk-text-meta
       = t('templates.form.support_handlebars_html')
+    %p
+      Last Sync At:
+      = @notification_content.last_sync_at
     .uk-margin
       = f.submit 'Sync From Git', name: 'gitsync', class: 'uk-button uk-button-primary'

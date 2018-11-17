@@ -10,5 +10,9 @@
         %td= notification_content.subject
         %td.uk-text-right
           = link_to t('actions.show'), notification_content, class: 'uk-button uk-button-small uk-button-default'
-          = link_to t('actions.edit'), edit_notification_content_path(notification_content), class: 'uk-button uk-button-small uk-button-default'
+          - if notification_content.last_sync_at.present?
+            = link_to t('actions.edit'), edit_notification_content_path(notification_content, sync: 't'), class: 'uk-button uk-button-small uk-button-default'
+          - else
+            = link_to t('actions.edit'), edit_notification_content_path(notification_content), class: 'uk-button uk-button-small uk-button-default'
+
           = link_to t('actions.destroy'), notification_content, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uk-button uk-button-small uk-button-danger'

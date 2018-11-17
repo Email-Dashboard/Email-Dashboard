@@ -15,7 +15,7 @@ class NotificationContent < ApplicationRecord
 
   has_many :notification_delivers
 
-  validates :subject, :content, presence: true
+  validates :subject, presence: true
 
   def content_variables
     variables = []
@@ -29,7 +29,7 @@ class NotificationContent < ApplicationRecord
   def sync_from_git(url = nil)
     require 'open-uri'
     doc = Nokogiri::HTML(open(url.presence || git_url))
-    self.update(content: doc.to_s)
+    self.update(content: doc.to_s, last_sync_at: DateTime.now)
   rescue OpenURI::HTTPError => e
     Rails.logger.info "!GIT SYNC ERROR: #{e}"
   end

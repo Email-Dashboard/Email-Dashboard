@@ -2,10 +2,10 @@
   %ul{"uk-tab" => ""}
     %li
       %a{class: 'tab-link-redirect', :href => (@notification_content.persisted? ? edit_notification_content_path(@notification_content) : new_notification_content_path)} Editor
-    %li{class: ('uk-active' if params[:git_sync].present?)}
-      %a{class: 'tab-link-redirect', :href => (@notification_content.persisted? ? edit_notification_content_path(@notification_content, git_sync: 't') : new_notification_content_path(git_sync: 't'))} Git Sync
+    %li{class: ('uk-active' if params[:sync].present?)}
+      %a{class: 'tab-link-redirect', :href => (@notification_content.persisted? ? edit_notification_content_path(@notification_content, sync: 't') : new_notification_content_path(sync: 't'))} Git Sync
 
-  - if params[:git_sync].present?
+  - if params[:sync].present?
     = render partial: 'notification_contents/form_git_sync'
   - else
     = render partial: 'notification_contents/form_editor'

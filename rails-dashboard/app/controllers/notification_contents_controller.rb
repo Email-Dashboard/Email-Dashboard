@@ -39,6 +39,7 @@ class NotificationContentsController < ApplicationController
 
     respond_to do |format|
       if @notification_content.save
+        @notification_content.sync_from_git if request_sync?
         format.html { redirect_to @notification_content, notice: 'Notification content was successfully created.' }
       else
         format.html { render :new }
