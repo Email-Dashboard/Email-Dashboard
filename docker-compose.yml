@@ -1,13 +1,11 @@
 version: '2.1'
 services:
-
   nginx-proxy:
     image: jwilder/nginx-proxy
     ports:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-
   db:
     image: mysql:5.7
     volumes:
@@ -24,14 +22,12 @@ services:
       test: "/etc/init.d/mysql status"
       timeout: 16s
       interval: 5s
-
-
   redis:
     image: redis:alpine
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/datadrive/data/redis:/data
+      - /datadrive/data/redis:/data
     ports:
       - '6379'
 
