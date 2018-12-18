@@ -106,7 +106,6 @@ chmod +x /usr/local/bin/docker-compose
 
 ```bash
   docker-compose build
-  docker-compose run web rake db:migrate
   docker-compose up -d
 ```
 
