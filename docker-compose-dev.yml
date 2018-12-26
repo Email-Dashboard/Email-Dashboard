@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 services:
 
   db:
@@ -30,8 +30,8 @@ services:
 
   web:
     depends_on:
-      db:
-        condition: service_healthy
+      -  db
+
     build:
       context: ./rails-dashboard
       dockerfile: dev.Dockerfile
@@ -39,20 +39,17 @@ services:
       - "3000:3000"
     volumes:
       - ./rails-dashboard:/var/app
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && rake db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       ED_DB_USERNAME: ${MYSQL_USER}
       ED_DB_PASSWORD: ${MYSQL_PASSWORD}
       ED_DB_HOST: db
       ED_DB_NAME: email_dashboard_development
-    links:
-      - db
 
   api:
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     build:
       context: ./go-api-worker
       dockerfile: dev.Dockerfile
@@ -67,9 +64,6 @@ services:
       - ED_DB_PASSWORD=${MYSQL_PASSWORD}
       - ED_DB_NAME=email_dashboard_development
 
-    links:
-      - redis:redis
-      - db
 
 volumes:
   'datadrive':

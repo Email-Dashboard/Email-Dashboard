@@ -33,3 +33,4 @@ COPY . /var/app
 
 ENV RAILS_ENV development
 ENV RACK_ENV development
+CMD  rake db:migrate

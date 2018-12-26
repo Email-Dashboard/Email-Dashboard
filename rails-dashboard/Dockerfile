@@ -35,6 +35,6 @@ RUN NODE_ENV=production RAILS_ENV=production bundle exec rake webpacker:compile
 
 RUN chown -R root:root /rails-dashboard
 
-CMD ["sh","-c","puma -C config/puma.rb -e production && rake db:migrate"]
+CMD ["sh","-c","rake db:migrate && puma -C config/puma.rb -e production "]
 
 EXPOSE 80
