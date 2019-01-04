@@ -12,8 +12,7 @@ import (
 	"go-api-worker/models"
 
 	"github.com/aymerick/raymond"
-
-	"gopkg.in/gomail.v2"
+	gomail "gopkg.in/gomail.v2"
 )
 
 type mailOptions struct {
