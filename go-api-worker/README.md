@@ -1,8 +1,8 @@
 ## how to run graphql 
-- cd graphql
 - export GO111MODULE=on
 - go mod tidy
 - go mod vendor
+- cd graphql
 - go run main.go
 
 ## api 
