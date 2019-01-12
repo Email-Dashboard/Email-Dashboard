@@ -1,4 +1,4 @@
-module tools/Email-Dashboard/go-api-worker
+module go-api-worker
 
 require (
 	cloud.google.com/go v0.34.0 // indirect
@@ -14,6 +14,7 @@ require (
 	github.com/google/go-cmp v0.2.0 // indirect
 	github.com/graphql-go/graphql v0.7.7
 	github.com/graphql-go/handler v0.2.3
+	github.com/graphql-go/relay v0.0.0-20171208134043-54350098cfe5
 	github.com/jinzhu/gorm v1.9.1
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/jinzhu/now v0.0.0-20181116074157-8ec929ed50c3 // indirect
