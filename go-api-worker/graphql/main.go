@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-api-worker/models"
+	"go-api-worker/graphql/relay"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -23,21 +23,8 @@ func runGin() {
 	api := router.Group("/api/v3")
 	//api.Use(middlewares.JWTAuth())
 
-	notificationType := models.CreateNotificationType()
-
-	rootQuery := graphql.ObjectConfig{
-		Name: "Query",
-		Fields: graphql.Fields{
-			"notification":  models.CreateNotificationQueray(notificationType),
-			"notifications": models.CreateNotificationsQueray(notificationType),
-		}}
-
-	schema, err := graphql.NewSchema(graphql.SchemaConfig{
-		Query: graphql.NewObject(rootQuery),
-	})
-	if err != nil {
-		panic(err)
-	}
+	relay.Init()
+	schema := relay.Schema
 
 	api.POST("/graphql", GraphqlHandler(schema))
 	api.GET("/graphql", GraphqlHandler(schema))
