@@ -36,7 +36,7 @@ Docs: https://email-dashboard.github.io/guide/
 
 ### Posting to REST API
 
-`/POST https://api.{{yourhost}}/api/v3/notifications/{{notification-slug}}`
+`POST` `https://api.{{yourhost}}/api/v3/notifications/{{notification-slug}}`
 
 `Authorization: Token {{AccountToken}}`
 
