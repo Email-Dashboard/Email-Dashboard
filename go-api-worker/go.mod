@@ -1,4 +1,4 @@
-module go-api-worker
+module Email-Dashboard/go-api-worker
 
 require (
 	cloud.google.com/go v0.34.0 // indirect

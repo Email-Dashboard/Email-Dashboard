@@ -1,8 +1,8 @@
 package main
 
 import (
+	"Email-Dashboard/go-api-worker/graphql/relay"
 	"fmt"
-	"go-api-worker/graphql/relay"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -16,6 +16,7 @@ func main() {
 
 func runGin() {
 	router := gin.Default()
+	gin.SetMode(gin.DebugMode)
 	router.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, fmt.Sprintf("Hello from Email Dashboard API!"))
 	})
