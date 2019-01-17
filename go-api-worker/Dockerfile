@@ -6,13 +6,13 @@ ENV GOBIN /go/bin
 ENV GIN_MODE release
 
 RUN mkdir /go-api-worker
-RUN mkdir /go/src/go-api-worker
+RUN mkdir /go/src/Email-Dashboard/go-api-worker
 
-ADD . /go/src/go-api-worker
+ADD . /go/src/Email-Dashboard/go-api-worker
 
 RUN mkdir /var/db
 
-WORKDIR /go/src/go-api-worker
+WORKDIR /go/src/Email-Dashboard/go-api-worker
 RUN go get -u github.com/golang/dep/...
 
 RUN dep ensure
