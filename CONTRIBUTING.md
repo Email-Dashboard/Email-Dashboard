@@ -114,7 +114,7 @@ When prompted for the message, write a description of what you did. After that p
 
 # Author
 
-[<img src="https://avatars3.githubusercontent.com/u/6217139?s=460&v=4" width="100px;"/>](https://twitter.com/mesutgulecen) <br/> [Mesut Gülecen](https://linkedin.com/in/mesutgulecen/)<br/><sub>Content Writer @ [LeoApp](https://leoapp.com)</sub><br/> 
+[<img src="https://avatars3.githubusercontent.com/u/6217139?s=460&v=4" width="100px;"/>](https://github.com/mesutgulecen) <br/> [Mesut Gülecen](https://linkedin.com/in/mesutgulecen/)<br/><sub>Content Writer @ [LeoApp](https://leoapp.com)</sub><br/> 
 
 
 
