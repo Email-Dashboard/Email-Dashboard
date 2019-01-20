@@ -1,16 +1,41 @@
-# Email Dashboard
 
-🇨🇳[简体中文](./README-zh_CN.md)
+<h3 align="center">
+   Email Dashboard
+   <br>
+</h3>
 
-This service helps you to manage notifications that you are sending to your users. It's an amazing tool to manage your outgoing emails from your apps.
+<p align="center">
+   An interactive emailing management service<br> 
+   with scheduling, templating, tracking and A/B testing.<br>
+   <a href="https://email-dashboard.github.io/guide/">
+   <strong>Explore Email Dashboard docs »</strong>
+   </a>
+ </p>
+ 
+ <p align="center">
+   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
+      <strong>Report bug </strong></a>|
+      
+   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/enhancement">
+      <strong>Request feature </strong></a>|
+   
+   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
+      <strong>Help issues</strong></a>
+   </a><br><br>
+   
+   <a href="./README-zh_CN.md">
+       🇨🇳[简体中文]</a>
+   </a> 
+ </p>
+ 
+# Description
 
-![](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true)
+![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg) 
 
-## Demo & Docs
+Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can reach live version of Email-Dashboard on [here](https://dashboard.pigon.ws) with free.
 
-Demo: https://dashboard.pigon.ws
-
-Docs: https://email-dashboard.github.io/guide/
+   
+---------------------------
 
 ## Code Overview
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
