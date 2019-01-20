@@ -22,13 +22,13 @@ Before start to contributing to Email-Dashboard or any open source project pleas
 
 Here we are! There are many ways you can contribute to Email-Dashboard. For example:
 
-- You can test Email-Dashboard and <b>report bugs</b> you find. Also you can also fix these bugs!  
-- You can write <b>unit tests</b> for Email-Dashboard.
-- You can <b>translate</b> Email-Dashboard UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.
-- You can write <b>guide articles</b> about usage of Email-Dashboard and help to keep it up to date.
-- You can implement a <b>new feature</b> to Email-Dashboard!
-- You can create new <b>email templates</b> for community.
-- You can help people on the <b>issue</b> tracker. 
+- 🛠 You can test Email-Dashboard and <b>report bugs</b> you find. Also you can also fix these bugs!  
+- :guardsman: You can write <b>unit tests</b> for Email-Dashboard.
+- 🌐 You can <b>translate</b> Email-Dashboard UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.
+- 📝 You can write <b>guide articles</b> about usage of Email-Dashboard and help to keep it up to date.
+- 💻 You can implement a <b>new feature</b> to Email-Dashboard!
+- :mailbox: You can create new <b>email templates</b> for community.
+- 🛠 You can help people on the <b>issue</b> tracker. 
 
 # Getting Email-Dashboard
 
@@ -46,12 +46,12 @@ Navigate to the newly cloned directory:
 $ cd Email-Dashboard
 ```
 
-Before start to contibuting don't forgat, one PR per feature/fix unless you follow [standard-version](https://github.com/conventional-changelog/standard-version) commit guidelines.
+Before start to contibuting don't forgat, one PR per feature/fix unless you follow [standard-version](https://github.com/conventional-changelog/standard-version) commit guidelines. If you are new on this guid can help you about [how to contribute a project](https://opensource.guide/how-to-contribute/).
 
 # Issues and labels
 
 The [issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. Our issue tracker utilizes several [labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. Here's what they represent:
-
+  
 Labels  | Description
 ------------- | -------------
 `bug`  | Something isn't working!
@@ -70,9 +70,7 @@ After you've forked and cloned our repo, you can find issues to work on by headi
 
 # Bug reports & fix
 
-A bug is a curse for code! That's why good bug reports are extremely helpful for evey project, so thanks!
-
-You can follow this guidelines for bug reports:
+A bug is a curse for code! That's why good bug reports are extremely helpful for evey project, so thanks! You can follow this guidelines for bug reports:
 
 - Validate and lint your code.
 
@@ -85,6 +83,35 @@ And please try to be as detailed as possible in your report.
 # Feature requests
 
 Good pull requests—patches, improvements, new features—are a fantastic help! That's why feature, improvements requests are welcome. But please before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible. Before submitting any pull request, please follow the steps on the [Pull Request Checklist](https://github.com/adobe/brackets/wiki/Pull-Request-Checklist) to be sure a good-quality pull request.
+
+But how to make changes if you're a newbie? Here is it!
+
+First, start out on master. You can check this by using `git status`. Before making your changes use `git pull` so that you can be sure you are working on the latest version of master.
+
+```
+$ git pull
+```
+
+Then use `git branch` to create a new branch for doing your work. Make sure to name it something that describes your changes.
+
+```
+$ git branch branchName
+```
+
+Even though you've now created a new branch, you aren't "on" that branch yet. Switch from Master to your new branch by using `git checkout`
+
+```
+$ git checkout branchName
+```
+
+Then make your changes directly by editing the files. Once you're finished making changes, use `git commit -m` to confirm them and describe what you changed.
+
+```
+$ git commit fileName -m "description of my changes"
+```
+
+When prompted for the message, write a description of what you did. After that push the changes to Github using `git push --set-upstream`. That's it. Easy peasy right?
+
 
 
 
