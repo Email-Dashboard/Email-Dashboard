@@ -24,7 +24,7 @@ Here we are! There are many ways you can contribute to Email-Dashboard. For exam
 
 - 🛠 You can test Email-Dashboard and <b>report bugs</b> you find. Also you can also fix these bugs!  
 - :guardsman: You can write <b>unit tests</b> for Email-Dashboard.
-- 🌐 You can <b>translate</b> Email-Dashboard UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.
+- 🌐 You can <b>translate</b> Email-Dashboard's UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.
 - 📝 You can write <b>guide articles</b> about usage of Email-Dashboard and help to keep it up to date.
 - 💻 You can implement a <b>new feature</b> to Email-Dashboard!
 - :mailbox: You can create new <b>email templates</b> for community.
@@ -46,7 +46,7 @@ Navigate to the newly cloned directory:
 $ cd Email-Dashboard
 ```
 
-Before start to contibuting don't forgat, one PR per feature/fix unless you follow [standard-version](https://github.com/conventional-changelog/standard-version) commit guidelines. If you are new on this guid can help you about [how to contribute a project](https://opensource.guide/how-to-contribute/).
+Before start to contibuting don't forget, one PR per feature/fix unless you follow [standard-version](https://github.com/conventional-changelog/standard-version) commit guidelines. If you are new, this guide can help you about [how to contribute a project](https://opensource.guide/how-to-contribute/).
 
 # Issues and labels
 
@@ -70,7 +70,7 @@ After you've forked and cloned our repo, you can find issues to work on by headi
 
 # Bug reports & fix
 
-A bug is a curse for code! That's why good bug reports are extremely helpful for evey project, so thanks! You can follow this guidelines for bug reports:
+A bug is a curse for code! That's why good bug reports are extremely helpful for every project, so thanks! You can follow this guidelines for bug reports:
 
 - Validate and lint your code.
 
@@ -82,7 +82,7 @@ And please try to be as detailed as possible in your report.
 
 # Feature requests
 
-Good pull requests—patches, improvements, new features—are a fantastic help! That's why feature, improvements requests are welcome. But please before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible. Before submitting any pull request, please follow the steps on the [Pull Request Checklist](https://github.com/adobe/brackets/wiki/Pull-Request-Checklist) to be sure a good-quality pull request.
+Good pull requests—patches, improvements, new features—are a fantastic help! That's why feature, improvements requests are welcome. But before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible. Before submitting any pull request, please follow the steps on the [Pull Request Checklist](https://github.com/adobe/brackets/wiki/Pull-Request-Checklist) to be sure a good-quality pull request.
 
 But how to make changes if you're a newbie? Here is it!
 
