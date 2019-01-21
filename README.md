@@ -34,6 +34,17 @@
 
 Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can reach free live version of Email-Dashboard on [here](https://dashboard.pigon.ws). 
 
+# For whom?
+
+* If you need to send automatic emails without worried about **time zone**,
+* If you need to track your emails and **analyse** your results to follow better strategies,
+* If you need to **monitoring** your activities,
+* If you want to use email **templates**,
+* If you need to A/B **testing**,
+* And if you want to do all of this **easily**,
+
+Then you're at the right place.**Email Dashboard builded for you!** :tada:
+
 # Code overview
 
 * The REST API builded with superfast language [golang](https://github.com/golang/go).
@@ -51,56 +62,123 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
    
 # Installation
 
-## Install Docker
+### 1- Ubuntu Production
 
-### Ubuntu (Production)
-Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
+- Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
 
 ```bash
 wget -qO- https://get.docker.com/ | sh
 ```
 
-Execute this line to allow docker to execute without being root
+- Execute this line to allow docker to execute without being root
+
 ```bash
 sudo usermod -aG docker ${USER}
 ```
-Logout, then login again. Permissions should be applied.
+- Logout, then login again. Permissions should be applied.
 
-### Install Docker Compose
-Install docker compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
+- Install Docker Compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
 
 ```bash
 curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-### Create data folders
+- Create data folders
 
 ```bash
  mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
 ```
 
-### Clone repo
+- Clone repo
 
 ```bash
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
-* Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env
+- Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env
 
-* If you are running on macOS enable commented lines in `docker-compose.yml`
+- If you are running on macOS enable commented lines in `docker-compose.yml`
 
-## Deployment
+### 2- Deployment
+
+You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/install/) for installation and usage of Docker.
 
 ```bash
   docker-compose build
   docker-compose up -d
 ```
 
-## Development
-[Development Installation](https://email-dashboard.github.io/guide/development.html)
+### 3- Development Installation
+
+:small_red_triangle: <strong>For macOS</strong>
+
+- Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
+
+- Create Datafolders
+
+```mkdir -p ~/datadrive/ed/mysql && mkdir -p ~/datadrive/ed/redis```
+
+- Clone the repo
+
+```git clone https://github.com/Email-Dashboard/Email-Dashboard.git```
+
+- Update mac username in ```docker-compose-dev.yml``` in ```line 7``` and ```line 27```
+
+```/Users/MacUserName/datadrive/ed/mysql:/var/lib/mysql # update MacUserName with yours```
+
+- Start
+
+```
+docker-compose -f docker-compose-dev.yml build
+docker-compose -f docker-compose-dev.yml run web rake db:migrate
+docker-compose -f docker-compose-dev.yml up
+```
+
+- Dashboard url: http://localhost:3000
+- Make API requests to http://localhost:8080
+
+:small_red_triangle: <strong>For Ubuntu</strong>
+
+- installed using:
+
+```wget -qO- https://get.docker.com/ | sh```
+
+- Execute this line to allow docker to execute without being root
+
+```sudo usermod -aG docker ${USER} # Logout, then login again. Permissions should be applied.```
+
+- Create Datafolders
+
+```mkdir -p /datadrive/data/mysql && mkdir -p /datadrive/data/redis```
+
+- Clone the repo
+
+```git clone https://github.com/Email-Dashboard/Email-Dashboard.git```
+
+- Update ```line 7``` and ```line 27``` in ```docker-compose-dev.yml``` to:
+
+```-'/datadrive/data/mysql:/var/lib/mysql'```<br>
+```...```<br>
+```- '/datadrive/data/redis:/data'```
+
+- Start
+
+```
+docker-compose -f docker-compose-dev.yml build
+docker-compose -f docker-compose-dev.yml run web rake db:migrate
+docker-compose -f docker-compose-dev.yml up
+```
+
+- Dashboard url: http://localhost:3000
+- Make API requests to http://localhost:8080
 
 # Usage
+
+<p>
+   <a target="_blank" rel="noopener noreferrer" href="https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true"><img src="https://github.com/Email-Dashboard/Email-Dashboard/raw/master/docs/assets/intro.gif?raw=true" alt="" style="max-width:100%;"></a>
+</p>
+
 ### In Dashboard
 * Add your SMTP Settings
 * Create email template with [handlebars](http://handlebarsjs.com/) variables.
@@ -140,7 +218,9 @@ Please read our [contribution guidelines](https://email-dashboard.readthedocs.io
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-   
+
+:mag_right: But before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible.
+
 ---------------------------
 
 # Authors
@@ -166,4 +246,4 @@ Use of this software is subject to important terms and conditions as set forth i
 
 # Acknowledgement
 
-:star: If you liked our dashboard, please give us a "**Star**". Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! :smile:
+If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! :smile:
