@@ -30,19 +30,39 @@
  
 # Description
 
-![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg) 
+![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg) 
 
 Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can reach free live version of Email-Dashboard on [here](https://dashboard.pigon.ws). 
 
+# Table of content
+
+<details>
+   <summary>View contents</summary>
+   
+- [For whom?](https://github.com/mesutgulecen/Email-Dashboard#for-whom)
+- [Code overview](https://github.com/mesutgulecen/Email-Dashboard#code-overview)
+- [Features](https://github.com/mesutgulecen/Email-Dashboard#features)
+- [Installation](https://github.com/mesutgulecen/Email-Dashboard#installation)
+   * [1- Ubuntu Production](https://github.com/mesutgulecen/Email-Dashboard#1--ubuntu-production)
+   * [2- Deployment](https://github.com/mesutgulecen/Email-Dashboard#2--deployment)
+   * [3- Development Installation](https://github.com/mesutgulecen/Email-Dashboard#3--development-installation)
+- [Usage](https://github.com/mesutgulecen/Email-Dashboard#usage)
+- [Contributing](https://github.com/mesutgulecen/Email-Dashboard#contributing)
+- [Authors](https://github.com/mesutgulecen/Email-Dashboard#authors)
+- [License](https://github.com/mesutgulecen/Email-Dashboard#license)
+- [Acknowledgement](https://github.com/mesutgulecen/Email-Dashboard#acknowledgement)
+
+</details>
+   
 # For whom?
 
-* If you need to send automatic emails without worried about **time zone**,
-* If you need to track your emails and **analyse** your results to follow better strategies,
-* If you need to **monitoring** your activities,
-* If you want to use email **templates**,
-* If you need to A/B **testing**,
-* And if you want to do all of this **easily**,
-
+* :earth_asia: If you need to send automatic emails without worried about **time zone**,
+* 🔍 If you need to track your emails and **analyse** your results to follow better strategies,
+* 📊 If you need to **monitoring** your activities,
+* 📑 If you want to use email **templates**,
+* 🕵️ If you need to A/B **testing**,
+* 💯 And if you want to do all of this **easily**,
+ 
 Then you're at the right place.**Email Dashboard builded for you!** :tada:
 
 # Code overview
@@ -57,13 +77,17 @@ Then you're at the right place.**Email Dashboard builded for you!** :tada:
 - [x] Multiple SMTP support.
 - [x] Scheduled delivery with time zone.
 - [x] Perform / Cancel scheduled activities optionally.
+- [x] Mobile UI
 - [ ] Email tracking.
 - [ ] A/B testing.
    
 # Installation
 
-### 1- Ubuntu Production
-
+<details>
+   <summary><strong>1- Ubuntu Production</strong></summary>
+   
+------------------------------------------------------
+   
 - Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
 
 ```bash
@@ -100,18 +124,25 @@ chmod +x /usr/local/bin/docker-compose
 
 - If you are running on macOS enable commented lines in `docker-compose.yml`
 
-### 2- Deployment
-
-You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/install/) for installation and usage of Docker.
+</details>
+<details>
+<summary><strong>2- Deployment</strong></summary>
+   
+------------------------------------------------------
+   
+You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/get-started/) for usage of Docker.
 
 ```bash
   docker-compose build
   docker-compose up -d
 ```
-
-### 3- Development Installation
-
-:small_red_triangle: <strong>For macOS</strong>
+</details>
+<details>
+<summary><strong>3- Development Installation</strong></summary>
+   
+-----------------------------------------------------
+   
+:small_red_triangle_down: <strong>For macOS</strong>
 
 - Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
 
@@ -138,7 +169,9 @@ docker-compose -f docker-compose-dev.yml up
 - Dashboard url: http://localhost:3000
 - Make API requests to http://localhost:8080
 
-:small_red_triangle: <strong>For Ubuntu</strong>
+------------------------------------------------------
+
+:small_red_triangle_down: <strong>For Ubuntu</strong>
 
 - installed using:
 
@@ -172,6 +205,7 @@ docker-compose -f docker-compose-dev.yml up
 
 - Dashboard url: http://localhost:3000
 - Make API requests to http://localhost:8080
+</details>
 
 # Usage
 
@@ -179,12 +213,12 @@ docker-compose -f docker-compose-dev.yml up
    <a target="_blank" rel="noopener noreferrer" href="https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true"><img src="https://github.com/Email-Dashboard/Email-Dashboard/raw/master/docs/assets/intro.gif?raw=true" alt="" style="max-width:100%;"></a>
 </p>
 
-### In Dashboard
+### 1- In Dashboard
 * Add your SMTP Settings
 * Create email template with [handlebars](http://handlebarsjs.com/) variables.
 * Create notification
 
-### Posting to REST API
+### 2- Posting to REST API
 
 `POST` `https://api.{{yourhost}}/api/v3/notifications/{{notification-slug}}`
 
@@ -242,8 +276,8 @@ Please read our [contribution guidelines](https://email-dashboard.readthedocs.io
 
 # License
 
-Use of this software is subject to important terms and conditions as set forth in the [LICENSE](LICENSE) file
+This program is a free software. You can redistribute it and/or modify it under the terms of the license provided in the [LICENSE](LICENSE) file. Use of this software is subject to important terms and conditions as set forth in the [LICENSE](LICENSE) file.
 
 # Acknowledgement
 
-If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! :smile:
+If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime.:blush:
