@@ -1,14 +1,14 @@
 package producer
 
 import (
+	"fmt"
 	"log"
 	"os"
-	"fmt"
 	"os/signal"
 	"time"
 
-	"go-api-worker/models"
-	"go-api-worker/workers/conf"
+	"Email-Dashboard/go-api-worker/models"
+	"Email-Dashboard/go-api-worker/workers/conf"
 
 	"github.com/gocraft/work"
 	"github.com/robfig/cron"

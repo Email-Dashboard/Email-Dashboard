@@ -1,15 +1,15 @@
 package main
 
 import (
+	"Email-Dashboard/go-api-worker/middlewares"
+	"Email-Dashboard/go-api-worker/models"
+	"Email-Dashboard/go-api-worker/workers/consumer"
+	"Email-Dashboard/go-api-worker/workers/producer"
 	"encoding/json"
 	"fmt"
-	"os"
 	"io"
-	"go-api-worker/middlewares"
-	"go-api-worker/models"
-	"go-api-worker/workers/consumer"
-	"go-api-worker/workers/producer"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -83,7 +83,7 @@ func startGinLogger() {
 	if os.Getenv("GIN_MODE") == "release" {
 		// Disable Console Color
 		gin.DisableConsoleColor()
- 
+
 		// Logging to a file.
 		f, _ := os.Create("gin.log")
 		gin.DefaultWriter = io.MultiWriter(f)
