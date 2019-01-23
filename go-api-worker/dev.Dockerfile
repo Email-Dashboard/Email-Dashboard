@@ -18,7 +18,7 @@ WORKDIR /go/src/go-api-worker
 
 #RUN dep ensure
 
-RUN http_proxy="http://10.8.15.225:8443" https_proxy="http://10.8.15.225:8443"  go mod tidy
+RUN go mod tidy
 
 #WORKDIR /go/src/go-api-worker/graphql
 
