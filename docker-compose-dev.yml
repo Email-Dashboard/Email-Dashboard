@@ -55,7 +55,7 @@ services:
       dockerfile: dev.Dockerfile
     command: bash -c "go get github.com/pilu/fresh && fresh"
     volumes:
-      - ./go-api-worker:/go/src/Email-Dashboard/go-api-worker/graphql
+      - ./go-api-worker:/go/src/go-api-worker
     ports:
       - "8080:80"
     environment:

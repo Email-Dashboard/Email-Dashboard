@@ -1,4 +1,4 @@
-module Email-Dashboard/go-api-worker
+module go-api-worker
 
 require (
 	cloud.google.com/go v0.34.0 // indirect
@@ -15,13 +15,17 @@ require (
 	github.com/graphql-go/graphql v0.7.7
 	github.com/graphql-go/handler v0.2.3
 	github.com/graphql-go/relay v0.0.0-20171208134043-54350098cfe5
+	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/jinzhu/gorm v1.9.1
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/jinzhu/now v0.0.0-20181116074157-8ec929ed50c3 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/lib/pq v1.0.0 // indirect
+	github.com/mattn/go-colorable v0.0.9 // indirect
 	github.com/mattn/go-isatty v0.0.3 // indirect
 	github.com/mattn/go-sqlite3 v1.10.0 // indirect
+	github.com/pilu/config v0.0.0-20131214182432-3eb99e6c0b9a // indirect
+	github.com/pilu/fresh v0.0.0-20170301142741-9c0092493eff // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/robfig/cron v0.0.0-20180505203441-b41be1df6967
 	github.com/stretchr/testify v1.2.2 // indirect

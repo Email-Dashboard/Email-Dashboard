@@ -1,12 +1,12 @@
 package main
 
 import (
-	"Email-Dashboard/go-api-worker/middlewares"
-	"Email-Dashboard/go-api-worker/models"
-	"Email-Dashboard/go-api-worker/workers/consumer"
-	"Email-Dashboard/go-api-worker/workers/producer"
 	"encoding/json"
 	"fmt"
+	"go-api-worker/middlewares"
+	"go-api-worker/models"
+	"go-api-worker/workers/consumer"
+	"go-api-worker/workers/producer"
 	"io"
 	"net/http"
 	"os"

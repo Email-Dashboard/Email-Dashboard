@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	"Email-Dashboard/go-api-worker/models"
+	"go-api-worker/models"
 
 	"github.com/aymerick/raymond"
 	gomail "gopkg.in/gomail.v2"

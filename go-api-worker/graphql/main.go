@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Email-Dashboard/go-api-worker/graphql/relay"
 	"fmt"
+	"go-api-worker/graphql/relay"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ func runGin() {
 	router := gin.Default()
 	gin.SetMode(gin.DebugMode)
 	router.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, fmt.Sprintf("Hello from Email Dashboard API!"))
+		c.String(http.StatusOK, fmt.Sprintf("Hello from Email Dashboard GRAPHQL API!"))
 	})
 
 	api := router.Group("/api/v3")
@@ -30,7 +30,7 @@ func runGin() {
 	api.POST("/graphql", GraphqlHandler(schema))
 	api.GET("/graphql", GraphqlHandler(schema))
 
-	router.Run(":8080")
+	router.Run(":80")
 }
 
 //GraphqlHandler func

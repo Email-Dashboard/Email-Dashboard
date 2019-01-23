@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"Email-Dashboard/go-api-worker/models"
+	"go-api-worker/models"
 
 	"github.com/gin-gonic/gin"
 )

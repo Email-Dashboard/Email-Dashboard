@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"time"
 
-	"Email-Dashboard/go-api-worker/models"
-	"Email-Dashboard/go-api-worker/workers/conf"
+	"go-api-worker/models"
+	"go-api-worker/workers/conf"
 
 	"github.com/gocraft/work"
 	"github.com/robfig/cron"

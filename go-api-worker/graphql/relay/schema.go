@@ -1,8 +1,8 @@
 package relay
 
 import (
-	"Email-Dashboard/go-api-worker/models"
 	"context"
+	"go-api-worker/models"
 	"strconv"
 
 	"github.com/graphql-go/graphql"
