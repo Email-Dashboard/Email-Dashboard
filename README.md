@@ -198,9 +198,20 @@ docker-compose -f docker-compose-dev.yml up
 
 ### 1- In Dashboard
 
+Using dashboard is really easy, like playing PUBG! You can do it any time without any effort. Because our first aim is make some time for our users with our dashboard. So, UI and dashboard is friendly as much as and we will make it better.
+
 * Add your SMTP Settings
 * Create email template with [handlebars](http://handlebarsjs.com/) variables.
-* Create notification
+* Create notification. See, easy peasy!
+
+| Column | Description |
+| ------------- | ------------- |
+| Activities | You can track your email activities. |
+| Notifications | You can create notifications, change their settings, or destroy them. |
+| SMTP | You can create new SMTP with multiple choice. |
+| Templates | You can create new email templates, edit or destroy them. |
+| Accounts | You can create sub accounts and manage them easily. |
+
 
 ### 2- Posting to REST API
 
