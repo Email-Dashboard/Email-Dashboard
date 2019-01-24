@@ -55,12 +55,12 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
    
 # For whom?
 
-* :earth_asia: If you need to send automatic emails without worried about **time zone**,
-* 🔍 If you need to **track** your emails and **analyse** your results to follow better strategies,
-* 📊 If you need to **monitoring** your activities,
-* 📑 If you want to use email **templates**,
-* 🕵️ If you need to **A/B testing**,
-* 💯 And if you want to do all of this **easily**,
+ :earth_asia: If you need to send automatic emails without worried about **time zone**,<br>
+ 🔍 If you need to **track** your emails and **analyse** your results to follow better strategies,<br>
+ 📊 If you need to **monitoring** your activities,<br>
+ 📑 If you want to use email **templates**,<br>
+ 🕵️ If you need to **A/B testing**,<br>
+ 💯 And if you want to do all of this **easily**,<br>
  
 Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
