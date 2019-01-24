@@ -59,10 +59,9 @@ Labels  | Description
 `enhancement` | New feature or request
 `good first issue` | Good for newcomers!
 `help wanted` | Extra attention is needed!
-`question` | Further information is requested!
-`docs` | Improving or updating our documentation.
 `wontfix` | This will not be worked on!
 `invalid` | This doesn't seem right!
+`question` | Further information is requested!
 
 So, when you want to start contributing on this issue labels please don't forget rules of the discussions. Also when working on any issue on Github, it's a good practice to make branches that are specific to the issue you're currently working on. For instance, if you're working on an issue with a name like "NAME OF ISSUE #1234", from the master branch run the following code: `git checkout -b Issue#1234`. In doing so, you'll be making a branch that specifically identifies the issue at hand, and moves you right into it with the `checkout` flag. This keeps your main (master) repository clean and your personal workflow cruft out of sight when making a pull request. 
 
@@ -82,7 +81,7 @@ And please try to be as detailed as possible in your report.
 
 # Feature requests
 
-Good pull requests—patches, improvements, new features—are a fantastic help! That's why feature, improvements requests are welcome. But before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible. Before submitting any pull request, please follow the steps on the [Pull Request Checklist](https://github.com/adobe/brackets/wiki/Pull-Request-Checklist) to be sure a good-quality pull request.
+Good pull requests—patches, improvements, new features—are a fantastic help! That's why feature, improvements requests are welcome. But before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible. 
 
 But how to make changes if you're a newbie? Here is it!
 
