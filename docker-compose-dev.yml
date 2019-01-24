@@ -29,12 +29,12 @@ services:
       - '6379'
 
   web:
-    depends_on:
-      -  db
-
     build:
       context: ./rails-dashboard
       dockerfile: dev.Dockerfile
+    depends_on:
+      - db
+      - webpack
     ports:
       - "3000:3000"
     volumes:
@@ -47,6 +47,14 @@ services:
       ED_DB_HOST: db
       ED_DB_NAME: email_dashboard_development
 
+  webpack:
+    build:
+      context: ./rails-dashboard
+      dockerfile: dev.Dockerfile
+    command: ./bin/yarn install && ./bin/webpack-dev-server
+    ports:
+      - 3035:3035
+
   api:
     depends_on:
       - db
@@ -54,6 +62,7 @@ services:
       context: ./go-api-worker
       dockerfile: dev.Dockerfile
     command: bash -c "go get github.com/pilu/fresh && fresh"
+    # command: bash -c "cd graphql && go get github.com/pilu/fresh && fresh" # for graphql api
     volumes:
       - ./go-api-worker:/go/src/go-api-worker
     ports:
