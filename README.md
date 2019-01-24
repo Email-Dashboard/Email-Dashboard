@@ -1,9 +1,4 @@
 
-<h3 align="center">
-   Email Dashboard
-   <br>
-</h3>
-
 <p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
@@ -16,7 +11,7 @@
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
       <strong>Report bug </strong></a>|
       
-   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/enhancement">
+   <a href="https://github.com/Email-Dashboard/Email-Dashboard/issues/new">
       <strong>Request feature </strong></a>|
    
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
@@ -28,9 +23,9 @@
    </a> 
  </p>
  
-# Description
+# Email-Dashboard
 
-![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg) 
+![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
 Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can reach free live version of Email-Dashboard on [here](https://dashboard.pigon.ws). 
 
@@ -44,9 +39,12 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 - [Code overview](https://github.com/mesutgulecen/Email-Dashboard#code-overview)
 - [Features](https://github.com/mesutgulecen/Email-Dashboard#features)
 - [Installation](https://github.com/mesutgulecen/Email-Dashboard#installation)
-   * [1- Ubuntu Production](https://github.com/mesutgulecen/Email-Dashboard#1--ubuntu-production)
-   * [2- Deployment](https://github.com/mesutgulecen/Email-Dashboard#2--deployment)
-   * [3- Development Installation](https://github.com/mesutgulecen/Email-Dashboard#3--development-installation)
+   * [1- Install Docker](https://github.com/Email-Dashboard/Email-Dashboard#install-docker)
+   * [2- Install Docker Compose](https://github.com/Email-Dashboard/Email-Dashboard#install-docker-compose)
+   * [3- Create data folders](https://github.com/Email-Dashboard/Email-Dashboard#create-data-folders)
+   * [4- Clone repo](https://github.com/Email-Dashboard/Email-Dashboard#clone-repo)
+- [Deployment](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
+- [Development](https://github.com/Email-Dashboard/Email-Dashboard#development)
 - [Usage](https://github.com/mesutgulecen/Email-Dashboard#usage)
    * [1- In Dashboard](https://github.com/Email-Dashboard/Email-Dashboard#in-dashboard)
    * [2- Posting to REST API](https://github.com/Email-Dashboard/Email-Dashboard#posting-to-rest-api)
@@ -68,9 +66,9 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
 # Code overview
 
-* The REST API builded with superfast language [golang](https://github.com/golang/go).
-* The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)
-* Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.
+:small_orange_diamond: The REST API builded with superfast language [golang](https://github.com/golang/go).<br>
+:small_orange_diamond: The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)<br>
+:small_orange_diamond: Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.<br>
 
 # Features
 - [x] Monitor email activities that your service sent.
@@ -84,45 +82,49 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
    
 # Installation
 
-### 1- Ubuntu Production
+### 1- Install Docker
+
+##### Ubuntu (Production)
    
-- Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
+:arrow_forward: Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
 
 ```bash
 wget -qO- https://get.docker.com/ | sh
 ```
 
-- Execute this line to allow docker to execute without being root
+:arrow_forward: Execute this line to allow docker to execute without being root<br>
 
 ```bash
 sudo usermod -aG docker ${USER}
 ```
-- Logout, then login again. Permissions should be applied.
+:arrow_forward: Logout, then login again. Permissions should be applied.<br>
 
-- Install Docker Compose from the [official page](https://docs.docker.com/compose/install/), or manually run:
+### 2- Install Docker Compose
+
+:arrow_forward: Install Docker Compose from the [official page](https://docs.docker.com/compose/install/), or manually run:<br>
 
 ```bash
 curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-- Create data folders
+### 3- Create data folders
 
 ```bash
  mkdir -p /datadrive/mysql && mkdir -p /datadrive/data/redis
 ```
 
-- Clone repo
+### 4- Clone repo
 
 ```bash
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
-- Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env
+:arrow_forward: Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env<br>
 
-- If you are running on macOS enable commented lines in `docker-compose.yml`
+:arrow_forward: If you are running on macOS enable commented lines in `docker-compose.yml`<br>
 
-### 2- Deployment
+# Deployment
    
 You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/get-started/) for usage of Docker.
 
@@ -130,25 +132,25 @@ You can read our [deployment doc](https://email-dashboard.github.io/guide/deploy
   docker-compose build
   docker-compose up -d
 ```
-### 3- Development Installation
+# Development
    
 :small_red_triangle_down: <strong>For macOS</strong>
 
-- Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).
+:arrow_forward: Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
 
-- Create Datafolders
+:arrow_forward: Create Datafolders<br>
 
 ```mkdir -p ~/datadrive/ed/mysql && mkdir -p ~/datadrive/ed/redis```
 
-- Clone the repo
+:arrow_forward: Clone the repo<br>
 
 ```git clone https://github.com/Email-Dashboard/Email-Dashboard.git```
 
-- Update mac username in ```docker-compose-dev.yml``` in ```line 7``` and ```line 27```
+:arrow_forward: Update mac username in ```docker-compose-dev.yml``` in ```line 7``` and ```line 27```<br>
 
 ```/Users/MacUserName/datadrive/ed/mysql:/var/lib/mysql # update MacUserName with yours```
 
-- Start
+:arrow_forward: Start<br>
 
 ```
 docker-compose -f docker-compose-dev.yml build
@@ -156,34 +158,34 @@ docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
-- Dashboard url: http://localhost:3000
-- Make API requests to http://localhost:8080
+:arrow_forward: Dashboard url: http://localhost:3000<br>
+:arrow_forward: Make API requests to http://localhost:8080<br>
 
 :small_red_triangle_down: <strong>For Ubuntu</strong>
 
-- installed using:
+:arrow_forward: installed using:<br>
 
 ```wget -qO- https://get.docker.com/ | sh```
 
-- Execute this line to allow docker to execute without being root
+:arrow_forward: Execute this line to allow docker to execute without being root<br>
 
 ```sudo usermod -aG docker ${USER} # Logout, then login again. Permissions should be applied.```
 
-- Create Datafolders
+:arrow_forward: Create Datafolders<br>
 
 ```mkdir -p /datadrive/data/mysql && mkdir -p /datadrive/data/redis```
 
-- Clone the repo
+:arrow_forward: Clone the repo<br>
 
 ```git clone https://github.com/Email-Dashboard/Email-Dashboard.git```
 
-- Update ```line 7``` and ```line 27``` in ```docker-compose-dev.yml``` to:
+:arrow_forward: Update ```line 7``` and ```line 27``` in ```docker-compose-dev.yml``` to:<br>
 
 ```-'/datadrive/data/mysql:/var/lib/mysql'```<br>
 ```...```<br>
 ```- '/datadrive/data/redis:/data'```
 
-- Start
+:arrow_forward: Start<br>
 
 ```
 docker-compose -f docker-compose-dev.yml build
@@ -191,27 +193,18 @@ docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
-- Dashboard url: http://localhost:3000
-- Make API requests to http://localhost:8080
+:arrow_forward: Dashboard url: http://localhost:3000<br>
+:arrow_forward: Make API requests to http://localhost:8080
 
 # Usage
 
 ### 1- In Dashboard
 
-Using dashboard is really easy, like playing PUBG! You can do it any time without any effort. Because our first aim is make some time for our users with our dashboard. So, UI and dashboard is friendly as much as and we will make it better.
+Using dashboard is really easy, like playing PUBG! You can do it any time without any effort. Because our first aim is make some time for our community with our dashboard. So, UI and dashboard is friendly as much as and we will make it better.
 
-* Add your SMTP Settings
-* Create email template with [handlebars](http://handlebarsjs.com/) variables.
-* Create notification. See, easy peasy!
-
-| Column | Description |
-| ------------- | ------------- |
-| Activities | You can track your email activities. |
-| Notifications | You can create notifications, change their settings, or destroy them. |
-| SMTP | You can create new SMTP with multiple choice. |
-| Templates | You can create new email templates, edit or destroy them. |
-| Accounts | You can create sub accounts and manage them easily. |
-
+:small_orange_diamond: Add your SMTP Settings<br>
+:small_orange_diamond: Create email template with [handlebars](http://handlebarsjs.com/) variables.<br>
+:small_orange_diamond: Create notification. See, easy peasy!<br>
 
 ### 2- Posting to REST API
 
