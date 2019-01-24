@@ -22,13 +22,13 @@ Before start to contributing to Email-Dashboard or any open source project pleas
 
 Here we are! There are many ways you can contribute to Email-Dashboard. For example:
 
-- 🛠 You can test Email-Dashboard and <b>report bugs</b> you find. Also you can also fix these bugs!  
-- :guardsman: You can write <b>unit tests</b> for Email-Dashboard.
-- 🌐 You can <b>translate</b> Email-Dashboard's UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.
-- 📝 You can write <b>guide articles</b> about usage of Email-Dashboard and help to keep it up to date.
-- 💻 You can implement a <b>new feature</b> to Email-Dashboard!
-- :mailbox: You can create new <b>email templates</b> for community.
-- 🛠 You can help people on the <b>issue</b> tracker. 
+🛠 You can test Email-Dashboard and <b>report bugs</b> you find. Also you can also fix these bugs!  
+:guardsman: You can write <b>unit tests</b> for Email-Dashboard.<br>
+🌐 You can <b>translate</b> Email-Dashboard's UI, our README and CONTRIBUTING contents into other languages or help to keep those translations up to date.<br>
+📝 You can write <b>guide articles</b> about usage of Email-Dashboard and help to keep it up to date.<br>
+💻 You can implement a <b>new feature</b> to Email-Dashboard!<br>
+:mailbox: You can create new <b>email templates</b> for community.<br>
+🛠 You can help people on the <b>issue</b> tracker.<br>
 
 # Getting Email-Dashboard
 
@@ -71,11 +71,11 @@ After you've forked and cloned our repo, you can find issues to work on by headi
 
 A bug is a curse for code! That's why good bug reports are extremely helpful for every project, so thanks! You can follow this guidelines for bug reports:
 
-- Validate and lint your code.
+:small_orange_diamond: Validate and lint your code.<br>
 
-- Use the GitHub issue search.
+:small_orange_diamond: Use the GitHub issue search.<br>
 
-- Check if the issue has been fixed.
+:small_orange_diamond: Check if the issue has been fixed.<br>
 
 And please try to be as detailed as possible in your report.
 
