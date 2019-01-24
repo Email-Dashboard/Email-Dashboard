@@ -2,11 +2,11 @@
 <p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
-   <a href="https://email-dashboard.github.io/guide/">
-   <strong>Explore Email Dashboard docs »</strong>
+   <a href="https://dashboard.pigon.ws">
+   <strong>Live demo of Email-Dashboard »</strong>
    </a>
  </p>
- 
+  
  <p align="center">
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
       <strong>Report bug </strong></a>|
@@ -27,7 +27,7 @@
 
 ![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
-Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can reach free live version of Email-Dashboard on [here](https://dashboard.pigon.ws). 
+Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can [explore Email-Dashboard docs](https://email-dashboard.github.io/guide/).
 
 <p>
    <a target="_blank" rel="noopener noreferrer" href="https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true"><img src="https://github.com/Email-Dashboard/Email-Dashboard/raw/master/docs/assets/intro.gif?raw=true" alt="" style="max-width:100%;"></a>
