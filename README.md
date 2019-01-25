@@ -238,6 +238,7 @@ Using dashboard is really easy, like playing PUBG! You can do it any time withou
 }
 ```
 
+For more specified usage you can follow [step by step](https://email-dashboard.github.io/guide/usage.html#step-by-step) instructions in docs.
 
 # Contributing
 Please read our [contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our [rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our [issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several [labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
