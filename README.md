@@ -35,23 +35,23 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 
 # Table of content
    
-- [For whom?](https://github.com/mesutgulecen/Email-Dashboard#for-whom)
-- [Code overview](https://github.com/mesutgulecen/Email-Dashboard#code-overview)
-- [Features](https://github.com/mesutgulecen/Email-Dashboard#features)
-- [Installation](https://github.com/mesutgulecen/Email-Dashboard#installation)
+- [For whom?](https://github.com/Email-Dashboard/Email-Dashboard#for-whom)
+- [Code overview](https://github.com/Email-Dashboard/Email-Dashboard#code-overview)
+- [Features](https://github.com/Email-Dashboard/Email-Dashboard#features)
+- [Installation](https://github.com/Email-Dashboard/Email-Dashboard#installation)
    * [1- Install Docker](https://github.com/Email-Dashboard/Email-Dashboard#install-docker)
    * [2- Install Docker Compose](https://github.com/Email-Dashboard/Email-Dashboard#install-docker-compose)
    * [3- Create data folders](https://github.com/Email-Dashboard/Email-Dashboard#create-data-folders)
    * [4- Clone repo](https://github.com/Email-Dashboard/Email-Dashboard#clone-repo)
 - [Deployment](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
 - [Development](https://github.com/Email-Dashboard/Email-Dashboard#development)
-- [Usage](https://github.com/mesutgulecen/Email-Dashboard#usage)
+- [Usage](https://github.com/Email-Dashboard/Email-Dashboard#usage)
    * [1- In Dashboard](https://github.com/Email-Dashboard/Email-Dashboard#in-dashboard)
    * [2- Posting to REST API](https://github.com/Email-Dashboard/Email-Dashboard#posting-to-rest-api)
-- [Contributing](https://github.com/mesutgulecen/Email-Dashboard#contributing)
-- [Authors](https://github.com/mesutgulecen/Email-Dashboard#authors)
-- [License](https://github.com/mesutgulecen/Email-Dashboard#license)
-- [Acknowledgement](https://github.com/mesutgulecen/Email-Dashboard#acknowledgement)
+- [Contributing](https://github.com/Email-Dashboard/Email-Dashboard#contributing)
+- [Authors](https://github.com/Email-Dashboard/Email-Dashboard#authors)
+- [License](https://github.com/Email-Dashboard/Email-Dashboard#license)
+- [Acknowledgement](https://github.com/Email-Dashboard/Email-Dashboard#acknowledgement)
    
 # For whom?
 
