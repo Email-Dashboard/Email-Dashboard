@@ -135,7 +135,8 @@ chmod +x /usr/local/bin/docker-compose
 <details>
 <summary>macOS</summary>
 <p>
-:arrow_forward: Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
+<br/>
+Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br/>
 
 :arrow_forward: Create Datafolders<br>
 
@@ -165,8 +166,8 @@ docker-compose -f docker-compose-dev.yml up
 <details>
 <summary>Debian</summary>
 <p>
-
-:arrow_forward: installed using:<br>
+<br/>
+Install and start Docker:<br>
 
 ```wget -qO- https://get.docker.com/ | sh```
 
