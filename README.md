@@ -1,31 +1,31 @@
 
 <p align="center">
-   An interactive emailing management service<br> 
+   An interactive emailing management service<br>
    with scheduling, templating, tracking and A/B testing.<br>
    <a href="https://dashboard.pigon.ws">
    <strong>Live demo of Email-Dashboard »</strong>
    </a>
  </p>
-  
+
  <p align="center">
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
       <strong>Report bug </strong></a>|
-      
+
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/issues/new">
       <strong>Request feature </strong></a>|
-   
+
    <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
       <strong>Help issues</strong></a>
    </a><br><br>
-   
+
    <a href="./README-zh_CN.md">
        🇨🇳[简体中文]</a>
-   </a> 
+   </a>
  </p>
- 
+
 # Email-Dashboard
 
-![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
+![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
 Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can [explore Email-Dashboard docs](https://email-dashboard.github.io/guide/).
 
@@ -34,25 +34,22 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 </p>
 
 # Table of content
-   
-- [For whom?](https://github.com/Email-Dashboard/Email-Dashboard#for-whom)
-- [Code overview](https://github.com/Email-Dashboard/Email-Dashboard#code-overview)
-- [Features](https://github.com/Email-Dashboard/Email-Dashboard#features)
-- [Installation](https://github.com/Email-Dashboard/Email-Dashboard#installation)
-   * [1- Install Docker](https://github.com/Email-Dashboard/Email-Dashboard#install-docker)
-   * [2- Install Docker Compose](https://github.com/Email-Dashboard/Email-Dashboard#install-docker-compose)
-   * [3- Create data folders](https://github.com/Email-Dashboard/Email-Dashboard#create-data-folders)
-   * [4- Clone repo](https://github.com/Email-Dashboard/Email-Dashboard#clone-repo)
-- [Deployment](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
-- [Development](https://github.com/Email-Dashboard/Email-Dashboard#development)
-- [Usage](https://github.com/Email-Dashboard/Email-Dashboard#usage)
-   * [1- In Dashboard](https://github.com/Email-Dashboard/Email-Dashboard#in-dashboard)
-   * [2- Posting to REST API](https://github.com/Email-Dashboard/Email-Dashboard#posting-to-rest-api)
-- [Contributing](https://github.com/Email-Dashboard/Email-Dashboard#contributing)
-- [Authors](https://github.com/Email-Dashboard/Email-Dashboard#authors)
-- [License](https://github.com/Email-Dashboard/Email-Dashboard#license)
-- [Acknowledgement](https://github.com/Email-Dashboard/Email-Dashboard#acknowledgement)
-   
+
+- [For whom?](#for-whom)
+- [Code overview](#code-overview)
+- [Features](#features)
+- [Deployment](#deployment)
+   * [1- Debian](#deployment)
+- [Development](#development)
+   * [1- MacOS](#development)
+   * [2- Debian](#development)
+- [Usage](#usage)
+   * [1- In Dashboard](#1--in-dashboard)
+   * [2- Posting to REST API](#2--posting-to-rest-api)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgement](#acknowledgement)
+
 # For whom?
 
  :earth_asia: If you need to send automatic emails without worried about **time zone**,<br>
@@ -61,7 +58,7 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
  📑 If you want to use email **templates**,<br>
  🕵️ If you need to **A/B testing**,<br>
  💯 And if you want to do all of this **easily**,<br>
- 
+
 Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
 # Code overview
@@ -79,13 +76,15 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 - [x] Mobile UI
 - [ ] Email tracking.
 - [ ] A/B testing.
-   
-# Installation
+
+# Deployment
+
+<details>
+<summary>Debian</summary>
+<p>
 
 ### 1- Install Docker
 
-##### Ubuntu (Production)
-   
 :arrow_forward: Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
 
 ```bash
@@ -120,22 +119,22 @@ chmod +x /usr/local/bin/docker-compose
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
-:arrow_forward: Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env<br>
+:arrow_forward: Update environment variables with your variables `https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env`<br>
 
-:arrow_forward: If you are running on macOS enable commented lines in `docker-compose.yml`<br>
-
-# Deployment
-   
-You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/get-started/) for usage of Docker.
 
 ```bash
   docker-compose build
   docker-compose up -d
 ```
-# Development
-   
-:small_red_triangle_down: <strong>For macOS</strong>
 
+</p>
+</details>
+
+# Development
+
+<details>
+<summary>macOS</summary>
+<p>
 :arrow_forward: Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
 
 :arrow_forward: Create Datafolders<br>
@@ -154,14 +153,18 @@ You can read our [deployment doc](https://email-dashboard.github.io/guide/deploy
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080<br>
 
-:small_red_triangle_down: <strong>For Ubuntu</strong>
+</p>
+</details>
+
+<details>
+<summary>Debian</summary>
+<p>
 
 :arrow_forward: installed using:<br>
 
@@ -189,12 +192,13 @@ docker-compose -f docker-compose-dev.yml up
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080
+</p>
+</details>
 
 # Usage
 
@@ -232,6 +236,8 @@ Using dashboard is really easy, like playing PUBG! You can do it any time withou
    }
 }
 ```
+
+
 # Contributing
 Please read our [contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our [rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our [issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several [labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
 
