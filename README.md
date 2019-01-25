@@ -1,4 +1,7 @@
-
+<p align="center">
+<img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/temporary%20logo.svg" width="100" height="100">
+ </p>
+ 
 <p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
@@ -268,4 +271,4 @@ This program is a free and open source software. You can redistribute it and/or 
 
 # :mag: Acknowledgement
 
-If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime.:blush:
+If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime. Btw you can see our guilds from our [credit content](https://github.com/mesutgulecen/Email-Dashboard/blob/master/Credit.md) :blush:
