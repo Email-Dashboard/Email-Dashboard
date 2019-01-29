@@ -134,7 +134,7 @@ chmod +x /usr/local/bin/docker-compose
 </p>
 </details>
 
-# Development
+# :computer: Development
 
 <details>
 <summary>macOS</summary>
