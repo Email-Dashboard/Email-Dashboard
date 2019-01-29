@@ -41,13 +41,11 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 - [For whom?](https://github.com/mesutgulecen/Email-Dashboard#for-whom)
 - [Code overview](https://github.com/mesutgulecen/Email-Dashboard#code-overview)
 - [Features](https://github.com/mesutgulecen/Email-Dashboard#features)
-- [Installation](https://github.com/mesutgulecen/Email-Dashboard#installation)
-   * [1- Install Docker](https://github.com/Email-Dashboard/Email-Dashboard#install-docker)
-   * [2- Install Docker Compose](https://github.com/Email-Dashboard/Email-Dashboard#install-docker-compose)
-   * [3- Create data folders](https://github.com/Email-Dashboard/Email-Dashboard#create-data-folders)
-   * [4- Clone repo](https://github.com/Email-Dashboard/Email-Dashboard#clone-repo)
 - [Deployment](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
+   * [1- Debian](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
 - [Development](https://github.com/Email-Dashboard/Email-Dashboard#development)
+   * [1- macOS](https://github.com/Email-Dashboard/Email-Dashboard#development)
+   * [2- Debian](https://github.com/Email-Dashboard/Email-Dashboard#development)
 - [Usage](https://github.com/mesutgulecen/Email-Dashboard#usage)
    * [1- In Dashboard](https://github.com/Email-Dashboard/Email-Dashboard#in-dashboard)
    * [2- Posting to REST API](https://github.com/Email-Dashboard/Email-Dashboard#posting-to-rest-api)
@@ -82,13 +80,15 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 - [x] Mobile UI
 - [ ] Email tracking.
 - [ ] A/B testing.
-   
-# 🔱 Installation
+
+# 🔱 Deployment
+
+<details>
+<summary>Debian</summary>
+<p>
 
 ### 1- Install Docker
 
-##### Ubuntu (Production)
-   
 :arrow_forward: Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
 
 ```bash
@@ -123,23 +123,24 @@ chmod +x /usr/local/bin/docker-compose
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
 
-:arrow_forward: Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env<br>
+:arrow_forward: Update environment variables with your variables `https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env`<br>
 
-:arrow_forward: If you are running on macOS enable commented lines in `docker-compose.yml`<br>
-
-# :dvd: Deployment
-   
-You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/get-started/) for usage of Docker.
 
 ```bash
   docker-compose build
   docker-compose up -d
 ```
-# :computer: Development
-   
-:small_red_triangle_down: <strong>For macOS</strong>
 
-:arrow_forward: Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
+</p>
+</details>
+
+# Development
+
+<details>
+<summary>macOS</summary>
+<p>
+<br/>
+Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br/>
 
 :arrow_forward: Create Datafolders<br>
 
@@ -157,16 +158,20 @@ You can read our [deployment doc](https://email-dashboard.github.io/guide/deploy
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080<br>
 
-:small_red_triangle_down: <strong>For Ubuntu</strong>
+</p>
+</details>
 
-:arrow_forward: installed using:<br>
+<details>
+<summary>Debian</summary>
+<p>
+<br/>
+Install and start Docker:<br>
 
 ```wget -qO- https://get.docker.com/ | sh```
 
@@ -192,12 +197,13 @@ docker-compose -f docker-compose-dev.yml up
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080
+</p>
+</details>
 
 # :trophy: Usage
 
