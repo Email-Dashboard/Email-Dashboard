@@ -86,7 +86,7 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 # 🔱 Deployment
 
 <details>
-<summary>Debian</summary>
+ <summary><strong>Debian</strong></summary>
 <p>
 
 ### 1- Install Docker
@@ -136,7 +136,7 @@ chmod +x /usr/local/bin/docker-compose
 # :computer: Development
 
 <details>
-<summary>macOS</summary>
+<summary><strong>macOS</strong></summary>
 <p>
 
 Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
@@ -167,7 +167,7 @@ docker-compose -f docker-compose-dev.yml up
 </details>
 
 <details>
-<summary>Debian</summary>
+<summary><strong>Debian</strong></summary>
 <p>
 
 Install and start Docker:<br>
