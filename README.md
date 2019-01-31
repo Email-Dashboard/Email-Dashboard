@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/temporary%20logo.svg" width="100" height="100">
+<img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/docs/assets/temporary_logo.svg" width="100" height="100">
  </p>
  
 <p align="center">
