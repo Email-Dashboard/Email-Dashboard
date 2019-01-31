@@ -36,3 +36,4 @@
 /go-api-worker/tmp/*
 
 /go-api-worker/gin.log
+/go-api-worker/graphql/tmp/
