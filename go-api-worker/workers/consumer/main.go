@@ -2,9 +2,9 @@ package consumer
 
 import (
 	"encoding/json"
-	"log"
 	"fmt"
 	"go-api-worker/mailer"
+	"log"
 	"os"
 	"os/signal"
 

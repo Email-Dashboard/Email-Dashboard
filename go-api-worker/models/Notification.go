@@ -23,3 +23,11 @@ func FindNotificationByID(id uint) Notification {
 	GetDB().Find(&notification, "id = ?", id)
 	return notification
 }
+
+// GetNotificationList func
+func GetNotificationList() []Notification {
+	var notifications []Notification
+
+	GetDB().Find(&notifications)
+	return notifications
+}

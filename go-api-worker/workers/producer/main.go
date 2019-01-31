@@ -1,9 +1,9 @@
 package producer
 
 import (
+	"fmt"
 	"log"
 	"os"
-	"fmt"
 	"os/signal"
 	"time"
 

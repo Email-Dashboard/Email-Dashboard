@@ -8,27 +8,29 @@
    <a href="https://dashboard.pigon.ws">
    <strong>Live demo of Email-Dashboard »</strong>
    </a>
- </p>
-  
- <p align="center">
-   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
-      <strong>Report bug </strong></a>|
-      
-   <a href="https://github.com/Email-Dashboard/Email-Dashboard/issues/new">
-      <strong>Request feature </strong></a>|
-   
-   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
-      <strong>Help issues</strong></a>
-   </a><br><br>
-   
-   <a href="./README-zh_CN.md">
-       🇨🇳[简体中文]</a>
-   </a> 
- </p>
- 
-# 📔 Email-Dashboard
+</p>
 
-![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/bower/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
+<p align="center">
+  <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
+    <strong>Report bug </strong>
+  </a>|
+      
+  <a href="https://github.com/Email-Dashboard/Email-Dashboard/issues/new">
+    <strong>Request feature </strong>
+  </a>|
+   
+  <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
+    <strong>Help issues</strong>
+  </a><br><br>
+   
+  <a href="./README-zh_CN.md">
+     🇨🇳[简体中文]
+  </a> 
+</p>
+
+# Email-Dashboard
+
+![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
 Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can [explore Email-Dashboard docs](https://email-dashboard.github.io/guide/).
 
@@ -37,25 +39,23 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 </p>
 
 # 💢 Table of content
-   
-- [For whom?](https://github.com/mesutgulecen/Email-Dashboard#for-whom)
-- [Code overview](https://github.com/mesutgulecen/Email-Dashboard#code-overview)
-- [Features](https://github.com/mesutgulecen/Email-Dashboard#features)
-- [Installation](https://github.com/mesutgulecen/Email-Dashboard#installation)
-   * [1- Install Docker](https://github.com/Email-Dashboard/Email-Dashboard#install-docker)
-   * [2- Install Docker Compose](https://github.com/Email-Dashboard/Email-Dashboard#install-docker-compose)
-   * [3- Create data folders](https://github.com/Email-Dashboard/Email-Dashboard#create-data-folders)
-   * [4- Clone repo](https://github.com/Email-Dashboard/Email-Dashboard#clone-repo)
-- [Deployment](https://github.com/Email-Dashboard/Email-Dashboard#deployment)
-- [Development](https://github.com/Email-Dashboard/Email-Dashboard#development)
-- [Usage](https://github.com/mesutgulecen/Email-Dashboard#usage)
-   * [1- In Dashboard](https://github.com/Email-Dashboard/Email-Dashboard#in-dashboard)
-   * [2- Posting to REST API](https://github.com/Email-Dashboard/Email-Dashboard#posting-to-rest-api)
-- [Contributing](https://github.com/mesutgulecen/Email-Dashboard#contributing)
-- [Authors](https://github.com/mesutgulecen/Email-Dashboard#authors)
-- [License](https://github.com/mesutgulecen/Email-Dashboard#license)
-- [Acknowledgement](https://github.com/mesutgulecen/Email-Dashboard#acknowledgement)
-   
+
+- [For whom?](#for-whom)
+- [Code overview](#code-overview)
+- [Features](#features)
+- [Deployment](#deployment)
+   * [1- Debian](#deployment)
+- [Development](#development)
+   * [1- MacOS](#development)
+   * [2- Debian](#development)
+- [Usage](#usage)
+   * [1- In Dashboard](#1--in-dashboard)
+   * [2- Posting to REST API](#2--posting-to-rest-api)
+- [Contributing](#contributing)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgement](#acknowledgement)
+
 # 🚻 For whom?
 
  :earth_asia: If you need to send automatic emails without worried about **time zone**,<br>
@@ -64,7 +64,7 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
  📑 If you want to use email **templates**,<br>
  🕵️ If you need to **A/B testing**,<br>
  💯 And if you want to do all of this **easily**,<br>
- 
+
 Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
 # :eyes: Code overview
@@ -73,7 +73,7 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 :small_orange_diamond: The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)<br>
 :small_orange_diamond: Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.<br>
 
-# ☑️ Features
+# ☑ Features
 - [x] Monitor email activities that your service sent.
 - [x] Interactive templates.
 - [x] Multiple SMTP support.
@@ -82,13 +82,15 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 - [x] Mobile UI
 - [ ] Email tracking.
 - [ ] A/B testing.
-   
-# 🔱 Installation
+
+# 🔱 Deployment
+
+<details>
+<summary>Debian</summary>
+<p>
 
 ### 1- Install Docker
 
-##### Ubuntu (Production)
-   
 :arrow_forward: Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
 
 ```bash
@@ -122,24 +124,22 @@ chmod +x /usr/local/bin/docker-compose
 ```bash
  git clone https://github.com/Email-Dashboard/Email-Dashboard.git
 ```
-
-:arrow_forward: Update environment variables with your variables https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env<br>
-
-:arrow_forward: If you are running on macOS enable commented lines in `docker-compose.yml`<br>
-
-# :dvd: Deployment
-   
-You can read our [deployment doc](https://email-dashboard.github.io/guide/deployment.html#ubuntu-production) for Ubuntu production. Also you can read [offical Docker guild](https://docs.docker.com/get-started/) for usage of Docker.
+:arrow_forward: Update environment variables with your variables `https://github.com/Email-Dashboard/Email-Dashboard/blob/master/.env`<br>
 
 ```bash
   docker-compose build
   docker-compose up -d
 ```
-# :computer: Development
-   
-:small_red_triangle_down: <strong>For macOS</strong>
+</p>
+</details>
 
-:arrow_forward: Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
+# :computer: Development
+
+<details>
+<summary>macOS</summary>
+<p>
+
+Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
 
 :arrow_forward: Create Datafolders<br>
 
@@ -157,16 +157,20 @@ You can read our [deployment doc](https://email-dashboard.github.io/guide/deploy
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080<br>
 
-:small_red_triangle_down: <strong>For Ubuntu</strong>
+</p>
+</details>
 
-:arrow_forward: installed using:<br>
+<details>
+<summary>Debian</summary>
+<p>
+
+Install and start Docker:<br>
 
 ```wget -qO- https://get.docker.com/ | sh```
 
@@ -192,12 +196,14 @@ docker-compose -f docker-compose-dev.yml up
 
 ```
 docker-compose -f docker-compose-dev.yml build
-docker-compose -f docker-compose-dev.yml run web rake db:migrate
 docker-compose -f docker-compose-dev.yml up
 ```
 
 :arrow_forward: Dashboard url: http://localhost:3000<br>
 :arrow_forward: Make API requests to http://localhost:8080
+
+</p>
+</details>
 
 # :trophy: Usage
 
@@ -214,7 +220,6 @@ Using dashboard is really easy, like playing PUBG! You can do it any time withou
 `POST` `https://api.{{yourhost}}/api/v3/notifications/{{notification-slug}}`
 
 `Authorization: Token {{AccountToken}}`
-
 
 ```
 {
@@ -235,7 +240,11 @@ Using dashboard is really easy, like playing PUBG! You can do it any time withou
    }
 }
 ```
+
+For more specified usage you can follow [step by step](https://email-dashboard.github.io/guide/usage.html#step-by-step) instructions in docs.
+
 # 💝 Contributing
+
 Please read our [contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our [rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our [issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several [labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
 
 1. Clone or fork the project (`git clone https://github.com/Email-Dashboard/Email-Dashboard`)
@@ -246,10 +255,8 @@ Please read our [contribution guidelines](https://email-dashboard.readthedocs.io
 
 :mag_right: But before opening a feature request, please take a moment to find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. So, you can provide as much detail and context as possible.
 
----------------------------
-
 # :memo: Authors
-| [<img src="https://pbs.twimg.com/profile_images/508440350495485952/U1VH52UZ_200x200.jpeg" width="100px;"/>](https://twitter.com/sahinboydas) <br/> [Sahin Boydas](https://twitter.com/sahinboydas)<br/><sub>Co-Founder @ [LeoApp](https://leoapp.com)</sub><br/> [![LinkedIn][1.1]][1] | [<img src="https://avatars1.githubusercontent.com/u/989759?s=460&v=4" width="100px;"/>](https://github.com/muhammet) <br/>[Muhammet](https://github.com/muhammet)<br/><sub>Developer @ [LeoApp](https://leoapp.com)</sub><br/> [![Github][2.1]][2] | [<img src="https://avatars1.githubusercontent.com/u/8470005?s=460&v=4" width="100px;"/>](https://github.com/sadikay)  <br/>[Sadik](https://github.com/sadikay)<br/><sub>Developer @ [LeoApp](http://leoapp.com)</sub><br/> [![Github][3.1]][3] | [<img src="https://avatars0.githubusercontent.com/u/7591815?s=460&v=4" width="100px;"/>](http://blog.tommyyang.cn/) <br/> [Tommy Yang](https://github.com/joyang1)<br/><sub>Developer</sub><br/> [![Github][4.1]][4] [blog](https://blog.tommyyang.cn)
+| [<img src="https://pbs.twimg.com/profile_images/508440350495485952/U1VH52UZ_200x200.jpeg" width="100px;"/>](https://twitter.com/sahinboydas) <br/> [Sahin Boydas](https://twitter.com/sahinboydas)<br/><sub>Product</sub><br/> [![LinkedIn][1.1]][1] | [<img src="https://avatars1.githubusercontent.com/u/989759?s=460&v=4" width="100px;"/>](https://github.com/muhammet) <br/>[Muhammet](https://github.com/muhammet)<br/><sub>Lead Developer</sub><br/> [![Github][2.1]][2] | [<img src="https://avatars1.githubusercontent.com/u/8470005?s=460&v=4" width="100px;"/>](https://github.com/sadikay)  <br/>[Sadik](https://github.com/sadikay)<br/><sub>Developer</sub><br/> [![Github][3.1]][3] | [<img src="https://avatars0.githubusercontent.com/u/7591815?s=460&v=4" width="100px;"/>](http://blog.tommyyang.cn/) <br/> [Tommy Yang](https://github.com/joyang1)<br/><sub>Developer</sub><br/> [![Github][4.1]][4] [blog](https://blog.tommyyang.cn)
 | - | - | - | - |
 
 [1.1]: https://www.kingsfund.org.uk/themes/custom/kingsfund/dist/img/svg/sprite-icon-linkedin.svg (linkedin icon)
