@@ -110,3 +110,4 @@ $ git commit fileName -m "description of my changes"
 ```
 
 When prompted for the message, write a description of what you did. After that push the changes to Github using `git push --set-upstream`. That's it. Easy peasy right?
+
