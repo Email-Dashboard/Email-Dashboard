@@ -32,7 +32,7 @@
 
 ![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
-Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can [explore Email-Dashboard docs](https://email-dashboard.github.io/guide/).
+Email-Dashboard is an easy way to manage your outgoing emails from your apps. From creating and sending your emails to monitoring and managing their stats, you can do really useful things with Email-Dashboard without worried about **time zone** disaverage. You can 🔗[explore Email-Dashboard docs](https://email-dashboard.github.io/guide/).
 
 <p>
    <a target="_blank" rel="noopener noreferrer" href="https://github.com/Email-Dashboard/Email-Dashboard/blob/master/docs/assets/intro.gif?raw=true"><img src="https://github.com/Email-Dashboard/Email-Dashboard/raw/master/docs/assets/intro.gif?raw=true" alt="" style="max-width:100%;"></a>
@@ -40,21 +40,21 @@ Email-Dashboard is an easy way to manage your outgoing emails from your apps. Fr
 
 # 💢 Table of content
 
-- [For whom?](#for-whom)
-- [Code overview](#code-overview)
-- [Features](#features)
-- [Deployment](#deployment)
-   * [1- Debian](#deployment)
-- [Development](#development)
-   * [1- MacOS](#development)
-   * [2- Debian](#development)
-- [Usage](#usage)
+- [For whom?](#-for-whom)
+- [Code overview](#eyes-code-overview)
+- [Features](#-features)
+- [Deployment](#-deployment)
+   * [1- Debian](#-deployment)
+- [Development](#computer-development)
+   * [1- MacOS](#computer-development)
+   * [2- Debian](#computer-development)
+- [Usage](#trophy-usage)
    * [1- In Dashboard](#1--in-dashboard)
    * [2- Posting to REST API](#2--posting-to-rest-api)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgement](#acknowledgement)
+- [Contributing](#-contributing)
+- [Authors](#memo-authors)
+- [License](#mortar_board-license)
+- [Acknowledgement](#mag-acknowledgement)
 
 # 🚻 For whom?
 
@@ -69,9 +69,9 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
 # :eyes: Code overview
 
-:small_orange_diamond: The REST API builded with superfast language [golang](https://github.com/golang/go).<br>
-:small_orange_diamond: The Dashboard builded with fastest development framework [Rails](https://github.com/rails/rails)<br>
-:small_orange_diamond: Front-end framework [uikit](https://github.com/uikit/uikit) using in the dashboard.<br>
+:small_orange_diamond: The REST API builded with superfast language 🔗[golang](https://github.com/golang/go).<br>
+:small_orange_diamond: The Dashboard builded with fastest development framework 🔗[Rails](https://github.com/rails/rails)<br>
+:small_orange_diamond: Front-end framework 🔗[uikit](https://github.com/uikit/uikit) using in the dashboard.<br>
 
 # ☑ Features
 - [x] Monitor email activities that your service sent.
@@ -91,7 +91,7 @@ Then you're at the right place. **Email Dashboard builded for you!** :tada:
 
 ### 1- Install Docker
 
-:arrow_forward: Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
+:arrow_forward: Install the most recent version of the Docker Engine for your platform using the 🔗[official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:<br>
 
 ```bash
 wget -qO- https://get.docker.com/ | sh
@@ -106,7 +106,7 @@ sudo usermod -aG docker ${USER}
 
 ### 2- Install Docker Compose
 
-:arrow_forward: Install Docker Compose from the [official page](https://docs.docker.com/compose/install/), or manually run:<br>
+:arrow_forward: Install Docker Compose from the 🔗[official page](https://docs.docker.com/compose/install/), or manually run:<br>
 
 ```bash
 curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -139,7 +139,7 @@ chmod +x /usr/local/bin/docker-compose
 <summary><strong>macOS</strong></summary>
 <p>
 
-Install and start Docker, check [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
+Install and start Docker, check 🔗[docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
 
 :arrow_forward: Create Datafolders<br>
 
@@ -212,7 +212,7 @@ docker-compose -f docker-compose-dev.yml up
 Using dashboard is really easy, like playing PUBG! You can do it any time without any effort. Because our first aim is make some time for our community with our dashboard. So, UI and dashboard is friendly as much as and we will make it better.
 
 :small_orange_diamond: Add your SMTP Settings<br>
-:small_orange_diamond: Create email template with [handlebars](http://handlebarsjs.com/) variables.<br>
+:small_orange_diamond: Create email template with 🔗[handlebars](http://handlebarsjs.com/) variables.<br>
 :small_orange_diamond: Create notification. See, easy peasy!<br>
 
 ### 2- Posting to REST API
@@ -241,11 +241,11 @@ Using dashboard is really easy, like playing PUBG! You can do it any time withou
 }
 ```
 
-For more specified usage you can follow [step by step](https://email-dashboard.github.io/guide/usage.html#step-by-step) instructions in docs.
+For more specified usage you can follow 🔗[step by step](https://email-dashboard.github.io/guide/usage.html#step-by-step) instructions in docs.
 
 # 💝 Contributing
 
-Please read our [contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our [rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our [issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several [labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
+Please read our 🔗[contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our 🔗[rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our 🔗[issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several 🔗[labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
 
 1. Clone or fork the project (`git clone https://github.com/Email-Dashboard/Email-Dashboard`)
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -274,8 +274,8 @@ Please read our [contribution guidelines](https://email-dashboard.readthedocs.io
 
 # :mortar_board: License
 
-This program is a free and open source software. You can redistribute it and/or modify it under the terms of the license provided in the [LICENSE](LICENSE) file. Use of this software is subject to important terms and conditions as set forth in the [LICENSE](LICENSE) file.
+This program is a free and open source software. You can redistribute it and/or modify it under the terms of the license provided in the 🔗[LICENSE](LICENSE) file. Use of this software is subject to important terms and conditions as set forth in the 🔗[LICENSE](LICENSE) file.
 
 # :mag: Acknowledgement
 
-If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime. Btw you can see our guilds from our [credit content](https://github.com/mesutgulecen/Email-Dashboard/blob/master/Credit.md) :blush:
+If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime. Btw you can see our guilds from our 🔗[credit content](https://github.com/mesutgulecen/Email-Dashboard/blob/master/Credit.md) :blush:
