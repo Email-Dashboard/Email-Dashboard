@@ -10,11 +10,11 @@
   <li class="uk-active" id="curl" role="tabpanel">
     <pre>
       <code class="hljs bash" style="margin-left: -50px;">
-      # Test Mode API Key: test_<%= current_account.api_key %>
+      # Test Mode API Key: <%= current_account.test_api_key %>
       # Live Mode API Key: <%= current_account.api_key %>
       curl -i -H "Authorization: Token <%= current_account.api_key %>" -H "Content-type: application/json" \
       -X POST -d '{ "variables": { "<%= variables.first || 'variable' %>": "Test", "button_name": "Click Me!"}, "email":{ "to":["test-to@email.com"], "from":"test-from@email.com" } }' \
-      <%= "\"https://api.#{request.domain}/api/v3/notifications/#{@notification.slug}\"" %>
+      <%= "\"#{ENV['REST_API_URL'] || 'http://localhost:8080' }/api/v3/notifications/#{@notification.slug}\"" %>
 
       # <%= t('notifications.docs.delivery_optional') %>
       # <u><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank"><%= t('notifications.docs.available_timezone') %></a></u>

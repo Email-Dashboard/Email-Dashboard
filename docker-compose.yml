@@ -45,6 +45,7 @@ services:
       ED_DB_HOST: db
       ED_DB_NAME: email_dashboard_prod
       VIRTUAL_HOST: dashboard.${APP_DOMAIN}
+      REST_API_URL: https://api.${APP_DOMAIN}
 
   api:
     depends_on:

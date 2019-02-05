@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620140740) do
+ActiveRecord::Schema.define(version: 20190205095334) do
 
   create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.string "sns_access_key"
     t.string "sns_secret_key"
     t.string "sns_region"
+    t.string "test_api_key"
     t.index ["api_key"], name: "index_accounts_on_api_key"
     t.index ["slug"], name: "index_accounts_on_slug"
+    t.index ["test_api_key"], name: "index_accounts_on_test_api_key"
   end
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.datetime "send_at"
     t.string "message_header_id"
     t.string "track_status"
+    t.boolean "request_mode_is_live", default: true
     t.index ["notification_deliver_id"], name: "index_activities_on_notification_deliver_id"
   end
 
