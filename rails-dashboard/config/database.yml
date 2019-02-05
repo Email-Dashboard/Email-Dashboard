@@ -8,7 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: notification_dashboard_development
+  socket: /var/run/mysqld/mysqld.sock
+  host:     <%= ENV['ED_DB_HOST'] %>
+  database: <%= ENV['ED_DB_NAME'] %>
+  username: <%= ENV['ED_DB_USERNAME'] %>
+  password: <%= ENV['ED_DB_PASSWORD'] %>
 
 test:
   <<: *default

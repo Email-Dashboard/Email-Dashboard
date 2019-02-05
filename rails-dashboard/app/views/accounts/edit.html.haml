@@ -9,7 +9,7 @@
       = @account.api_key
     %p
       %b Test Mode API Token:
-      = "test_#{@account.api_key}"      
+      = @account.test_api_key
     = f.error_notification
     .uk-margin
     %div
