@@ -37,11 +37,14 @@ document.addEventListener("turbolinks:load", function() {
   });
 
   $('#testModeCheck').click(function() {
-    if ($('#testModeCheck').is(':checked')) {
-      Turbolinks.visit('/activities' + '?test_mode=true');
-    } else {
-      Turbolinks.visit('/activities');
-    };
+    $.ajax({
+      type: "POST",
+      url: '/test_modes',
+      data: { _method:'PUT' },
+      success: function(data) {
+        Turbolinks.visit(location.toString());
+      }
+    });
   });
 
   if ($('#codeContent').length) {

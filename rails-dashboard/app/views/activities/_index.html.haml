@@ -16,7 +16,7 @@
           = badge_status(activity.status)
           = tracking_status(activity.track_status)
           - unless activity.request_mode_is_live
-            %span.uk-label{style: 'background: #909fad'} Test Mode
+            %span.uk-badge{style: 'background: #909fad', 'uk-tooltip': "title: Test Mode"}
           - if activity.error_message.present?
             %span.uk-margin-small-right.uk-icon{'uk-icon': 'info', 'uk-tooltip': "title: #{activity.error_message}"}
           - elsif activity.status == 'scheduled'

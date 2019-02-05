@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   resource :trackings
+  resource :test_modes
 
   resources :invitations, only: %i[create update]
 
