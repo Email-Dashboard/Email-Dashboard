@@ -43,9 +43,6 @@ gem 'hashie'
 gem 'kaminari'
 gem 'ransack'
 
-gem 'bugsnag'
-gem 'newrelic_rpm'
-
 gem 'coderay'
 gem 'awesome_print'
 gem 'breadcrumbs_on_rails'

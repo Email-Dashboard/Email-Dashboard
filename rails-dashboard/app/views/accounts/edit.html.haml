@@ -1,15 +1,18 @@
 .uk-margin
 .uk-card.uk-card-default.uk-card-body
   %h3.text-center
-    = t('accounts.status')
-    = mode_status(@account)
+    Live Mode / Test Mode
 
   = simple_form_for(@account,  html: { class: 'form-horizontal' }) do |f|
+    %p
+      %b Live Mode API Token:
+      = @account.api_key
+    %p
+      %b Test Mode API Token:
+      = @account.test_api_key
     = f.error_notification
     .uk-margin
-    = f.input :live_mode, label: t('accounts.modes.live'), input_html: { id: 'accountLiveMode', class: 'uk-checkbox uk-form-width-medium', style: 'margin-right: 5px;' }
-    #testModeEmail{style: "display: #{@account.live_mode ? 'none' : 'block'};"}
-      .uk-margin
+    %div
       %label= t('accounts.info.test_mode_email')
       = f.input :to_email_for_test, input_html: { class: 'uk-input uk-form-width-large' }, autofocus: true, label: false, placeholder: 'example@email.com'
       %p.uk-text-danger

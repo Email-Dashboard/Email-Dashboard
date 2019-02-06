@@ -64,7 +64,6 @@ GEM
     bcrypt (3.1.11)
     bindex (0.5.0)
     breadcrumbs_on_rails (3.0.1)
-    bugsnag (6.2.0)
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
@@ -145,7 +144,6 @@ GEM
     minitest (5.11.3)
     multi_json (1.12.2)
     mysql2 (0.4.10)
-    newrelic_rpm (5.2.0.345)
     nio4r (2.3.1)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
@@ -251,7 +249,6 @@ DEPENDENCIES
   attr_encrypted (~> 3.0.0)
   awesome_print
   breadcrumbs_on_rails
-  bugsnag
   byebug
   coderay
   devise (~> 4.2)
@@ -266,7 +263,6 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
-  newrelic_rpm
   puma (~> 3.7)
   rails (~> 5.1.6)
   rails-i18n (~> 5.1)

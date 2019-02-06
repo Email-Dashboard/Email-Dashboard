@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620140740) do
+ActiveRecord::Schema.define(version: 20190205095334) do
 
-  create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "account_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.bigint "user_id"
     t.string "role", default: "user"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["user_id"], name: "index_account_users_on_user_id"
   end
 
-  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "slug"
     t.string "api_key"
@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.string "sns_access_key"
     t.string "sns_secret_key"
     t.string "sns_region"
+    t.string "test_api_key"
     t.index ["api_key"], name: "index_accounts_on_api_key"
     t.index ["slug"], name: "index_accounts_on_slug"
+    t.index ["test_api_key"], name: "index_accounts_on_test_api_key"
   end
 
-  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "notification_deliver_id"
     t.json "request_content"
     t.string "status"
@@ -47,10 +49,11 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.datetime "send_at"
     t.string "message_header_id"
     t.string "track_status"
+    t.boolean "request_mode_is_live", default: true
     t.index ["notification_deliver_id"], name: "index_activities_on_notification_deliver_id"
   end
 
-  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "notification_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notification_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "subject"
     t.text "content"
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["account_id"], name: "index_notification_contents_on_account_id"
   end
 
-  create_table "notification_delivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notification_delivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "notification_id"
     t.bigint "smtp_setting_id"
     t.bigint "notification_content_id"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["smtp_setting_id"], name: "index_notification_delivers_on_smtp_setting_id"
   end
 
-  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "slug"
     t.string "name"
@@ -94,16 +97,18 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["slug"], name: "index_notifications_on_slug"
   end
 
-  create_table "receivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "receivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "activity_id"
     t.string "email"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_receivers_on_activity_id"
+    t.index ["email"], name: "index_receivers_on_email"
+    t.index ["phone"], name: "index_receivers_on_phone"
   end
 
-  create_table "smtp_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "smtp_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "provider"
     t.string "address"
@@ -116,7 +121,7 @@ ActiveRecord::Schema.define(version: 20180620140740) do
     t.index ["account_id"], name: "index_smtp_settings_on_account_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

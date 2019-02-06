@@ -10,23 +10,13 @@
 
     = render 'layouts/navbar'
 
-    - if current_account.present? && !current_account.live_mode && current_account.persisted?
-      .uk-text-center.uk-grid
-        %div.uk-width@m{"uk-alert" => "", class: 'uk-alert-primary'}
-          %p
-            %span{'uk-icon': 'info'}
-            %i= link_to current_account.name, edit_account_path(current_account)
-            = t('accounts.warnings.in_test_mode')
-
     .uk-container
       = render partial: 'layouts/head_tools'
 
       = yield
 
-    / respond with modal renderer
     #modal-holder
 
-    / Footer
     %footer.uk-text-center.uk-text-muted.uk-background-muted
       .uk-margin
       = t('main.footer.crafted_with')

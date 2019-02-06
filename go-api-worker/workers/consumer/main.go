@@ -89,7 +89,7 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 		var smtp models.SMTPSetting
 		models.GetDB().Model(&deliver).Related(&smtp)
 
-		if deliver.IsActive && account.LiveMode {
+		if deliver.IsActive && activity.RequestModeIsLive {
 
 			mailer.SendEmailToReceivers(activity, data, template, smtp)
 		} else {
@@ -99,7 +99,7 @@ func (c *Context) PrepareEmail(job *work.Job) error {
 				if len(account.ToEmailForTest) > 0 {
 					mailer.SendEmailToTestAccount(account.ToEmailForTest, activity, data, template, smtp)
 				} else {
-					models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Test Mode Account!"})
+					models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled"})
 				}
 			} else {
 				models.GetDB().Model(&activity).Updates(models.Activity{Status: "canceled", ErrorMessage: "Notification not active!"})

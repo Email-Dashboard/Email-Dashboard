@@ -1,6 +1,0 @@
-%ul{"uk-accordion" => ""}
-  %li
-    %a.uk-accordion-title.uk-button-text{:href => "#"}= t('dashboard.activities.content')
-    .uk-accordion-content
-      %div{style: 'background-color:white'}
-        = (ap JSON.parse(activity.request_content) , { color: { hash: :blue }, html: false }).html_safe

@@ -19,6 +19,7 @@ import "./../src/application.css"
 
 
 document.addEventListener("turbolinks:load", function() {
+  
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
@@ -33,6 +34,17 @@ document.addEventListener("turbolinks:load", function() {
         display: 'block'
       });
     };
+  });
+
+  $('#testModeCheck').click(function() {
+    $.ajax({
+      type: "POST",
+      url: '/test_modes',
+      data: { _method:'PUT' },
+      success: function(data) {
+        Turbolinks.visit(location.toString());
+      }
+    });
   });
 
   if ($('#codeContent').length) {
