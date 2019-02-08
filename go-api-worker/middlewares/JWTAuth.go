@@ -14,11 +14,18 @@ func JWTAuth() gin.HandlerFunc {
 		token := c.Request.Header.Get("Authorization")
 		token = strings.TrimPrefix(token, "Token ")
 
+		isLiveMode := !strings.Contains(token, "test_")
+
 		var notif models.Notification
 		models.GetDB().Find(&notif, "slug = ?", c.Params.ByName("id"))
 
 		var account models.Account
-		models.GetDB().Find(&account, "api_key = ?", token)
+
+		if isLiveMode {
+			models.GetDB().Find(&account, "api_key = ?", token)
+		} else {
+			models.GetDB().Find(&account, "test_api_key = ?", token)
+		}
 
 		if notif.AccountID != account.ID || notif.AccountID == 0 {
 			c.JSON(http.StatusUnauthorized, gin.H{

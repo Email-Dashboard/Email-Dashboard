@@ -9,6 +9,7 @@ type Activity struct {
 	ID                    uint `gorm:"primary_key"`
 	NotificationDeliverID uint `gorm:"foreign_key"`
 	RequestContent        []byte
+	RequestModeIsLive     bool
 	Status                string
 	ErrorMessage          string
 	MessageHeaderID       string

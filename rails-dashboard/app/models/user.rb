@@ -35,8 +35,9 @@ class User < ApplicationRecord
    has_many :accounts, through: :account_users
 
    def setup_account(name)
-     account = Account.create(name: name)
+     account = Account.create(name: name, live_mode: true)
      account_users.create!(account: account, role: 'owner')
+     account
    end
 
    def role_in_account(account)

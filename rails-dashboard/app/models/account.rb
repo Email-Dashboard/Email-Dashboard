@@ -34,6 +34,11 @@ class Account < ApplicationRecord
       random_token = SecureRandom.urlsafe_base64(nil, false)
       break random_token unless Account.exists?(api_key: random_token)
     end
+
+    self.test_api_key = loop do
+      random_token = "test_#{SecureRandom.urlsafe_base64(nil, false)}"
+      break random_token unless Account.exists?(test_api_key: random_token)
+    end
   end
 
   private

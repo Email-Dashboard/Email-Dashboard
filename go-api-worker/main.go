@@ -10,6 +10,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -54,9 +55,22 @@ func CreateActivity(c *gin.Context) {
 
 		data, _ := json.Marshal(content)
 
+		// Is request for live mode
+		token := c.Request.Header.Get("Authorization")
+		token = strings.TrimPrefix(token, "Token ")
+		isLiveMode := !strings.Contains(token, "test_")
+
 		if content.Delivery.Date == "" {
-			var activity = models.Activity{NotificationDeliverID: deliver.ID, Status: "pending", SendAt: time.Now(), RequestContent: data}
+			var activity = models.Activity{
+				NotificationDeliverID: deliver.ID,
+				Status:                "pending",
+				SendAt:                time.Now(),
+				RequestContent:        data,
+				RequestModeIsLive:     isLiveMode,
+			}
+
 			models.GetDB().Create(&activity)
+
 		} else {
 			layout := "2006-01-02 15:04"
 			loc, _ := time.LoadLocation(content.Delivery.Zone)
@@ -68,7 +82,13 @@ func CreateActivity(c *gin.Context) {
 				c.JSON(422, gin.H{"error": err})
 				return
 			} else {
-				var activity = models.Activity{NotificationDeliverID: deliver.ID, Status: "scheduled", SendAt: toSendAt, RequestContent: data}
+				var activity = models.Activity{
+					NotificationDeliverID: deliver.ID,
+					Status:                "scheduled",
+					SendAt:                toSendAt,
+					RequestContent:        data,
+					RequestModeIsLive:     isLiveMode,
+				}
 				models.GetDB().Create(&activity)
 			}
 		}

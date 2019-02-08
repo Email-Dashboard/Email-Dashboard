@@ -139,7 +139,7 @@ chmod +x /usr/local/bin/docker-compose
 <summary><strong>macOS</strong></summary>
 <p>
 
-Install and start Docker, check 🔗[docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
+Install and start Docker, check 🔗 [docker-ce-desktop-mac](https://store.docker.com/editions/community/docker-ce-desktop-mac).<br>
 
 :arrow_forward: Create Datafolders<br>
 
@@ -245,7 +245,9 @@ For more specified usage you can follow 🔗[step by step](https://email-dashboa
 
 # 💝 Contributing
 
+
 Please read our 🔗[contribution guidelines](https://email-dashboard.readthedocs.io/en/latest/Contributing/). We are grateful for all contributions! :pray: With following our 🔗[rules of the discussions](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/CONTRIBUTING.md), you can contribute many of way. Our 🔗[issue tracker](https://github.com/Email-Dashboard/Email-Dashboard/issues) is the preferred channel for bug reports, features requests and submitting pull requests. We utilized several 🔗[labels](https://github.com/Email-Dashboard/Email-Dashboard/labels) to help organize and identify issues. You can start with there! Also if you want to add some new feature:
+
 
 1. Clone or fork the project (`git clone https://github.com/Email-Dashboard/Email-Dashboard`)
 2. Create your feature branch (`git checkout -b my-new-feature`)

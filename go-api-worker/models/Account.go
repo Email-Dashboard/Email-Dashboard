@@ -7,6 +7,7 @@ type Account struct {
 	LiveMode       bool
 	ToEmailForTest string
 	ApiKey         string
+	TestApiKey     string
 }
 
 // FindAccountByID func
