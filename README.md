@@ -2,19 +2,21 @@
 <img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/docs/assets/banner.png" style="max-width:100%;">
  </p>
 
-<p align="center">
-<table>
+<table border="0", width="%100">
 <tr>
 <p>
-<td>
+<td align"=center">
 <p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
+  
+   <a href="./README-zh_CN.md">
+     🇨🇳[简体中文]
+  </a>
  </p>
  </td>
  
- <td>
-  <br>
+ <td align="center">
 <p align="center">
   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
     <strong>Report bug </strong>
@@ -30,17 +32,12 @@
   
   <a href="https://dashboard.pigon.ws">
    <strong>Live demo of Email-Dashboard »</strong>
-   </a><br><br>
-   
-   <a href="./README-zh_CN.md">
-     🇨🇳[简体中文]
-  </a>
+   </a>
 </p>
 </td>
 </p>
 </tr>
 </table>
-</p>
 
 <hr>
 
