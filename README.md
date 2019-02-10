@@ -2,10 +2,9 @@
 <img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/docs/assets/banner.png" style="max-width:100%;">
  </p>
 
-<table border="0", width="%100">
+<table style="text-align:center;">
 <tr>
-<p>
-<td align"=center">
+<td>
 <p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
@@ -13,17 +12,17 @@
    <a href="./README-zh_CN.md">
      🇨🇳[简体中文]
   </a>
- </p>
+  </p>
  </td>
  
- <td align="center">
+ <td>
 <p align="center">
   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
-    <strong>Report bug </strong>
+    <strong>Report bug</strong>
   </a>|
       
   <a href="https://github.com/Email-Dashboard/Email-Dashboard/issues/new">
-    <strong>Request feature </strong>
+    <strong>Request feature</strong>
   </a>|
    
   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/help%20wanted">
@@ -35,9 +34,9 @@
    </a>
 </p>
 </td>
-</p>
 </tr>
 </table>
+
 
 <hr>
 
