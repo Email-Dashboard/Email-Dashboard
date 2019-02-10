@@ -2,17 +2,19 @@
 <img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/docs/assets/banner.png" style="max-width:100%;">
  </p>
 
+<p align="center">
 <table>
 <tr>
 <p>
 <td>
-<p align="center>">
+<p align="center">
    An interactive emailing management service<br> 
    with scheduling, templating, tracking and A/B testing.<br>
  </p>
  </td>
  
  <td>
+  <br>
 <p align="center">
   <a href="https://github.com/Email-Dashboard/Email-Dashboard/labels/bug">
     <strong>Report bug </strong>
@@ -33,12 +35,14 @@
    <a href="./README-zh_CN.md">
      🇨🇳[简体中文]
   </a>
- 
 </p>
 </td>
 </p>
 </tr>
 </table>
+</p>
+
+<hr>
 
 ![](https://img.shields.io/github/stars/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/forks/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/tag/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/issues/Email-Dashboard/Email-Dashboard.svg) ![](https://img.shields.io/github/contributors/Email-Dashboard/Email-Dashboard.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/Email-Dashboard/Email-Dashboard)](https://goreportcard.com/report/github.com/Email-Dashboard/Email-Dashboard) ![](https://img.shields.io/github/license/Email-Dashboard/Email-Dashboard.svg)
 
