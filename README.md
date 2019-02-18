@@ -20,7 +20,7 @@
   </a><br>
   
   <p align="center">
-  <a href="https://dashboard.pigon.ws">
+  <a href="http://email-dashboard.svteknoloji.com">
     <img src="https://github.com/mesutgulecen/Email-Dashboard/blob/master/docs/assets/live_demo.png" width="200" height="50";">
   </a></p>
  
