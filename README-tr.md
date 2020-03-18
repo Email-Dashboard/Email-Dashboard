@@ -142,3 +142,4 @@ Katkıda bulunmak için bu [dökümana](https://email-dashboard.readthedocs.io/e
 ## Lisans
 
 Bu yazılımın kullanımı, [LICENSE](LICENSE) dosyasında belirtilen şartlara ve koşullara tabidir.
+
