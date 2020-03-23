@@ -277,3 +277,5 @@ This program is a free and open source software. You can redistribute it and/or 
 # :mag: Acknowledgement
 
 If you liked our dashboard, please give us a "**Star**" :star:. Your support is what keep us moving forward and delivering happiness to you! Thank's a million, you're our Clark Kent/Kara Danvers! In case of any questions or concerns, feel free to contact us anytime. Btw you can see our guilds from our 🔗[credit content](https://github.com/Email-Dashboard/Email-Dashboard/blob/master/Credit.md) :blush:
+
+
