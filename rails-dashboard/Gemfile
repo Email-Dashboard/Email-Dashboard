@@ -14,7 +14,7 @@ gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'webpacker-react', "~> 0.3.2"
 
 gem 'jbuilder', '~> 2.5'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'devise_invitable', '~> 1.7.0'
 
 group :development, :test do
