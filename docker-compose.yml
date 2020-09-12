@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy
@@ -33,9 +33,7 @@ services:
 
   web:
     depends_on:
-      db:
-        condition: service_healthy
-    depends_on:
+      - db  
       - redis
     build: ./rails-dashboard
     environment:
@@ -49,8 +47,8 @@ services:
 
   api:
     depends_on:
-      db:
-        condition: service_healthy
+      - db
+        
     build: ./go-api-worker
     environment:
       - GIN_MODE=release
@@ -58,9 +56,7 @@ services:
       - ED_DB_PASSWORD=${MYSQL_PASSWORD}
       - ED_DB_NAME=email_dashboard_prod
       - VIRTUAL_HOST=api.${APP_DOMAIN}
-    links:
-      - redis:redis
-      - db
+
 
 volumes:
   'datadrive':
